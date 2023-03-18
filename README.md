@@ -1,9 +1,11 @@
-- [Desafio](#Desafio) 
-- [Objetivo](#Objetivo)
-- [Planejamento](#Planejamento)
-- [Backlog do Produto](#Backlog-do-Produto)
-- [Tecnologias](#Tecnologias)
-- [Equipe de Desenvolvimento](#Equipe-de-Desenvolvimento)
+<p align="center">
+  <a href="#Desafio">Desafio</a> •
+  <a href="#Objetivo">Objetivo</a> • 
+  <a href="#Planejamento">Planejamento</a> • 
+  <a href="#Backlog-do-Produto">Backlog do Produto</a> • 
+  <a href="#Tecnologias">Tecnologias</a> • 
+  <a href="#Equipe-de-Desenvolvimento">Equipe de Desenvolvimento</a>
+</p>
 
 ## <a name="Desafio"></a>Desafio
 ### O Desafio consiste em desenvolver uma aplicação web, para gerenciar o histórico de movimentação de produtos (vendas e estoque), predição feito por um algoritmo de IA já existente e a entrada de dados resultante da força de vendas quanto ao planejamento futuro. 
@@ -20,6 +22,8 @@
 ## <a name="Backlog-do-Produto"><a/>Backlog do Produto
 
 ## <a name="Tecnologias"><a/>Tecnologias
+![Tecnologias](https://user-images.githubusercontent.com/101421659/226145102-7fcc2c6c-73b9-42ee-9ab8-57d8020bc316.PNG)
+
 
 ## <a name="Equipe-de-Desenvolvimento"><a/>Equipe de Desenvolvimento
 
