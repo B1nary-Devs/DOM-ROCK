@@ -1,4 +1,13 @@
-## :dart: Desafio 
+<p align="center">
+ <a href="Desafio">Desafio</a> •
+ <a href="Objetivo">Objetivo</a> • 
+ <a href="Planejamento">Planejamento</a> • 
+ <a href="Backlog">Backlog</a> • 
+ <a href="Tecnologias">Tecnologias</a> • 
+ <a href="Equipe">Equipe</a>
+</p>
+
+#Desafio
 #### O Desafio consiste em desenvolver uma aplicação web, para gerenciar o histórico de movimentação de produtos (vendas e estoque), predição feito por um algoritmo de IA já existente e a entrada de dados resultante da força de vendas quanto ao planejamento futuro. 
 
 ## :checkered_flag: Objetivo
