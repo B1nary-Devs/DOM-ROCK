@@ -9,6 +9,9 @@ import com.api.painelvendas.repositories.VendedorRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class VendedorService {
 	
@@ -18,7 +21,24 @@ public class VendedorService {
 		this.vendedorRepository = vendedorRepository;
 	}
 	@Transactional
-	public static VendedorModel save(VendedorModel vendedorModel) {
+	public VendedorModel save(VendedorModel vendedorModel) {
 		return vendedorRepository.save(vendedorModel);
+	}
+
+	public boolean existsByEmailVendedor(String emailVendedor) {
+		return vendedorRepository.existsByEmailVendedor(emailVendedor);
+	}
+
+	public List<VendedorModel> findAll() {
+		return vendedorRepository.findAll();
+	}
+
+	public Optional<VendedorModel> findById(Integer id) {
+		return vendedorRepository.findById(id);
+	}
+
+	@Transactional
+	public void delete(VendedorModel vendedorModel) {
+		vendedorRepository.delete(vendedorModel);
 	}
 }
