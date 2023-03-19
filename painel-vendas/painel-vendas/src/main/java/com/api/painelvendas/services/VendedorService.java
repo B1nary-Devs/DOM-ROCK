@@ -29,6 +29,10 @@ public class VendedorService {
 		return vendedorRepository.existsByEmailVendedor(emailVendedor);
 	}
 
+	public boolean existsByCpfVendedor(String cpfVendedor) {
+		return vendedorRepository.existsByCpfVendedor(cpfVendedor);
+	}
+
 	public List<VendedorModel> findAll() {
 		return vendedorRepository.findAll();
 	}
@@ -41,4 +45,5 @@ public class VendedorService {
 	public void delete(VendedorModel vendedorModel) {
 		vendedorRepository.delete(vendedorModel);
 	}
+
 }

@@ -37,6 +37,9 @@ public class VendedorController {
 		if (vendedorService.existsByEmailVendedor(vendedorDto.getEmailVendedor())) {
 			return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Email informado ja em uso!");
 		}
+		if (vendedorService.existsByCpfVendedor(vendedorDto.getCpfVendedor())) {
+			return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: CPF informado ja em uso!");
+		}
 		var vendedorModel = new VendedorModel();
 		BeanUtils.copyProperties(vendedorDto, vendedorModel);
 		return ResponseEntity.status(HttpStatus.CREATED).body(vendedorService.save(vendedorModel));

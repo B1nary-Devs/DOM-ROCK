@@ -19,6 +19,8 @@ public class VendedorModel {
     private String nomeVendedor;
     @Column(nullable = false,unique = true, length = 50)
     private String emailVendedor;
+	@Column(nullable = false,unique = true, length = 14)
+	private String cpfVendedor;
     @Column(nullable = false,length = 250)
     private String senhaVendedor;
     @Column(nullable = false,length = 15)
@@ -55,10 +57,10 @@ public class VendedorModel {
 	public void setNivelAcees(String nivelAcees) {
 		this.nivelAcees = nivelAcees;
 	}
-    
-    
-    
- 
-	
-
+	public String getCpfVendedor() {
+		return cpfVendedor;
+	}
+	public void setCpfVendedor(String cpfVendedor) {
+		this.cpfVendedor = cpfVendedor;
+	}
 }

@@ -10,4 +10,6 @@ public interface VendedorRepository extends JpaRepository<VendedorModel, Integer
 
     public boolean existsByEmailVendedor(String emailVendedor);
 
+    public boolean existsByCpfVendedor(String cpfVendedor);
+
 }

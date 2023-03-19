@@ -1,7 +1,6 @@
 package com.api.painelvendas.dtos;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 
 public class VendedorDto {
 
@@ -9,6 +8,8 @@ public class VendedorDto {
     private String nomeVendedor;
     @NotBlank
     private String emailVendedor;
+    @NotBlank
+    private String cpfVendedor;
     @NotBlank
     private String senhaVendedor;
     @NotBlank
@@ -44,5 +45,13 @@ public class VendedorDto {
 
     public void setNivelAcees(String nivelAcees) {
         this.nivelAcees = nivelAcees;
+    }
+
+    public String getCpfVendedor() {
+        return cpfVendedor;
+    }
+
+    public void setCpfVendedor(String cpfVendedor) {
+        this.cpfVendedor = cpfVendedor;
     }
 }
