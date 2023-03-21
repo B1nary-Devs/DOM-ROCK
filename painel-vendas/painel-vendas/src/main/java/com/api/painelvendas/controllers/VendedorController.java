@@ -83,5 +83,4 @@ public class VendedorController {
 		return ResponseEntity.status(HttpStatus.OK).body(vendedorService.save(vendedorModel));
 	}
 
-
 	}

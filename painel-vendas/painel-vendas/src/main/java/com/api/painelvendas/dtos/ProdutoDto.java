@@ -8,9 +8,9 @@ public class ProdutoDto {
     @NotBlank
     private String nomeProduto;
     @NotBlank
-    private String tipoVendedor;
+    private String tipoProduto;
     @NotBlank
-    private Integer quantidadeProduto;
+    private Double quantidadeProduto;
 
     public String getNomeProduto() {
         return nomeProduto;
@@ -21,18 +21,18 @@ public class ProdutoDto {
     }
 
     public String getTipoVendedor() {
-        return tipoVendedor;
+        return tipoProduto;
     }
 
     public void setTipoVendedor(String tipoVendedor) {
-        this.tipoVendedor = tipoVendedor;
+        this.tipoProduto = tipoVendedor;
     }
 
-    public Integer getQuantidadeProduto() {
+    public Double getQuantidadeProduto() {
         return quantidadeProduto;
     }
 
-    public void setQuantidadeProduto(Integer quantidadeProduto) {
+    public void setQuantidadeProduto(Double quantidadeProduto) {
         this.quantidadeProduto = quantidadeProduto;
     }
 }

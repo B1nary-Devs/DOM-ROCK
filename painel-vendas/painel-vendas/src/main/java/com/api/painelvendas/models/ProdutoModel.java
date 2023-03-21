@@ -13,9 +13,9 @@ public class ProdutoModel {
     @Column(nullable = false, length = 60)
     private String nomeProduto;
     @Column(nullable = false, length = 15)
-    private String tipoVendedor;
+    private String tipoProduto;
 	@Column(nullable = false, length = 20)
-	private Integer quantidadeProduto;
+	private Double quantidadeProduto;
 
 	public Integer getIdProduto() {
 		return idProduto;
@@ -34,18 +34,18 @@ public class ProdutoModel {
 	}
 
 	public String getTipoVendedor() {
-		return tipoVendedor;
+		return tipoProduto;
 	}
 
 	public void setTipoVendedor(String tipoVendedor) {
-		this.tipoVendedor = tipoVendedor;
+		this.tipoProduto = tipoVendedor;
 	}
 
-	public Integer getQuantidadeProduto() {
+	public Double getQuantidadeProduto() {
 		return quantidadeProduto;
 	}
 
-	public void setQuantidadeProduto(Integer quantidadeProduto) {
+	public void setQuantidadeProduto(Double quantidadeProduto) {
 		this.quantidadeProduto = quantidadeProduto;
 	}
 
