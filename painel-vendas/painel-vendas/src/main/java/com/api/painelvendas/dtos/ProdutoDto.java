@@ -2,6 +2,7 @@ package com.api.painelvendas.dtos;
 
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class ProdutoDto {
 
@@ -9,7 +10,7 @@ public class ProdutoDto {
     private String nomeProduto;
     @NotBlank
     private String tipoProduto;
-    @NotBlank
+    @NotNull
     private Double quantidadeProduto;
 
     public String getNomeProduto() {
@@ -20,12 +21,12 @@ public class ProdutoDto {
         this.nomeProduto = nomeProduto;
     }
 
-    public String getTipoVendedor() {
+    public String getTipoProduto() {
         return tipoProduto;
     }
 
-    public void setTipoVendedor(String tipoVendedor) {
-        this.tipoProduto = tipoVendedor;
+    public void setTipoProduto(String tipoProduto) {
+        this.tipoProduto = tipoProduto;
     }
 
     public Double getQuantidadeProduto() {
@@ -36,3 +37,4 @@ public class ProdutoDto {
         this.quantidadeProduto = quantidadeProduto;
     }
 }
+

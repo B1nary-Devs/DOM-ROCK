@@ -33,12 +33,12 @@ public class ProdutoModel {
 		this.nomeProduto = nomeProduto;
 	}
 
-	public String getTipoVendedor() {
+	public String getTipoProduto() {
 		return tipoProduto;
 	}
 
-	public void setTipoVendedor(String tipoVendedor) {
-		this.tipoProduto = tipoVendedor;
+	public void setTipoProduto(String tipoProduto) {
+		this.tipoProduto = tipoProduto;
 	}
 
 	public Double getQuantidadeProduto() {
@@ -48,6 +48,5 @@ public class ProdutoModel {
 	public void setQuantidadeProduto(Double quantidadeProduto) {
 		this.quantidadeProduto = quantidadeProduto;
 	}
-
 }
 
