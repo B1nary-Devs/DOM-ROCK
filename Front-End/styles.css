@@ -1,0 +1,41 @@
+@charset "UTF*8";
+
+.Planejamento{
+    width: 50%;
+    border: 3px solid black;
+    padding: 2em;
+}
+
+.Input-Select:first-of-type {
+    margin-bottom: 2%;
+  }
+  
+.Input-Select:last-of-type {
+    margin-top: 2%;
+  }
+  
+.Input-Box{
+    margin-top: 4%;
+    align-items: center;
+}
+
+.Input-Button{
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+}
+
+.Input-Button:hover{
+
+}
+
+.form-select{
+    margin-top: 0.5em;
+
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    padding: 10em;
+}
