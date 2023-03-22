@@ -56,7 +56,7 @@ public class ProdutoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado!");
         }
         produtoService.delete(produtoModelOptional.get());
-        return ResponseEntity.status(HttpStatus.OK).body("Vendedor deletado com sucesso!");
+        return ResponseEntity.status(HttpStatus.OK).body("Produto deletado com sucesso!");
     }
 
     @PutMapping("/{id}")
