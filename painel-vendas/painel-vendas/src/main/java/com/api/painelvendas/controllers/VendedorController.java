@@ -71,7 +71,7 @@ public class VendedorController {
 
 
 	@PutMapping("/{id}")
-	public ResponseEntity<Object> updateParkingSpot(@PathVariable(value = "id") Integer id,
+	public ResponseEntity<Object> updatePlanejamento(@PathVariable(value = "id") Integer id,
 													@RequestBody @Valid VendedorDto vendedorDto){
 		Optional<VendedorModel> vendedorModelOptional = vendedorService.findById(id);
 		if (!vendedorModelOptional.isPresent()){

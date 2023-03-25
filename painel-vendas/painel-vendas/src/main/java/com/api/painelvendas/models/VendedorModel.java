@@ -16,7 +16,7 @@ public class VendedorModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idVendedor;
     @Column(nullable = false, length = 50)
-    private String nomeVendedor;
+	private String nomeVendedor;
     @Column(nullable = false,unique = true, length = 50)
     private String emailVendedor;
 	@Column(nullable = false,unique = true, length = 14)
