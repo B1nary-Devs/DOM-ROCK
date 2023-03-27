@@ -21,11 +21,11 @@
 * O Adminisrador conseguirá monitorar as vendas de todos os vendedores através de um dashboard
 * O Vendedor conseguirá monitorar sus respectivas vendas através de um dashboard
 
-#### <a name="Planejamento">![1º SPRINT - 2908 á 1809 (1)](https://user-images.githubusercontent.com/101594950/227819165-081b04ad-f956-485f-b8bf-a0d5bc51b6be.jpg)</a> 
+#### <a name="Planejamento">![1º SPRINT - 2908 á 1809 (1)](https://user-images.githubusercontent.com/101594950/227819165-081b04ad-f956-485f-b8bf-a0d5bc51b6be.jpg)</a>
 
 ## <a name="Backlog-do-Produto">![3](https://user-images.githubusercontent.com/101594950/227819386-31f7afa5-b5c0-4765-a744-9831912f3204.jpg)<a/>
 
-## <a name="Tecnologias">![6](https://user-images.githubusercontent.com/101594950/227819513-3f639e7a-7a90-4c1d-a6ab-48c053836922.jpg)<a/>
+## <a name="Tecnologias"><a/>![Tecnologias](https://user-images.githubusercontent.com/101594950/227819513-3f639e7a-7a90-4c1d-a6ab-48c053836922.jpg)
 
 <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white" target="_blank"><img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" target="_blank"><img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white" target="_blank">
 
