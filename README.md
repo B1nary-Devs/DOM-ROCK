@@ -11,21 +11,21 @@
   <a href="#Equipe-de-Desenvolvimento">Equipe de Desenvolvimento</a>
 </p>
 
-## <a name="Desafio"></a> ![1º SPRINT - 2908 á 1809](https://user-images.githubusercontent.com/101594950/227817820-d0a7a9a3-897d-4082-83ea-38048ca02aea.jpg)
+## <a name="Desafio"> ![1º SPRINT - 2908 á 1809](https://user-images.githubusercontent.com/101594950/227817820-d0a7a9a3-897d-4082-83ea-38048ca02aea.jpg)</a>
 #### O Desafio consiste em desenvolver uma aplicação web, para gerenciar o histórico de movimentação de produtos (vendas e estoque), predição feito por um algoritmo de IA já existente e a entrada de dados resultante da força de vendas quanto ao planejamento futuro. 
 
-### <a name="Objetivo"></a>Objetivo
+### <a name="Objetivo">Objetivo</a>
 #### Após a finalização do projeto pela equipe B1naryDevs:
 * O Administrador conseguirá cadastrar vendedores e a carteira de clientes
 * O Vendedor conseguirá planejar suas vendas para seus clientes 
 * O Adminisrador conseguirá monitorar as vendas de todos os vendedores através de um dashboard
 * O Vendedor conseguirá monitorar sus respectivas vendas através de um dashboard
 
-#### <a name="Planejamento"></a> ![1º SPRINT - 2908 á 1809 (1)](https://user-images.githubusercontent.com/101594950/227819165-081b04ad-f956-485f-b8bf-a0d5bc51b6be.jpg)
+#### <a name="Planejamento">![1º SPRINT - 2908 á 1809 (1)](https://user-images.githubusercontent.com/101594950/227819165-081b04ad-f956-485f-b8bf-a0d5bc51b6be.jpg)</a> 
 
-## <a name="Backlog-do-Produto"><a/>![3](https://user-images.githubusercontent.com/101594950/227819386-31f7afa5-b5c0-4765-a744-9831912f3204.jpg)
+## <a name="Backlog-do-Produto">![3](https://user-images.githubusercontent.com/101594950/227819386-31f7afa5-b5c0-4765-a744-9831912f3204.jpg)<a/>
 
-## <a name="Tecnologias"><a/>![6](https://user-images.githubusercontent.com/101594950/227819513-3f639e7a-7a90-4c1d-a6ab-48c053836922.jpg)
+## <a name="Tecnologias">![6](https://user-images.githubusercontent.com/101594950/227819513-3f639e7a-7a90-4c1d-a6ab-48c053836922.jpg)<a/>
 
 <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white" target="_blank"><img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" target="_blank"><img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white" target="_blank">
 
@@ -35,3 +35,4 @@
 
 ## <a name="Equipe-de-Desenvolvimento"><a/>Equipe de Desenvolvimento
 
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=004AAD&height=180&section=footer"/>
