@@ -1,3 +1,5 @@
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=111D5E&height=180&section=header&text=Wallace+Honorato&animation=fadeIn&fontAlignY=35&fontSize=30&fontColor=FFFAFA"/>
+
 <p align="center">
   <a href="#Desafio">Desafio</a> •
   <a href="#Objetivo">Objetivo</a> • 
