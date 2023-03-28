@@ -12,6 +12,8 @@ public class Cliente {
     private Integer id;
     @Column(nullable = false,unique = true, length = 14)
     private String cpf;
+    @Column(nullable = false,unique = true, length = 70)
+    private String nome;
     @Column(nullable = false,unique = true, length = 50)
     private String email;
     @Column(nullable = false, length = 20)
@@ -47,5 +49,13 @@ public class Cliente {
 
     public void setIdVendedor(Integer idVendedor) {
         this.idVendedor = idVendedor;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }

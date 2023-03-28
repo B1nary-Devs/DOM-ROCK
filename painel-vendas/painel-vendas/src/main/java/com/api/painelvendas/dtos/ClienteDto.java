@@ -10,6 +10,8 @@ public class ClienteDto {
     private String cpf;
     @NotBlank
     private String email;
+    @NotBlank
+    private String nome;
     @NotNull
     private Integer idVendedor;
 
@@ -35,5 +37,13 @@ public class ClienteDto {
 
     public void setIdVendedor(Integer idVendedor) {
         this.idVendedor = idVendedor;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }

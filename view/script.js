@@ -1,18 +1,43 @@
-async function carregarAnimais(){
-    const response = await axios.get('http://localhost:8000/animais')
-    const animais = response.data;
+async function buscarCliente() {
+    try {
+      const response = await axios.get('http://localhost:8080/cliente');
+      const clientes = response.data;
+  
+      // Obtém a referência para o campo select
+      const selectClientes = document.getElementById('selectCliente');
+  
+      // Cria as options para cada produto
+      clientes.forEach(cliente => {
+        const option = document.createElement('option');
+        option.value = cliente.id;
+        option.text = cliente.nome;
+        selectClientes.appendChild(option);
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
-    const lista = window.document.getElementById("lista-animais")
+async function buscarProdutos() {
+    try {
+      const response = await axios.get('http://localhost:8080/produto');
+      const produtos = response.data;
+  
+      // Obtém a referência para o campo select
+      const selectProdutos = document.getElementById('selectProduto');
+  
+      // Cria as options para cada produto
+      produtos.forEach(produto => {
+        const option = document.createElement('option');
+        option.value = produto.idProduto;
+        option.text = produto.nomeProduto;
+        selectProdutos.appendChild(option);
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
-    lista.innerHTML = ''
-
-    animais.forEach(animal => {
-        const item = document.createElement('li')
-        item.innerText = `Animal: ${animal.nome} - Idade: ${animal.idade} - Sexo: ${animal.sexo} - Cor: ${animal.cor}`
-
-        lista.appendChild(item)
-    })
-}
 
 async function cadastrar(){
     const nomeAnimal = document.getElementById("txtnome")
@@ -29,6 +54,7 @@ async function cadastrar(){
     carregarAnimais()
 }
 
-
-
-app()
+document.addEventListener('DOMContentLoaded', () => {
+    buscarProdutos();
+    buscarCliente();
+  });
