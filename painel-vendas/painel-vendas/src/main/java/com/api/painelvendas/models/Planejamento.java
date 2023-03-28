@@ -12,7 +12,7 @@ public class Planejamento {
     @Column(nullable = false, length = 50)
     private Double quantidade;
     @Column(nullable = false)
-    private Date data;
+    private String dia;
     @Column(nullable = false, length = 3)
     private Integer idVendedor;
     @Column(nullable = false, length = 10)
@@ -34,14 +34,6 @@ public class Planejamento {
 
     public void setQuantidade(Double quantidade) {
         this.quantidade = quantidade;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
     }
 
     public Integer getIdVendedor() {
@@ -66,5 +58,13 @@ public class Planejamento {
 
     public void setIdCliente(Integer idCliente) {
         this.idCliente = idCliente;
+    }
+
+    public String getDia() {
+        return dia;
+    }
+
+    public void setDia(String dia) {
+        this.dia = dia;
     }
 }

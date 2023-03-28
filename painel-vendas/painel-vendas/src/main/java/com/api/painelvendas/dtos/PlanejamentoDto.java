@@ -14,7 +14,7 @@ public class PlanejamentoDto {
     @NotNull
     private Double quantidade;
     @NotNull
-    private Date data;
+    private String dia;
     @NotNull
     private Integer idVendedor;
     @NotNull
@@ -29,14 +29,6 @@ public class PlanejamentoDto {
 
     public void setQuantidade(Double quantidade) {
         this.quantidade = quantidade;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
     }
 
     public Integer getIdVendedor() {
@@ -62,4 +54,13 @@ public class PlanejamentoDto {
     public void setIdCliente(Integer idCliente) {
         this.idCliente = idCliente;
     }
+
+    public String getDia() {
+        return dia;
+    }
+
+    public void setDia(String dia) {
+        this.dia = dia;
+    }
 }
+
