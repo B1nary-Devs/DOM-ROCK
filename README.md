@@ -33,12 +33,12 @@
 #### <strong>Sprint 2 • 03/04 até 03/04</strong><br>
 #### <strong>Sprint 3 • 24/04 até 24/05</strong><br>
 #### <strong>Sprint 4 • 15/05 até 15/06</strong><br>
-![1º SPRINT - 2908 á 1809 (2)](https://user-images.githubusercontent.com/101594950/228400737-eb6b2370-b9b8-4f6d-a2c7-2a6f7cfa8442.jpg)
+![1º SPRINT - 2908 á 1809 (3)](https://user-images.githubusercontent.com/101594950/228687458-d4e12b02-8bea-44d0-af9d-229ce56fe8ba.jpg)
 
 </div>
 
-#### <strong>Feira de Soluções • 13/06/2023</strong>
 ## <a name="Backlog-do-Produto">![3](https://user-images.githubusercontent.com/101594950/227819386-31f7afa5-b5c0-4765-a744-9831912f3204.jpg)<a/>
+![backlog-produto](https://user-images.githubusercontent.com/101594950/228689464-b735cb95-f97b-417c-a893-417fcccaa88d.PNG)  
 
 ## <a name="Tecnologias"><a/>![Tecnologias](https://user-images.githubusercontent.com/101594950/227819513-3f639e7a-7a90-4c1d-a6ab-48c053836922.jpg)
 
@@ -52,10 +52,11 @@
 
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=004AAD&height=180&section=footer"/>
 
-| Função :gear:| Integrantes :bust_in_silhouette: |  Integrantes :bust_in_silhouette: |  Integrantes :bust_in_silhouette: |
+| Função :gear:| Integrantes :bust_in_silhouette: |
 | ---      | ---       |
-| Product Owner | Davi Gusmão| 
+| Product Owner | testeeeeeee <br> Davi Gusmão| 
 | Master     | Wallace Honorato| 
 | Desenvolvedor| Carlos Torres| 
+  | Desenvolvedor| Guilherme Santana| 
 | Desenvolvedor     | Larissa Souza| 
 | Desenvolvedor     | Marcelo Silva| 
