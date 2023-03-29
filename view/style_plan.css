@@ -1,16 +1,26 @@
 .table{
 
-	width: 100%;
+	width: 80%;
 	border-collapse: collapse;
+	margin: auto;
 }
 
 .table td,.table th{
   padding:12px 15px;
-  border: 0.5px solid #3c3838;
+  border: 0.5px solid #0a0a0a;
   text-align: center;
   font-size:16px;
 }
 
+.black-plan{
+	background-color: #ffffff;
+}
+
+.titulo{
+	padding: 1em;
+	text-align: center;
+	color: #0a0a0a;
+}
 
 a{
 color: white;
@@ -22,7 +32,7 @@ color: grey;
 }
 
 .table th{
-	background-color: #072997;
+	background-color: #1842ca;
 	color:#ffffff;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
