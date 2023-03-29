@@ -28,8 +28,7 @@
 <div align="center">
 
 #### <a name="Planejamento"></a>![10](https://user-images.githubusercontent.com/101594950/228395640-c2449269-729f-45e7-8bba-496ebd319df3.jpg)
-#### <strong>kick-off • 13/02 até 13/03</strong><br>
-### [1º Sprint - 13/03 até 02/04](https://github.com/B1naryDevs/API/tree/main/1%C2%BA%20Sprint)
+### [1º Sprint - 13/03 até 02/04](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/tree/dev/1%20SPRINT)
 ### [1º Sprint - 03/04 até 23/04]()
 ### [1º Sprint - 24/04 á 14/05]()
 ### [1º Sprint - 15/05 á 04/06]()
