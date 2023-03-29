@@ -38,6 +38,27 @@ async function buscarProdutos() {
     }
   }
 
+  async function cadastrarPlanejamento(){
+    const selectProdutos = document.getElementById('selectProduto')
+    const selectClientes = document.getElementById('selectCliente')
+    const quanti = document.getElementById("txtquantidade")
+    const data = document.getElementById("txtdata")
+    try{
+     await axios.post('http://localhost:8080/planejamento',{
+        dia: data.value,
+        idCliente: selectClientes.value,
+        idProduto: selectProdutos.value,
+        idVendedor: 1,
+        quantidade: quanti.value
+    })
+    window.alert("cadastrado com sucesso")
+    
+    }catch(error) {
+        console.log(`${error}`)
+    }
+}
+
+
 
 async function cadastrar(){
     const nomeAnimal = document.getElementById("txtnome")
