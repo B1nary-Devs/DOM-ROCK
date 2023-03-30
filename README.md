@@ -2,7 +2,9 @@
 
 ![1º SPRINT - 2908 á 1809 (1)](https://user-images.githubusercontent.com/101594950/227817184-cbb2a48e-dedf-4cd3-af3e-a65930748703.gif)
 
-## <a name="Desafio"> ![1º SPRINT - 2908 á 1809](https://user-images.githubusercontent.com/101594950/227817820-d0a7a9a3-897d-4082-83ea-38048ca02aea.jpg)</a>
+-------------------------------------------------------
+
+#### <a name="Desafio"> ![1º SPRINT - 2908 á 1809](https://user-images.githubusercontent.com/101594950/227817820-d0a7a9a3-897d-4082-83ea-38048ca02aea.jpg)</a>
 #### O Desafio consiste em desenvolver uma aplicação web, para gerenciar o histórico de movimentação de produtos (vendas e estoque), predição feito por um algoritmo de IA já existente e a entrada de dados resultante da força de vendas quanto ao planejamento futuro. 
 
 ### <a name="Objetivo">Objetivo</a>
@@ -12,23 +14,20 @@
 * O Adminisrador conseguirá monitorar as vendas de todos os vendedores através de um dashboard
 * O Vendedor conseguirá monitorar sus respectivas vendas através de um dashboard
 
+----------------------------------------------
+
 <div align="center">
 
 #### <a name="Planejamento"></a>![10](https://user-images.githubusercontent.com/101594950/228395640-c2449269-729f-45e7-8bba-496ebd319df3.jpg)
 
-<details>
-
-<summary> VISUALIZAR CRONOGRAMA  </summary>
-
 ### [1º Sprint - 13/03 até 02/04](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/tree/dev/1%20SPRINT)
 ### [2º Sprint - 03/04 até 23/04]()
 ### [3º Sprint - 24/04 á 14/05]()
-### [4º Sprint - 15/05 á 04/06]()
+### [4º Sprint - 15/05 á 04/06]()  
+  
 ![1º SPRINT - 2908 á 1809 (3)](https://user-images.githubusercontent.com/101594950/228687458-d4e12b02-8bea-44d0-af9d-229ce56fe8ba.jpg)
 
-</summary>
-
-</details>
+----------------------------------------------------
 
 </div>
 
@@ -49,6 +48,8 @@
 
 </div>
 
+--------------------------
+
 <div align="center">
 
 #### <a name="Tecnologias"><a/>![Tecnologias](https://user-images.githubusercontent.com/101594950/227819513-3f639e7a-7a90-4c1d-a6ab-48c053836922.jpg)  
@@ -66,6 +67,26 @@
 </summary>
 
 </details>
+
+</div>
+
+------------------------------------------
+
+<div align="center">
+
+![20](https://user-images.githubusercontent.com/101594950/228893229-715b2840-384e-465e-a4e6-6c6eaae2414a.jpg)
+
+<details>
+
+<summary> VISUALIZAR TECNOLOGIAS UTILIZADAS  </summary>
+  
+imagens a ser colocadas  
+  
+</summary>
+
+</details>
+
+------------------------------------------------------
 
 </div>
 
