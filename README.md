@@ -36,16 +36,19 @@
 
 </div>
 
+<div align="center">
+  
 ## <a name="Backlog-do-Produto">![3](https://user-images.githubusercontent.com/101594950/227819386-31f7afa5-b5c0-4765-a744-9831912f3204.jpg)<a/>
 ![backlog-produto](https://user-images.githubusercontent.com/101594950/228689464-b735cb95-f97b-417c-a893-417fcccaa88d.PNG)  
+</div>
 
-## <a name="Tecnologias"><a/>![Tecnologias](https://user-images.githubusercontent.com/101594950/227819513-3f639e7a-7a90-4c1d-a6ab-48c053836922.jpg)
-
+## <a name="Tecnologias"><a/>![Tecnologias](https://user-images.githubusercontent.com/101594950/227819513-3f639e7a-7a90-4c1d-a6ab-48c053836922.jpg)  
+  
 <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white" target="_blank"><img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" target="_blank"><img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white" target="_blank">
 
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" target="_blank"><img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" target="_blank"><img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" target="_blank"><img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" target="_blank">
 
-<img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" target="_blank"><img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white" target="_blank">
+
 
 ## <a name="Equipe-de-Desenvolvimento"><a/>Equipe de Desenvolvimento
 
