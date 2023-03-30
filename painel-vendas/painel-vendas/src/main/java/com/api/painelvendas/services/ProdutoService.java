@@ -1,7 +1,7 @@
 package com.api.painelvendas.services;
 
 
-import com.api.painelvendas.models.ProdutoModel;
+import com.api.painelvendas.models.Produto;
 import com.api.painelvendas.repositories.ProdutoRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -20,21 +20,21 @@ public class ProdutoService {
         this.produtoRepository = produtoRepository;
     }
     @Transactional
-    public ProdutoModel save(ProdutoModel produtoModel) {
+    public Produto save(Produto produtoModel) {
         return produtoRepository.save(produtoModel);
     }
 
-    public List<ProdutoModel> findAll() {
+    public List<Produto> findAll() {
         return produtoRepository.findAll();
     }
 
 
-    public Optional<ProdutoModel> findById(Integer id) {
+    public Optional<Produto> findById(Integer id) {
         return produtoRepository.findById(id);
     }
 
     @Transactional
-    public void delete(ProdutoModel produtoModel) {
+    public void delete(Produto produtoModel) {
         produtoRepository.delete(produtoModel);
     }
 }

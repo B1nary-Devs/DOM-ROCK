@@ -3,11 +3,10 @@ package com.api.painelvendas.services;
 
 import org.springframework.stereotype.Service;
 
-import com.api.painelvendas.models.VendedorModel;
+import com.api.painelvendas.models.Vendedor;
 import com.api.painelvendas.repositories.VendedorRepository;
 
 import jakarta.transaction.Transactional;
-import jakarta.validation.Valid;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,7 +20,7 @@ public class VendedorService {
 		this.vendedorRepository = vendedorRepository;
 	}
 	@Transactional
-	public VendedorModel save(VendedorModel vendedorModel) {
+	public Vendedor save(Vendedor vendedorModel) {
 		return vendedorRepository.save(vendedorModel);
 	}
 
@@ -33,16 +32,16 @@ public class VendedorService {
 		return vendedorRepository.existsByCpfVendedor(cpfVendedor);
 	}
 
-	public List<VendedorModel> findAll() {
+	public List<Vendedor> findAll() {
 		return vendedorRepository.findAll();
 	}
 
-	public Optional<VendedorModel> findById(Integer id) {
+	public Optional<Vendedor> findById(Integer id) {
 		return vendedorRepository.findById(id);
 	}
 
 	@Transactional
-	public void delete(VendedorModel vendedorModel) {
+	public void delete(Vendedor vendedorModel) {
 		vendedorRepository.delete(vendedorModel);
 	}
 

@@ -2,11 +2,7 @@ package com.api.painelvendas.controllers;
 
 
 import com.api.painelvendas.dtos.ClienteDto;
-import com.api.painelvendas.dtos.ProdutoDto;
-import com.api.painelvendas.dtos.VendedorDto;
 import com.api.painelvendas.models.Cliente;
-import com.api.painelvendas.models.ProdutoModel;
-import com.api.painelvendas.models.VendedorModel;
 import com.api.painelvendas.services.ClienteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;

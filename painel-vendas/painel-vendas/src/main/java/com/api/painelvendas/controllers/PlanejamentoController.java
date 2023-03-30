@@ -1,11 +1,10 @@
 package com.api.painelvendas.controllers;
-import com.api.painelvendas.dtos.PlanejamentoDto;
-import com.api.painelvendas.dtos.VendedorDto;
+import com.api.painelvendas.converters.PlanejamentoConverter;
+import com.api.painelvendas.dtos.PlanejamentoGetResquetDto;
+import com.api.painelvendas.dtos.PlanejamentoPostRequestDto;
 import com.api.painelvendas.models.Planejamento;
-import com.api.painelvendas.models.VendedorModel;
 import com.api.painelvendas.services.PlanejamentoService;
 import jakarta.validation.Valid;
-import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,24 +19,25 @@ import java.util.Optional;
 public class PlanejamentoController {
 
     final PlanejamentoService planejamentoService;
+    final PlanejamentoConverter planejamentoConverter;
 
-
-    public PlanejamentoController(PlanejamentoService planejamentoService) {
+    public PlanejamentoController(PlanejamentoService planejamentoService, PlanejamentoConverter planejamentoConverter) {
         this.planejamentoService = planejamentoService;
+        this.planejamentoConverter = planejamentoConverter;
     }
 
     @PostMapping
-    public ResponseEntity<Object> savePlanejamento(@RequestBody @Valid PlanejamentoDto planejamentoDto) {
-
-        var planejamento = new Planejamento();
-        BeanUtils.copyProperties(planejamentoDto, planejamento);
-        return ResponseEntity.status(HttpStatus.CREATED).body(planejamentoService.save(planejamento));
+    public ResponseEntity<Object> savePlanejamento(@RequestBody @Valid PlanejamentoPostRequestDto planejamentoDto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(planejamentoService.save(planejamentoDto));
     }
 
 
     @GetMapping
-    public ResponseEntity<List<Planejamento>> getAllPlanejamento(){
-        return ResponseEntity.status(HttpStatus.OK).body(planejamentoService.findAll());
+    public ResponseEntity<List<PlanejamentoGetResquetDto>> getAllPlanejamento(){
+
+        return ResponseEntity.status(HttpStatus.OK).body(
+                planejamentoConverter.convert(planejamentoService.findAll())
+        );
     }
 
     @GetMapping("/{id}")
@@ -63,15 +63,14 @@ public class PlanejamentoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Object> updatearkingSpot(@PathVariable(value = "id") Integer id,
-                                                    @RequestBody @Valid PlanejamentoDto planejamentoDto){
+                                                    @RequestBody @Valid PlanejamentoPostRequestDto planejamentoDto){
         Optional<Planejamento> planejamentoModelOptional = planejamentoService.findById(id);
         if(!planejamentoModelOptional.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Planejamento não encontrado!");
         }
-        var planejamento = new Planejamento();
-        BeanUtils.copyProperties(planejamentoDto, planejamento);
-        planejamento.setId(planejamentoModelOptional.get().getId());
-        return ResponseEntity.status(HttpStatus.OK).body(planejamentoService.save(planejamento));
+
+        planejamentoDto.setId(id);
+        return ResponseEntity.status(HttpStatus.OK).body(planejamentoService.save(planejamentoDto));
     }
 }
 

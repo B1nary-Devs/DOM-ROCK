@@ -1,11 +1,18 @@
 package com.api.painelvendas.models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.util.Date;
 @Entity
 @Table (name = "Planejamento")
-public class Planejamento {
+@Builder
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Planejamento{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -13,58 +20,15 @@ public class Planejamento {
     private Double quantidade;
     @Column(nullable = false)
     private String dia;
-    @Column(nullable = false, length = 3)
-    private Integer idVendedor;
-    @Column(nullable = false, length = 10)
-    private Integer idProduto;
-    @Column(nullable = false, length = 4)
-    private Integer idCliente;
 
-    public Integer getId() {
-        return id;
-    }
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_vendedor", nullable = false)
+    private Vendedor vendedor;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_produto", nullable = false)
+    private Produto produto;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_cliente", nullable = false)
+    private Cliente cliente;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Double getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(Double quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public Integer getIdVendedor() {
-        return idVendedor;
-    }
-
-    public void setIdVendedor(Integer idVendedor) {
-        this.idVendedor = idVendedor;
-    }
-
-    public Integer getIdProduto() {
-        return idProduto;
-    }
-
-    public void setIdProduto(Integer idProduto) {
-        this.idProduto = idProduto;
-    }
-
-    public Integer getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(Integer idCliente) {
-        this.idCliente = idCliente;
-    }
-
-    public String getDia() {
-        return dia;
-    }
-
-    public void setDia(String dia) {
-        this.dia = dia;
-    }
 }

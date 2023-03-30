@@ -1,22 +1,15 @@
 package com.api.painelvendas.controllers;
 
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import com.api.painelvendas.dtos.VendedorDto;
 import org.springframework.beans.BeanUtils;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.api.painelvendas.models.VendedorModel;
+import com.api.painelvendas.models.Vendedor;
 import com.api.painelvendas.services.VendedorService;
 
 import jakarta.validation.Valid;
@@ -40,19 +33,19 @@ public class VendedorController {
 		if (vendedorService.existsByCpfVendedor(vendedorDto.getCpfVendedor())) {
 			return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: CPF informado ja em uso!");
 		}
-		var vendedorModel = new VendedorModel();
+		var vendedorModel = new Vendedor();
 		BeanUtils.copyProperties(vendedorDto, vendedorModel);
 		return ResponseEntity.status(HttpStatus.CREATED).body(vendedorService.save(vendedorModel));
 		}
 
 	@GetMapping
-	public ResponseEntity<List<VendedorModel>> getAllVendedor(){
+	public ResponseEntity<List<Vendedor>> getAllVendedor(){
 		return ResponseEntity.status(HttpStatus.OK).body(vendedorService.findAll());
 	}
 
 	@GetMapping("/{id}")
 	public  ResponseEntity<Object> getOneVendedor(@PathVariable(value = "id") Integer id){
-		Optional<VendedorModel> vendedorModelOptional = vendedorService.findById(id);
+		Optional<Vendedor> vendedorModelOptional = vendedorService.findById(id);
 		if(!vendedorModelOptional.isPresent()){
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Vendedor não encontrado!");
 		}
@@ -61,7 +54,7 @@ public class VendedorController {
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> deleteVendedor(@PathVariable(value = "id")Integer id){
-		Optional<VendedorModel> vendedorModelOptional = vendedorService.findById(id);
+		Optional<Vendedor> vendedorModelOptional = vendedorService.findById(id);
 		if (!vendedorModelOptional.isPresent()){
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Vendedor não encontrado!");
 		}
@@ -73,11 +66,11 @@ public class VendedorController {
 	@PutMapping("/{id}")
 	public ResponseEntity<Object> updatePlanejamento(@PathVariable(value = "id") Integer id,
 													@RequestBody @Valid VendedorDto vendedorDto){
-		Optional<VendedorModel> vendedorModelOptional = vendedorService.findById(id);
+		Optional<Vendedor> vendedorModelOptional = vendedorService.findById(id);
 		if (!vendedorModelOptional.isPresent()){
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Vendedor não encontrado!");
 		}
-		var vendedorModel = new VendedorModel();
+		var vendedorModel = new Vendedor();
 		BeanUtils.copyProperties(vendedorDto, vendedorModel);
 		vendedorModel.setIdVendedor(vendedorModelOptional.get().getIdVendedor());
 		return ResponseEntity.status(HttpStatus.OK).body(vendedorService.save(vendedorModel));
