@@ -16,6 +16,31 @@
 
 ----------------------------------------------
 
+![1º SPRINT - 2908 á 1809](https://user-images.githubusercontent.com/101594950/228896766-cc9cfc66-5fc8-453f-86d9-69423dd495d4.jpg)
+
+<div align="center">
+
+<details>
+
+<summary> VISUALIZAR EQUIPE  </summary>
+
+| Função :gear:| Integrantes :bust_in_silhouette: |
+| ---      | ---       |
+| Product Owner | testeeeeeee <br> Davi Gusmão| 
+| Master     | Wallace Honorato| 
+| Desenvolvedor| Carlos Torres| 
+| Desenvolvedor| Guilherme Santana| 
+| Desenvolvedor     | Larissa Souza| 
+| Desenvolvedor     | Marcelo Silva| 
+
+</div>
+
+</summary>
+
+</details>
+
+---------------------------------------------------
+
 <div align="center">
 
 #### <a name="Planejamento"></a>![10](https://user-images.githubusercontent.com/101594950/228395640-c2449269-729f-45e7-8bba-496ebd319df3.jpg)
@@ -89,28 +114,5 @@ imagens a ser colocadas
 ------------------------------------------------------
 
 </div>
-
-![13](https://user-images.githubusercontent.com/101594950/228888911-7edea8fc-1cb3-4dad-9df1-c87914c36789.jpg)
-
-<div align="center">
-
-<details>
-
-<summary> VISUALIZAR EQUIPE  </summary>
-
-| Função :gear:| Integrantes :bust_in_silhouette: |
-| ---      | ---       |
-| Product Owner | testeeeeeee <br> Davi Gusmão| 
-| Master     | Wallace Honorato| 
-| Desenvolvedor| Carlos Torres| 
-| Desenvolvedor| Guilherme Santana| 
-| Desenvolvedor     | Larissa Souza| 
-| Desenvolvedor     | Marcelo Silva| 
-
-</div>
-
-</summary>
-
-</details>
 
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=004AAD&height=180&section=footer"/>
