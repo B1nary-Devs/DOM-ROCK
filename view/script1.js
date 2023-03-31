@@ -3,10 +3,8 @@ async function buscarCliente() {
       const response = await axios.get('http://localhost:8080/cliente');
       const clientes = response.data;
   
-      // Obtém a referência para o campo select
       const selectClientes = document.getElementById('selectCliente');
   
-      // Cria as options para cada produto
       clientes.forEach(cliente => {
         const option = document.createElement('option');
         option.value = cliente.id;
@@ -23,10 +21,8 @@ async function buscarProdutos() {
       const response = await axios.get('http://localhost:8080/produto');
       const produtos = response.data;
   
-      // Obtém a referência para o campo select
       const selectProdutos = document.getElementById('selectProduto');
   
-      // Cria as options para cada produto
       produtos.forEach(produto => {
         const option = document.createElement('option');
         option.value = produto.idProduto;
