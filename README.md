@@ -24,14 +24,14 @@
 
 <summary> VISUALIZAR EQUIPE  </summary>
 
-| Função :gear:| Integrantes :bust_in_silhouette: | Linkedin 
-| ---      | ---       | ---          |
-| Product Owner | Davi Gusmão| <a href="https://www.linkedin.com/in/davi-gusm%C3%A3o-a09421240" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>  |
-| Scrum Master     | Wallace Honorato| <a href="https://www.linkedin.com/in/wallace-honorato-b15a3b1a2/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> |
-| Desenvolvedor| Carlos Torres| <a href="https://www.linkedin.com/in/carlos-torres-638b13210" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> |
-| Desenvolvedor| Guilherme Santana| <a href="https://www.linkedin.com/in/01guilherme-santana/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> |
-| Desenvolvedor     | Larissa Souza| <a href="https://www.linkedin.com/in/larissatsouza/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> |
-| Desenvolvedor     | Marcelo Silva| <a href="https://www.linkedin.com/in/marcelo-silva7" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> |
+| Função :gear:| Integrantes :bust_in_silhouette: | Linkedin | GitHub 
+| ---   | ---  | ---  | ---    |
+| Product Owner | Davi Gusmão| <a href="https://www.linkedin.com/in/davi-gusm%C3%A3o-a09421240" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>  | <a href="https://github.com/Davign10" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a>  |
+| Scrum Master  | Wallace Honorato| <a href="https://www.linkedin.com/in/wallace-honorato-b15a3b1a2/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> | <a href="https://github.com/WallaceHS20" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a>  |
+| Desenvolvedor| Carlos Torres| <a href="https://www.linkedin.com/in/carlos-torres-638b13210" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> | <a href="https://github.com/CarlosTorres2305" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a>  |
+| Desenvolvedor| Guilherme Santana| <a href="https://www.linkedin.com/in/01guilherme -santana/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> | <a href="https://github.com/1SGuilherme" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a>  |
+| Desenvolvedor | Larissa Souza| <a href="https://www.linkedin.com/in/larissatsouza/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> | <a href="https://github.com/larissasouz" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a>  |
+| Desenvolvedor | Marcelo Silva| <a href="https://www.linkedin.com/in/marcelo-silva7" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> | <a href="https://github.com/marcelosilva7" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a>  |
 
 </div>
 
@@ -119,3 +119,4 @@ imagens a ser colocadas
 </div>
 
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=004AAD&height=180&section=footer"/>
+
