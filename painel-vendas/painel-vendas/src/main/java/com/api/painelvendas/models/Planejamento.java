@@ -18,7 +18,7 @@ public class Planejamento{
     private Integer id;
     @Column(nullable = false, length = 50)
     private Double quantidade;
-    @Column(nullable = false)
+    @Column(nullable = false,length = 11)
     private String dia;
 
     @ManyToOne(cascade = CascadeType.ALL)
