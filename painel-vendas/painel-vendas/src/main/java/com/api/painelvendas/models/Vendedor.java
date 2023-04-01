@@ -25,6 +25,6 @@ public class Vendedor {
     @Column(nullable = false,length = 250)
     private String senhaVendedor;
     @Column(nullable = false,length = 15)
-    private String nivelAcees;
+    private String nivelAcesso;
 
 }

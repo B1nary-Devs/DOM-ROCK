@@ -47,8 +47,8 @@ async function buscarProdutos() {
         idVendedor: 1,
         quantidade: quanti.value
     })
-    window.alert("cadastrado com sucesso")
-    
+    window.alert("Cadastro realizado com sucesso!")
+    window.location.href = 'visualizar_plan.html'
     }catch(error) {
         console.log(`${error}`)
     }
