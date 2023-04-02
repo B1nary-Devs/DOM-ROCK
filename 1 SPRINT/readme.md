@@ -51,7 +51,7 @@
 --------------------------
 
 
-### [![20](https://user-images.githubusercontent.com/101594950/229367851-50797be8-774c-41d3-854d-09c0706bfc7c.jpg)](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/tree/dev/1%20SPRINT)
+### [![20](https://user-images.githubusercontent.com/101594950/229367851-50797be8-774c-41d3-854d-09c0706bfc7c.jpg)](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/tree/main/2%20SPRINT)
 
 
 -------------
