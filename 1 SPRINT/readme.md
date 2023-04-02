@@ -45,9 +45,7 @@
 
 <br>
 
-![burn](https://user-images.githubusercontent.com/101594950/229367379-16e6a552-1101-4862-ac85-97b1774c8742.png)
-
+![BB](https://user-images.githubusercontent.com/101594950/229371585-5f445080-fad1-4a4e-8301-d6055a6830ac.png)
 --------------------------
-
 
 ### [![20](https://user-images.githubusercontent.com/101594950/229367851-50797be8-774c-41d3-854d-09c0706bfc7c.jpg)](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/tree/main/2%20SPRINT)
