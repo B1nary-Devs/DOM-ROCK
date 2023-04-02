@@ -1,0 +1,19 @@
+Pessoas
+-funcionário(ADM/VENDEDOR)
+-clientes
+
+Objetos
+-Produtos
+-Pedido
+-Estoque
+-Venda
+
+PROPOSTAS:
+-Uma interface para cadastrar as predições(previsões) de venda pelos próximos três meses para
+cada cliente e determinado produto.
+-Uma interface de exibição de históricos de vendas, predição, planos de venda com 
+gráficos e tabelas com exportação em csv ou excel(essa tela deve ter filtros por cliente,
+produtos e data)
+
+1° Sprint:
+-Tela de cadastro de vendedor
