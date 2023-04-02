@@ -45,8 +45,8 @@
 
 #### <a name="Planejamento"></a>![10](https://user-images.githubusercontent.com/101594950/228395640-c2449269-729f-45e7-8bba-496ebd319df3.jpg)
 
-### [1º Sprint - 13/03 a 02/04](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/tree/dev/1%20SPRINT)
-### [2º Sprint - 03/04 a 23/04]()
+### [1º Sprint - 13/03 a 02/04](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/tree/main/1%20SPRINT)
+### [2º Sprint - 03/04 a 23/04](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/tree/main/2%20SPRINT)
 ### [3º Sprint - 24/04 a 14/05]()
 ### [4º Sprint - 15/05 a 04/06]()  
   
