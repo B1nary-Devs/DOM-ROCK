@@ -1,4 +1,4 @@
-<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=004AAD&height=180&section=header&text=3°+Semestre+de+Banco+Dados&animation=fadeIn&fontAlignY=35&fontSize=30&fontColor=FFFAFA"/>
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=004AAD&height=180&section=header&text=3°+Semestre+de+Banco+de+Dados&animation=fadeIn&fontAlignY=35&fontSize=30&fontColor=FFFAFA"/>
 
 ![1º SPRINT - 2908 á 1809 (1)](https://user-images.githubusercontent.com/101594950/227817184-cbb2a48e-dedf-4cd3-af3e-a65930748703.gif)
 
