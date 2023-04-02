@@ -81,7 +81,7 @@
 
 <details>
 
-<summary> VISUALIZAR BPM  </summary>
+<summary> VISUALIZAR BPMN  </summary>
   
 ![WhatsApp Image 2023-03-31 at 21 19 58](https://user-images.githubusercontent.com/101594950/229359269-e0439790-91ee-4aa7-ae2e-4b5259f08658.jpeg)
 
