@@ -108,8 +108,10 @@
 
 <summary> MODELAGEM CONCEITUAL  </summary>
   
-imagens a ser colocadas  
-  
+<br>  
+   
+![modelagem-conceitual](https://user-images.githubusercontent.com/101594950/229357694-8bba98b6-9573-4ec1-9c5b-4f8cf4e6a1e4.jpg)
+ 
 </summary>
 
 </details>
