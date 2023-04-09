@@ -4,44 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dom Planning</title>
+    <title>Rock Planning</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script> 
-    <script type="text/javascript" src="script3.js"></script>  
+    <script type="text/javascript" src="script3.js"></script> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&family=Inter:wght@300&family=Mulish:wght@500&family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="clientes.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; background-color: #072997">
-        <div class="container-fluid">
-          <a class="navbar-brand text-white" href="#">DOM PLANNING</a>
-          <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-              <li class="nav-item">
-                <a class="nav-link active text-white" aria-current="page" href="#">Início</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="clientes.html">Clientes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="index.html">Planejamento</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="visualizar_plan.html">Consulta de Planejamentos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="#">Dashboard</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+  <div id="nav">
+    <nav>
+      <a href="#" id="principal">ROC<span>K</span> PLANNING</a>
+      <a href="#">Início</a>
+      <a href="clientes.html" id="here">Clientes</a>
+      <a href="index.html">Planejamento</a>
+      <a href="visualizar_plan.html">Consulta de Planejamentos</a>
+      <a href="#">Dashboard</a>
+      <a href="#">Sair</a>
+    </nav>
+  </div>
+  <div>
       <h1 class="titulo">CARTEIRA DE CLIENTES</h1>
         <table class="table" id="tabela">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">CLIENTE</th>
-                    <th scope="col">PRODUTO</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Produto</th>
                 </tr>
                 <tr>
                     <th><input type="text" id="txtColuna1" placeholder="Buscar por ID"></th>
