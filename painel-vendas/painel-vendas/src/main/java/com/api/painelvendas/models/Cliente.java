@@ -12,13 +12,12 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(nullable = false,unique = true, length = 14)
-    private String cpf;
-    @Column(nullable = false,unique = true, length = 70)
+    @Column(nullable = false, length = 70)
     private String nome;
     @Column(nullable = false,unique = true, length = 50)
     private String email;
-    @Column(nullable = false, length = 20)
-    private Integer idVendedor;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_vendedor", nullable = false)
+    private Vendedor vendedor;
 
 }

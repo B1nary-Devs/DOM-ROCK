@@ -8,8 +8,7 @@ import com.api.painelvendas.models.Vendedor;
 @Repository
 public interface VendedorRepository extends JpaRepository<Vendedor, Integer>{
 
-    public boolean existsByEmailVendedor(String emailVendedor);
+    public boolean existsByEmail(String email);
 
-    public boolean existsByCpfVendedor(String cpfVendedor);
 
 }

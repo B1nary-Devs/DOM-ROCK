@@ -24,12 +24,8 @@ public class VendedorService {
 		return vendedorRepository.save(vendedorModel);
 	}
 
-	public boolean existsByEmailVendedor(String emailVendedor) {
-		return vendedorRepository.existsByEmailVendedor(emailVendedor);
-	}
-
-	public boolean existsByCpfVendedor(String cpfVendedor) {
-		return vendedorRepository.existsByCpfVendedor(cpfVendedor);
+	public boolean existsByEmailVendedor(String email) {
+		return vendedorRepository.existsByEmail(email);
 	}
 
 	public List<Vendedor> findAll() {

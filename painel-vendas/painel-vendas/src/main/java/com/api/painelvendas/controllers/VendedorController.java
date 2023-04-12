@@ -27,15 +27,12 @@ public class VendedorController {
 
 	@PostMapping
 	public ResponseEntity<Object> saveVendedor(@RequestBody @Valid VendedorDto vendedorDto) {
-		if (vendedorService.existsByEmailVendedor(vendedorDto.getEmailVendedor())) {
+		if (vendedorService.existsByEmailVendedor(vendedorDto.getEmail())) {
 			return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Email informado ja em uso!");
 		}
-		if (vendedorService.existsByCpfVendedor(vendedorDto.getCpfVendedor())) {
-			return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: CPF informado ja em uso!");
-		}
-		var vendedorModel = new Vendedor();
-		BeanUtils.copyProperties(vendedorDto, vendedorModel);
-		return ResponseEntity.status(HttpStatus.CREATED).body(vendedorService.save(vendedorModel));
+		var vendedor = new Vendedor();
+		BeanUtils.copyProperties(vendedorDto, vendedor);
+		return ResponseEntity.status(HttpStatus.CREATED).body(vendedorService.save(vendedor));
 		}
 
 	@GetMapping
@@ -70,10 +67,10 @@ public class VendedorController {
 		if (!vendedorModelOptional.isPresent()){
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Vendedor não encontrado!");
 		}
-		var vendedorModel = new Vendedor();
-		BeanUtils.copyProperties(vendedorDto, vendedorModel);
-		vendedorModel.setIdVendedor(vendedorModelOptional.get().getIdVendedor());
-		return ResponseEntity.status(HttpStatus.OK).body(vendedorService.save(vendedorModel));
+		var vendedor = new Vendedor();
+		BeanUtils.copyProperties(vendedorDto, vendedor);
+		vendedor.setId(vendedorModelOptional.get().getId());
+		return ResponseEntity.status(HttpStatus.OK).body(vendedorService.save(vendedor));
 	}
 
 	}

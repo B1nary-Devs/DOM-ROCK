@@ -15,9 +15,14 @@ public class PlanejamentoGetResquetDto {
     @NotNull
     private Double quantidade;
     @NotNull
-    private String dia;
+    private String diaRegistro;
+    @NotNull
+    private String mesesPlanejamento;
     @NotNull
     private String nomeProduto;
     @NotNull
     private String nomeCliente;
+    @NotNull
+    private String nomeVendedor;
+
 }

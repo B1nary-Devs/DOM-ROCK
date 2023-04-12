@@ -10,13 +10,11 @@ public class Produto {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer idProduto;
+    private Integer id;
     @Column(nullable = false, length = 60)
-    private String nomeProduto;
+    private String nome;
     @Column(nullable = false, length = 15)
-    private String tipoProduto;
-	@Column(nullable = false, length = 20)
-	private Double quantidadeProduto;
+    private String tipo;
 
 }
 
