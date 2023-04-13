@@ -57,7 +57,7 @@ public class PlanejamentoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Planejamento não encontrado!");
         }
         planejamentoService.delete(planejamentoModelOptional.get());
-        return ResponseEntity.status(HttpStatus.OK).body("Vendedor deletado com sucesso!");
+        return ResponseEntity.status(HttpStatus.OK).body("Planejamento deletado com sucesso!");
     }
 
 
