@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dom Planning</title>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script> 
+    <script type="text/javascript" src="script4.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&family=Inter:wght@300&family=Mulish:wght@500&family=Oswald&family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style_plan.css">
     <link rel="stylesheet" href="estilo.css">
-    <script src="script2.js"></script>
 </head>
 <body class="back-plan">
   <div id="nav">
@@ -19,26 +20,69 @@
       <a href="#">Início</a>
       <a href="clientes.html">Clientes</a>
       <a href="index.html">Planejamento</a>
-      <a href="visualizar_plan.html" id="here">Consulta de Planejamentos</a>
-      <a href="gerenciamento_vendas.html">Gerenciamento</a>
+      <a href="visualizar_plan.html">Consulta de Planejamentos</a>
+      <a href="gerenciamento_vendas.html" id="here">Gerenciamento</a>
       <a href="#">Dashboard</a>
       <a href="#">Sair</a>
     </nav>
   </div>
   <div>
       <a href="index.html"><img class="return" title="Voltar a Pagina de Planejamento" src="img\voltar.svg"></a>
-      <h1 class="titulo">CONSULTA DE PLANEJAMENTOS</h1>
+      <h1 class="titulo">GERENCIAMENTO DE VENDAS</h1>
       <table class="table" id="tabela">
         <thead>
             <tr>
               <th scope="col">Produto</th>
-              <th scope="col">Histórico</th>
               <th scope="col">Predição</th>
               <th scope="col">Planejado</th>
+              <th scope="col">Histórico</th>
               <th scope="col">Mês</th>
             </tr>
+            <tr>
+              <th><input type="text" id="colProduto" placeholder="Buscar por Produto"></th>
+              <th><input type="text" id="colPredicao" placeholder="Buscar por Predição"></th>
+              <th><input type="text" id="colPlanejado" placeholder="Buscar por Planejado"></th>
+              <th><input type="text" id="colHistorico" placeholder="Buscar por Histórico"></th>
+              <th><input type="text" id="colMes" placeholder="Buscar por Mês"></th>
+            </tr>    
         </thead>
-        <tbody>
+        <tbody>   
+          <tr>
+              <td>A</td>
+              <td>222.222.222</td>
+              <td>233.000.000</td>
+              <td>250.000.000</td>
+              <td>janeiro de 2023</td>
+          </tr>
+          <tr>
+              <td>B</td>
+              <td>3333.333.333</td>
+              <td>323.000.000</td>
+              <td>345.000.000</td>
+              <td>fevereiro de 2023</td>
+          </tr>            
+          <tr>
+              <td>C</td>
+              <td>300.000.000</td>
+              <td>315.000.000</td>
+              <td>320.000.000</td>
+              <td>março de 2023</td>
+          </tr>
+          <tr>
+              <td>D</td>
+              <td>280.000.000</td>
+              <td>290.500.000</td>
+              <td>300.000.000</td>
+              <td>abril de 2023</td>
+          </tr>
+          <tr>
+              <td>E</td>
+              <td>425.000.000</td>
+              <td>402.000.000</td>
+              <td>450.000.000</td>
+              <td>maio de 2023</td>
+          </tr>            
+        </thead>
         </tbody>
       </table>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>

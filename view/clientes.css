@@ -14,7 +14,7 @@ nav {
 
 nav > a {
     color: white;
-    padding: 20px;
+    padding: 7px;
     text-decoration: none;
     font-family:'Inter', sans-serif;
     font-size: 18px;
@@ -82,7 +82,7 @@ span {
 }
     
 .table tbody tr:nth-child(even){
-    background-color: #f5f5f5;
+    background-color: #ebebeb;
 }
     
 @media(max-width: 500px){
@@ -97,6 +97,10 @@ span {
     
 .table tr{
     margin-bottom:15px;
+}
+
+.table tbody tr:hover{
+    background-color: #00B1ED;
 }
     
 .table td{
