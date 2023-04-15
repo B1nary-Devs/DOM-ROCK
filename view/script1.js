@@ -76,30 +76,3 @@ document.addEventListener('DOMContentLoaded', () => {
     buscarCliente();
   });
 
-/*
-const showHideContent = function () {
-  document.querySelector("#mestral").addEventListener('click', function () {
-    document.querySelector("#grupo1").style.display = "block";
-    document.querySelector("#plan-completo").style.display = "hide";
-  });
-
-  document.querySelector("#trimestre").addEventListener('click', function () {
-    document.querySelector("#grupo1").style.display = "block";
-    document.querySelector("#plan-completo").style.display = "block";
-  });
- 
-}
-
-const showHideContentjQuery = function () {
-  jQuery("#1mes").on("click", function () {
-    jQuery("#plan-completo").hide();
-    jQuery("#grupo1").show();
-  });
-
-  jQuery("#3meses").on('click', function () {
-    jQuery("#plan-completo").show();
-    jQUery("#grupo1").show();
-    });
-}
-
-showHideContentjQuery();*/

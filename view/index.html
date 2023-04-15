@@ -28,70 +28,94 @@
       <a href="#">Sair</a>
     </nav>
   </div>
-  <div class="container">
-    <form action="" method="post" class="form">
-      <div class="form-header">
-        <h1 class="titulo">PLANEJAMENTO DE VENDAS</h1>
-      </div>
-      <!--<div>
-        <input type="radio" name="meses" id="mestral" value="mestral">
-        <label for="mestral">1 MÊS</label>
-        <input type="radio" name="meses" id="trimestre" value="trimestre">
-        <label for="trimestre">3 MESES</label>
-      </div>-->
-      <div class="input-group" id="grupo1">
-        <div class="input-box">
-          <label for="txtproduto">Produto:</label><br>
-          <select id="selectProduto" class="input-large form-control">
-        </select><br>
+    <div class="container">
+      <form action="" method="post" class="form">
+        <div class="form-header">
+          <h1 class="titulo">PLANEJAMENTO DE VENDAS</h1>
         </div>
 
-        <div class="input-box">
-          <label for="txtcliente">Cliente:</label><br>
-          <select id="selectCliente" class="input-large form-control">
+        <div>
+          <p>Selecione a quantidade de meses que deseja planejar</p>
+        </div>
+
+        <div class="radio">
+          <input type="radio" name="meses" id="mestral" value="mestral">
+          <label for="mestral">1 MÊS</label>
+          <input type="radio" name="meses" id="trimestre" value="trimestre">
+          <label for="trimestre">3 MESES</label>
+        </div><br>
+
+        <div class="input-group" id="grupo1">
+          <div class="input-box">
+            <label for="txtproduto">Produto:</label><br>
+            <select id="selectProduto" class="input-large form-control">
           </select><br>
+          </div>
+
+          <div class="input-box">
+            <label for="txtcliente">Cliente:</label><br>
+            <select id="selectCliente" class="input-large form-control">
+            </select><br>
+          </div>
+
+          <div class="input-box">
+            <label for="txtquantidade">Quantidade:</label><br>
+            <input class="form-control" type="number" name="txtquantidade" id="txtquantidade" placeholder="Quantidade de venda planejada"><br>
+          </div>
+
+          <div class="input-box">
+            <label for="txtdata">Data:</label><br>
+            <input class="form-control" type="month" id="txtdata" name="txtdata" min="2022-01" max="2024-12"><br>
+          </div>
         </div>
 
-        <div class="input-box">
-          <label for="txtquantidade">Quantidade:</label><br>
-          <input class="form-control" type="number" name="txtquantidade" id="txtquantidade" placeholder="Quantidade de venda planejada"><br>
-        </div>
+        <div class="input-group" id="plan-completo">
+          <div class="input-box">
+            <label for="txtquantidade2">Quantidade:</label><br>
+            <input class="form-control" type="number" name="txtquantidade2" id="txtquantidade2" placeholder="Quantidade de venda planejada"><br>
+          </div>
 
-        <div class="input-box">
-          <label for="txtdata">Data:</label><br>
-           <input class="form-control" type="date" name="txtdata" id="txtdata" placeholder="Quantidade de venda planejada"><br>
-          <!-- <input class="form-control" type="month" id="DOB" name="DOB" min="2022-01" max="2024-12" value="2023-12">  -->
-        </div>
-      </div>
+          <div class="input-box">
+            <label for="txtdata2">Data:</label><br>
+            <input class="form-control" type="month" id="txtdata2" name="txtdata2" min="2022-01" max="2024-12"><br>
+          </div>
+        
+          <div class="input-box">
+            <label for="txtquantidade3">Quantidade:</label><br>
+            <input class="form-control" type="number" name="txtquantidade3" id="txtquantidade3" placeholder="Quantidade de venda planejada"><br>
+          </div>
 
-      <!--
-      <div class="input-group" id="plan-completo">
-        <div class="input-box">
-          <label for="txtquantidade">Quantidade:</label><br>
-          <input class="form-control" type="number" name="txtquantidade" id="txtquantidade" placeholder="Quantidade de venda planejada"><br>
+          <div class="input-box">
+            <label for="txtdata3">Data:</label><br>
+            <input class="form-control" type="month" id="txtdata3" name="txtdata3" min="2022-01" max="2024-12"><br>
+          </div>
         </div>
+        
+        <div class="buttons">
+          <button  value="Cadastrar" onclick="cadastrarPlanejamento()" type="button" class="btn btn-outline-primary">Cadastrar</button>
+        </div>
+      </form>
+    </div>
+  <script>
+    const mesesRadio = document.querySelectorAll('input[name="meses"]');
+    const planCompletoDiv = document.querySelector('#plan-completo');
+    const formDiv = document.querySelector('.container');
+    
 
-        <div class="input-box">
-          <label for="txtdata">Data:</label><br>
-          <input class="form-control" type="date" name="txtdata" id="txtdata" placeholder="Quantidade de venda planejada"><br>
-        </div>
-      
-        <div class="input-box">
-          <label for="txtquantidade">Quantidade:</label><br>
-          <input class="form-control" type="number" name="txtquantidade" id="txtquantidade" placeholder="Quantidade de venda planejada"><br>
-        </div>
-
-        <div class="input-box">
-          <label for="txtdata">Data:</label><br>
-          <input class="form-control" type="date" name="txtdata" id="txtdata" placeholder="Quantidade de venda planejada"><br>
-        </div>
-      </div>  -->
-      
-      <div class="buttons">
-        <button  value="Cadastrar" onclick="cadastrarPlanejamento()" type="button" class="btn btn-outline-primary">Cadastrar</button>
-      </div>
-    </form>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    mesesRadio.forEach(radio => {
+    radio.addEventListener('change', () => {
+      if (radio.value === 'mestral') {
+        planCompletoDiv.style.display = 'none';
+        formDiv.style.height = "auto";
+      } else {
+        planCompletoDiv.style.display = 'flex';
+        
+        formDiv.style.height = formDiv.scrollHeight + 'px';
+    }
+  });
+});
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
+  </script>
 </body>
 </html>
