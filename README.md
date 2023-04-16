@@ -65,7 +65,7 @@
 <summary> VISUALIZAR BACKLOG  </summary>
   
 ## <a name="Backlog-do-Produto"><a/>
-![backlog-produto](https://user-images.githubusercontent.com/101594950/228689464-b735cb95-f97b-417c-a893-417fcccaa88d.PNG)  
+![Backlog-produto](https://user-images.githubusercontent.com/101421659/232328274-7f0a784d-d172-48be-bb60-048df9d1e1d0.PNG)
 
 </summary>
 
