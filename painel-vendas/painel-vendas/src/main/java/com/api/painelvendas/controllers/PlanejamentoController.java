@@ -63,14 +63,13 @@ public class PlanejamentoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Object> updatearkingSpot(@PathVariable(value = "id") Integer id,
-                                                    @RequestBody @Valid PlanejamentoPostRequestDto planejamentoDto){
+                                                    @RequestBody @Valid PlanejamentoPostRequestDto planejamentoPostRequestDto){
         Optional<Planejamento> planejamentoModelOptional = planejamentoService.findById(id);
         if(!planejamentoModelOptional.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Planejamento não encontrado!");
         }
-
-        planejamentoDto.setId(id);
-        return ResponseEntity.status(HttpStatus.OK).body(planejamentoService.save(planejamentoDto));
+        planejamentoPostRequestDto.setId(id);
+        return ResponseEntity.status(HttpStatus.OK).body(planejamentoService.save(planejamentoPostRequestDto));
     }
 }
 

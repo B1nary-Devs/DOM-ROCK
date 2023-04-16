@@ -1,5 +1,6 @@
 package com.api.painelvendas.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,7 +24,8 @@ public class RegistroPlanejamento {
     @Column(nullable = false,length = 11)
     private String mesPlanejamento;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_planejamento", nullable = false)
+    @JoinColumn(name = "fk_id_planejamento", nullable = false)
+    @JsonBackReference
     private Planejamento planejamento;
 
 }

@@ -18,6 +18,7 @@ public class PlanejamentoConverter {
                             .nomeCliente(p.getCliente().getNome())
                             .nomeProduto(p.getProduto().getNome())
                             .nomeVendedor(p.getVendedor().getNome())
+                            .registros(p.getRegistros())
                             .build()
             );
         }

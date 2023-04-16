@@ -1,12 +1,20 @@
 package com.api.painelvendas.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table (name = "cliente")
+@Builder
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Cliente {
 
     @Id
@@ -17,7 +25,8 @@ public class Cliente {
     @Column(nullable = false,unique = true, length = 50)
     private String email;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_vendedor", nullable = false)
+    @JoinColumn(name = "fk_id_vendedor", nullable = false)
+    @JsonBackReference
     private Vendedor vendedor;
 
 }

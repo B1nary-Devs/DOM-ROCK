@@ -3,7 +3,7 @@ package com.api.painelvendas.controllers;
 import java.util.List;
 import java.util.Optional;
 
-import com.api.painelvendas.dtos.VendedorDto;
+import com.api.painelvendas.dtos.VendedorPostRequestDto;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,13 +26,11 @@ public class VendedorController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Object> saveVendedor(@RequestBody @Valid VendedorDto vendedorDto) {
-		if (vendedorService.existsByEmailVendedor(vendedorDto.getEmail())) {
+	public ResponseEntity<Object> saveVendedor(@RequestBody @Valid VendedorPostRequestDto vendedorPostRequestDto) {
+		if (vendedorService.existsByEmailVendedor(vendedorPostRequestDto.getEmail())) {
 			return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Email informado ja em uso!");
 		}
-		var vendedor = new Vendedor();
-		BeanUtils.copyProperties(vendedorDto, vendedor);
-		return ResponseEntity.status(HttpStatus.CREATED).body(vendedorService.save(vendedor));
+		return ResponseEntity.status(HttpStatus.CREATED).body(vendedorService.save(vendedorPostRequestDto));
 		}
 
 	@GetMapping
@@ -62,15 +60,13 @@ public class VendedorController {
 
 	@PutMapping("/{id}")
 	public ResponseEntity<Object> updatePlanejamento(@PathVariable(value = "id") Integer id,
-													@RequestBody @Valid VendedorDto vendedorDto){
+													@RequestBody @Valid VendedorPostRequestDto vendedorPostRequestDto){
 		Optional<Vendedor> vendedorModelOptional = vendedorService.findById(id);
 		if (!vendedorModelOptional.isPresent()){
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Vendedor não encontrado!");
 		}
-		var vendedor = new Vendedor();
-		BeanUtils.copyProperties(vendedorDto, vendedor);
-		vendedor.setId(vendedorModelOptional.get().getId());
-		return ResponseEntity.status(HttpStatus.OK).body(vendedorService.save(vendedor));
+		vendedorPostRequestDto.setId(id);
+		return ResponseEntity.status(HttpStatus.OK).body(vendedorService.save(vendedorPostRequestDto));
 	}
 
 	}

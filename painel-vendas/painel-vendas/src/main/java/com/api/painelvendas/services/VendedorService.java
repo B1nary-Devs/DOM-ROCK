@@ -1,6 +1,8 @@
 package com.api.painelvendas.services;
 
 
+import com.api.painelvendas.dtos.VendedorPostRequestDto;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import com.api.painelvendas.models.Vendedor;
@@ -20,8 +22,15 @@ public class VendedorService {
 		this.vendedorRepository = vendedorRepository;
 	}
 	@Transactional
-	public Vendedor save(Vendedor vendedorModel) {
-		return vendedorRepository.save(vendedorModel);
+	public Vendedor save(VendedorPostRequestDto vendedorPostRequestDto) {
+		Vendedor vendedor = Vendedor.builder()
+				.id(vendedorPostRequestDto.getId())
+				.nome(vendedorPostRequestDto.getNome())
+				.email(vendedorPostRequestDto.getEmail())
+				.senha(vendedorPostRequestDto.getSenha())
+				.nivelAcesso(vendedorPostRequestDto.getNivelAcesso())
+				.build();
+		return vendedorRepository.save(vendedor);
 	}
 
 	public boolean existsByEmailVendedor(String email) {
@@ -33,12 +42,13 @@ public class VendedorService {
 	}
 
 	public Optional<Vendedor> findById(Integer id) {
+
 		return vendedorRepository.findById(id);
 	}
 
 	@Transactional
-	public void delete(Vendedor vendedorModel) {
-		vendedorRepository.delete(vendedorModel);
+	public void delete(Vendedor vendedor) {
+		vendedorRepository.delete(vendedor);
 	}
 
 }

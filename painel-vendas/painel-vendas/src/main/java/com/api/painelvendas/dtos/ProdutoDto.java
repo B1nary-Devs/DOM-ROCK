@@ -1,6 +1,7 @@
 package com.api.painelvendas.dtos;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -11,12 +12,12 @@ import lombok.Data;
 @Data
 public class ProdutoDto {
 
+    private Integer id;
     @NotBlank
     private String nome;
     @NotBlank
     private String tipo;
-    @NotNull
-    private Double quantidade;
+
 
 }
 

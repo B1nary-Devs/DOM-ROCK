@@ -25,9 +25,7 @@ public class ClienteController {
     }
     @PostMapping
     public ResponseEntity<Object> saveCliente(@RequestBody @Valid ClienteDto clienteDto) {
-        var cliente = new Cliente();
-        BeanUtils.copyProperties(clienteDto, cliente);
-        return ResponseEntity.status(HttpStatus.CREATED).body(clienteService.save(cliente));
+        return ResponseEntity.status(HttpStatus.CREATED).body(clienteService.save(clienteDto));
     }
 
     @GetMapping
@@ -60,9 +58,7 @@ public class ClienteController {
         Optional<Cliente> clienteModelOptional = clienteService.findById(id);
         if (!clienteModelOptional.isPresent())
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cliente não encontrado!");
-            var cliente = new Cliente();
-            BeanUtils.copyProperties(clienteDto, cliente);
-            cliente.setId(clienteModelOptional.get().getId());
-            return ResponseEntity.status(HttpStatus.OK).body(clienteService.save(cliente));
+        clienteDto.setId(id);
+        return ResponseEntity.status(HttpStatus.OK).body(clienteService.save(clienteDto));
         }
     }

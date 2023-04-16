@@ -1,13 +1,20 @@
 package com.api.painelvendas.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @Table(name = "vendedor")
+@Builder
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Vendedor {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,6 +29,7 @@ public class Vendedor {
     private String nivelAcesso;
     @OneToMany(mappedBy = "vendedor", cascade = CascadeType.ALL, fetch = FetchType.LAZY,
     orphanRemoval = true)
+    @JsonManagedReference
     private List<Cliente> clientes;
 
 }
