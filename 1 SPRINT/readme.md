@@ -11,7 +11,7 @@
 <summary> VISUALIZAR BACKLOG  </summary>
   
 ## <a name="Backlog-da-Sprint"><a/>
-![backlog-sprint](https://user-images.githubusercontent.com/101421659/229316558-6194b73c-19df-44ed-8ab8-5ef61085f270.PNG)
+![Backlog-sprint-1](https://user-images.githubusercontent.com/101421659/232328443-5b4fd28b-4891-4213-a69d-3b69109c57b0.PNG)
 
 </summary>
 
