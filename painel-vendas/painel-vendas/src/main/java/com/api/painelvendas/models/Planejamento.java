@@ -16,12 +16,6 @@ public class Planejamento{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(nullable = false, length = 50)
-    private Double quantidade;
-    @Column(nullable = false,length = 11)
-    private String diaRegisto;
-    @Column(nullable = false,length = 11)
-    private String mesesPlanejamento;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_vendedor", nullable = false)
     private Vendedor vendedor;

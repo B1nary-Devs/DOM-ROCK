@@ -10,12 +10,6 @@ import lombok.Data;
 public class PlanejamentoPostRequestDto {
     private Integer id;
     @NotNull
-    private Double quantidade;
-    @NotNull
-    private String diaRegistro;
-    @NotNull
-    private String mesesPlanejamento;
-    @NotNull
     private Integer idVendedor;
     @NotNull
     private Integer idProduto;

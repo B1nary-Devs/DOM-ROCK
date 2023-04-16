@@ -31,9 +31,6 @@ public class PlanejamentoService {
         Optional<Vendedor> vendedorModel = vendedorRepository.findById(planejamentoDto.getIdVendedor());
         Planejamento planejamento = Planejamento.builder()
                 .id(planejamentoDto.getId())
-                .quantidade(planejamentoDto.getQuantidade())
-                .diaRegisto(planejamentoDto.getDiaRegistro())
-                .mesesPlanejamento(planejamentoDto.getMesesPlanejamento())
                 .produto(produtoModel.orElse(null))
                 .cliente(cliente.orElse(null))
                 .vendedor(vendedorModel.orElse(null))

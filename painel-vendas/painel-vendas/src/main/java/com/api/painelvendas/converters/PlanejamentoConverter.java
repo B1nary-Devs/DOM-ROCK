@@ -15,9 +15,6 @@ public class PlanejamentoConverter {
             listaDtos.add(
                     PlanejamentoGetResquetDto.builder()
                             .id(p.getId())
-                            .quantidade(p.getQuantidade())
-                            .diaRegistro(p.getDiaRegisto())
-                            .mesesPlanejamento(p.getMesesPlanejamento())
                             .nomeCliente(p.getCliente().getNome())
                             .nomeProduto(p.getProduto().getNome())
                             .nomeVendedor(p.getVendedor().getNome())
