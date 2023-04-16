@@ -13,18 +13,26 @@
     </article>
     <aside>
         <h1>LOGIN</h1>
-        <div class="titulo"><h2>Usuário</h2></div>
-        <div class="input-box">
-            <label>
-                <input type="text">
-            </label>
-        </div>
-        <div type="titulo"><h2>Senha</h2></div>
-        <div class="input-box">
-            <input type="password"></input>
-            <input type="submit" value="ENTRAR"></input>
-        </div>
+        <form action="clientes.html" method="POST">
+            <div class="titulo"><h2>Usuário</h2></div>
+            <div class="input-box">
+                <label>
+                    <input type="text">
+                </label>
+            </div>
+            <div type="titulo"><h2>Senha</h2></div>
+            <div class="input-box">
+                <input type="password" name="senha"></input>
+                <a href="clientes.html"><input type="submit" value="ENTRAR"></input></a>
+            </div>
+        </form>
         <p>Não possui login? <a href="#">Efetue o cadastro </a></p>
     </aside>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault(); // impede que o formulário seja enviado antes do redirecionamento
+        window.location.href = 'clientes.html'; // redireciona o usuário para a página "clientes.html"
+  });
+    </script>
 </body>
 </html>

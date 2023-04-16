@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dom Planning</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script> 
-    <script type="text/javascript" src="script4.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&family=Inter:wght@300&family=Mulish:wght@500&family=Oswald&family=Roboto:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style_plan.css">
-    <link rel="stylesheet" href="estilo.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dom Planning</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="script4.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" integrity="sha384-Sr6rMNYz8+2Gk1Vz5c5rxgo7n8+UMnI5gVwep1hHJ7Vf8bL+U6vJjPnDlX9d8B+" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-HaFZBhqQgzZNOXYgBk8CcFz7UTf6C3qrqIoLvXvxFphf/kL10Inh/stc5KQea1xH" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&family=Inter:wght@300&family=Mulish:wght@500&family=Oswald&family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style_plan.css">
+  <link rel="stylesheet" href="estilo.css">
+
 </head>
 <body class="back-plan">
   <div id="nav">
-    <nav>
-      <a href="#" id="principal">ROC<span class="letra">K</span> PLANNING</a>
-      <a href="#">Início</a>
-      <a href="clientes.html">Clientes</a>
-      <a href="index.html">Planejamento</a>
-      <a href="visualizar_plan.html">Consulta de Planejamentos</a>
-      <a href="gerenciamento_vendas.html" id="here">Gerenciamento</a>
-      <a href="#">Dashboard</a>
-      <a href="#">Sair</a>
-    </nav>
+      <nav>
+          <a href="#" id="principal">ROC<span class="letra">K</span> PLANNING</a>
+          <a href="#">Início</a>
+          <a href="clientes.html">Clientes</a>
+          <a href="index.html">Planejamento</a>
+          <a href="visualizar_plan.html">Consulta de Planejamentos</a>
+          <a href="gerenciamento_vendas.html" id="here">Gerenciamento</a>
+          <a href="#">Dashboard</a>
+          <a href="login.html">Sair</a>
+      </nav>
   </div>
   <div>
       <a href="index.html"><img class="return" title="Voltar a Pagina de Planejamento" src="img\voltar.svg"></a>
@@ -47,44 +52,42 @@
             </tr>    
         </thead>
         <tbody>   
-          <tr>
-              <td>A</td>
-              <td>222.222.222</td>
-              <td>233.000.000</td>
-              <td>250.000.000</td>
+          <tbody class="tbl-accordion-header">
+            <tr class="tbl-accordion-header">
+              <td>
+                <a data-toggle="toggle" class="accordion-toggle"><strong>AAAA</strong></a>
+              </td>
+              <td>11000</td>
+              <td>12000</td>
+              <td>12500</td>
               <td>janeiro de 2023</td>
-          </tr>
-          <tr>
-              <td>B</td>
-              <td>3333.333.333</td>
-              <td>323.000.000</td>
-              <td>345.000.000</td>
-              <td>fevereiro de 2023</td>
-          </tr>            
-          <tr>
-              <td>C</td>
-              <td>300.000.000</td>
-              <td>315.000.000</td>
-              <td>320.000.000</td>
-              <td>março de 2023</td>
-          </tr>
-          <tr>
-              <td>D</td>
-              <td>280.000.000</td>
-              <td>290.500.000</td>
-              <td>300.000.000</td>
-              <td>abril de 2023</td>
-          </tr>
-          <tr>
-              <td>E</td>
-              <td>425.000.000</td>
-              <td>402.000.000</td>
-              <td>450.000.000</td>
-              <td>maio de 2023</td>
-          </tr>            
-        </thead>
-        </tbody>
-      </table>
+            </tr>
+            <tr class="tbl-accordion-body">
+              <td colspan="5">
+                <div class="accordion-content">
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          <tbody class="tbl-accordion-header">
+            <tr>
+              <td>
+                <a data-toggle="toggle"  class="accordion-toggle"><strong>BBBB</strong></a>
+              </td>
+              <td>22000</td>
+              <td>23400</td>
+              <td>25000</td>
+              <td>janeiro de 2023</td>
+            </tr>
+          </tbody>
+          <tbody class="tbl-accordion-body">
+            <tr>
+            </tr>
+            <tr>
+            </tr>
+          </tbody>
+          </tbody>
+        </table>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
   </div>
 </body>

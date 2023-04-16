@@ -56,37 +56,37 @@ span {
 }
 
 .table{
-    width: 65%;
-    border-collapse: collapse;
-    margin: auto;
+	width: 60%;
+	border-collapse: collapse;
+    border: 1px solid #000000;
+	margin: auto;
 }
 
 .table td,.table th{
-    padding:12px 12px;
-    border: 0.5px solid black;
     font-family: Arial, Helvetica, sans-serif;
+    border-bottom: 1px solid #000000;
+    color: #000000;
     font-size: 16px;
-    font-weight: bold;
     text-align: center;
-    
-}
-
-#tabela input{
-    background-color: white;
-    color: black;
-    width:100%;
+    padding: 12px 12px; 
 }
 
 .table th{
-    background-color: #1842ca;
-    color:#ffffff;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	background-color: #1842ca;
+	color:#ffffff;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	color: white; 
+	font-weight: bold; 
 }
-    
-.table tbody tr:nth-child(even){
-    background-color: #ebebeb;
+
+tr:hover{
+    background-color: hsl(219, 100%, 87%);
 }
-    
+
+.tbl-accordion-header a {
+	color: #21c71c !important;
+}
+
 @media(max-width: 500px){
     .table thead{
     display: none;

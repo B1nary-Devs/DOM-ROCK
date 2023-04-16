@@ -71,12 +71,7 @@ img{
 }
 
 a {
-    color: mediumblue;
-}
-
-a:hover{
-    color: lightblue;
-    transition: 0.3s all;
+    color: #00B1ED;
 }
 
 aside [type="text"]{
@@ -122,8 +117,8 @@ aside [type="submit"]{
 
 aside [type="submit"]:hover{
     cursor: pointer;
-    border: 3px solid mediumblue;
-    background-color: white;
-    color: mediumblue;
+    border: 3px solid #00208a;
+    background-color: #00208a;
+    color: #ffffff;
 
 }
