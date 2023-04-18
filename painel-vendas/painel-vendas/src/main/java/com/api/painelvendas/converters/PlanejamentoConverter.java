@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 //esse converter serve para geral ou somente pro get
+// como eu faço pra filtra as entidades do onetomany pois vai vira uma bola de neve
 @Component
 public class PlanejamentoConverter {
     public List<PlanejamentoGetResquetDto> convert(List<Planejamento> planejamentos){

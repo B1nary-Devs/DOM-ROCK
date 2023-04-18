@@ -32,4 +32,9 @@ public class Vendedor {
     @JsonManagedReference
     private List<Cliente> clientes;
 
+    @OneToMany(mappedBy = "vendedor", cascade = CascadeType.ALL, fetch = FetchType.LAZY,
+            orphanRemoval = true)
+    @JsonManagedReference
+    private List<Planejamento> planejamentos;
+
 }

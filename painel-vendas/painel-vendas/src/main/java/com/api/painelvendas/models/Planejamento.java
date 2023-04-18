@@ -1,5 +1,6 @@
 package com.api.painelvendas.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -21,6 +22,7 @@ public class Planejamento{
     private Integer id;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_id_vendedor", nullable = false)
+    @JsonBackReference
     private Vendedor vendedor;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_id_produto", nullable = false)
