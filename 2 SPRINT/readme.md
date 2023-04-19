@@ -15,7 +15,7 @@
   
 ## <a name="Backlog-da-Sprint"><a/>
   
-![Backlog-sprint-2](https://user-images.githubusercontent.com/101594950/229368427-3440ef53-4fc9-49c2-ab7f-db43c5caf073.PNG)
+![Backlog-sprint-2](https://user-images.githubusercontent.com/101421659/233159678-893c9d17-5a68-4f93-8d9a-a365cb6f712b.PNG)
 
 </summary>
 
@@ -36,9 +36,12 @@
 
 ## <a name="Wiraframes"><a/>
 
+![gerenc-vendas](https://user-images.githubusercontent.com/101594950/229368459-13cdd68d-a5a7-4b12-a1e7-1784c1a60fa5.PNG)
+----------------- 
 ![login](https://user-images.githubusercontent.com/101594950/229368454-555cd67d-a112-407a-9037-9b6d36abb675.PNG)
 -----------------  
-![gerenc-vendas](https://user-images.githubusercontent.com/101594950/229368459-13cdd68d-a5a7-4b12-a1e7-1784c1a60fa5.PNG)
+![clientes](https://user-images.githubusercontent.com/101421659/233159403-e048ba0c-7a9f-4841-88f9-41a5e170df01.PNG)
+-----------------
   
 </summary>
 
