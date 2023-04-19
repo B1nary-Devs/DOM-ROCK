@@ -58,7 +58,7 @@ span {
 }
 
 .table{
-	width: 50%;
+	width: 80%;
 	border-collapse: collapse;
     border: 1px solid #000000;
 	margin: auto;
@@ -74,6 +74,7 @@ span {
 }
 
 .table th{
+    width: 33,3%;
 	background-color: #1842ca;
 	color:#ffffff;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -86,16 +87,19 @@ tr:hover{
 }
 
 .tbl-accordion-header a {
-	color: #21c71c !important;
+	color: #000500 !important;
     text-decoration: none;
 }
 
 .tbl-accordion-body {
-	display: none;
+    
+    flex-wrap: wrap;
+    display: block;
 }
 
 .tbl-accordion-body td {
   border-bottom: 0px; 
+  width: 20%;
 }
 
 @media(max-width: 500px){
