@@ -101,7 +101,7 @@ tr:hover{
     display: none;
     flex-wrap: wrap;
     background-color: hsla(226, 71%, 80%, 0.63);
-    border: 2px solid #33a3e4a1;
+    border: 1px solid #33a3e4a1;
     border-top: none;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     
