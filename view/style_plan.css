@@ -73,6 +73,10 @@ span {
     padding: 12px 12px; 
 }
 
+.table td{
+    cursor: pointer;
+}
+
 .table th{
     width: 33,3%;
 	background-color: #1842ca;
@@ -83,7 +87,8 @@ span {
 }
 
 tr:hover{
-    background-color: hsl(219, 100%, 87%);
+    background-color: hsla(226, 81%, 54%, 0.733);
+    color: #ffffff;
 }
 
 .tbl-accordion-header a {
@@ -92,10 +97,23 @@ tr:hover{
 }
 
 .tbl-accordion-body {
-    
+    cursor:pointer;
+    display: none;
     flex-wrap: wrap;
-    display: block;
+    background-color: hsla(226, 71%, 80%, 0.63);
+    border: 2px solid #33a3e4a1;
+    border-top: none;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    
 }
+
+.tbl-accordion-body th {
+    cursor: default;
+    border-bottom: 0px; 
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    background-color: #0c148ad0;
+  }
+  
 
 .tbl-accordion-body td {
   border-bottom: 0px; 
