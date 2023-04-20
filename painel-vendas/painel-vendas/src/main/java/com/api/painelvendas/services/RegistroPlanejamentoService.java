@@ -18,6 +18,7 @@ public class RegistroPlanejamentoService {
     private final PlanejamentoRepository planejamentoRepository;
     @Transactional
     public RegistroPlanejamento save(RegistroPlanejamentoPostRequestDto registroPlanejamentoPostRequestDto) {
+
         Optional<Planejamento> planejamento = planejamentoRepository.findById(registroPlanejamentoPostRequestDto.getIdPlanejamento());
         RegistroPlanejamento registroPlanejamento = RegistroPlanejamento.builder()
                 .id(registroPlanejamentoPostRequestDto.getId())

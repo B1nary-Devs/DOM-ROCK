@@ -5,6 +5,9 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+
+import java.util.Date;
+
 @Builder
 @AllArgsConstructor
 @Data
@@ -14,7 +17,7 @@ public class RegistroPlanejamentoPostRequestDto {
     @NotNull
     private Double quantidade;
     @NotBlank
-    private String diaRegisto;
+    private Date diaRegisto;
     @NotBlank
     private String mesPlanejamento;
     @NotNull

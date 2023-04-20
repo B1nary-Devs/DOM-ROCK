@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Entity
 @Table (name = "registro_planejamento")
 @Builder
@@ -20,7 +22,7 @@ public class RegistroPlanejamento {
     @Column(nullable = false, length = 50)
     private Double quantidade;
     @Column(nullable = false,length = 11)
-    private String diaRegisto;
+    private Date diaRegisto;
     @Column(nullable = false,length = 11)
     private String mesPlanejamento;
     @ManyToOne(cascade = CascadeType.ALL)

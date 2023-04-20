@@ -34,7 +34,6 @@ public class PlanejamentoController {
 
     @GetMapping
     public ResponseEntity<List<PlanejamentoGetResquetDto>> getAllPlanejamento(){
-
         return ResponseEntity.status(HttpStatus.OK).body(
                 planejamentoConverter.convert(planejamentoService.findAll())
         );
