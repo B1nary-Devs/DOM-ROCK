@@ -7,7 +7,7 @@ async function buscarCliente() {
   
       vendedor.clientes.forEach(cliente => {
         const option = document.createElement('option');
-        option.value = `cliente${cliente.id}`;
+        option.value = cliente.id;
         option.text = cliente.nome;
         selectClientes.appendChild(option);
       });
@@ -25,7 +25,7 @@ async function buscarProdutos() {
   
       produtos.forEach(produto => {
         const option = document.createElement('option');
-        option.value = `produto${produto.id}`;
+        option.value = produto.id;
         option.text = produto.nome;
         selectProdutos.appendChild(option);
       });
@@ -53,72 +53,77 @@ async function buscarProdutos() {
 
   }
 
-  async function cadastrarPlanejamento() {
-    const selectProdutos = document.getElementById('selectProduto');
-    const selectClientes = document.getElementById('selectCliente');
-  
-    try {
-      const response = await axios.post('http://localhost:8080/planejamento', {
-        idCliente: selectClientes.value,
-        idProduto: selectProdutos.value,
-        idVendedor: 1
-      });
-  
-      const idPlanejamento = response.data.id;
-      sessionStorage.setItem("IdPlanejamento", idPlanejamento);
-  
-      window.alert("Cadastro realizado com sucesso!");
-      return idPlanejamento;
-    } catch (error) {
-      console.error(error);
-      console.log(`${error}`);
-      throw error;
-    }
-  }
-  
-  async function cadastrarRegistroPlanejamento(quantidade, mes, idPlanejamento) {
-    const selectQuantidade = document.getElementById(quantidade);
-    const selectMes = document.getElementById(mes);
-    const hoje = new Date();
-    const dataFormatada = hoje.toISOString();
-  
-    try {
-      const response = await axios.post('http://localhost:8080/registro_planejamento', {
-        quantidade: selectQuantidade.value,
-        mesPlanejamento: selectMes.value,
-        diaRegistro: dataFormatada,
-        idVendedor: 1,
-        idPlanejamento: idPlanejamento
-      });
-    } catch (error) {
-      console.error(error);
-      console.log(`${error}`);
-      throw error;
-    }
-  }
-  
-  async function cadastrarTudo() {
-    try {
-      const selectQuantidade1 = document.getElementById('txtquantidade');
-      const selectMes1 = document.getElementById('txtdata');
-      const selectQuantidade2 = document.getElementById('txtquantidade2');
-      const selectMes2 = document.getElementById('txtdata2');
-      const selectQuantidade = document.getElementById('txtquantidade3');
-      const selectMes = document.getElementById('txtdata3');
 
-      const idPlanejamento = await cadastrarPlanejamento();
-      await cadastrarRegistroPlanejamento(selectQuantidade1, selectMes1, idPlanejamento);
-      await cadastrarRegistroPlanejamento(selectQuantidade2, selectMes2, idPlanejamento);
-      await cadastrarRegistroPlanejamento(selectQuantidade3, selectMes3, idPlanejamento);
-      window.alert("Planejamento cadastrado com sucesso!.")
-      window.location.href = 'visualizar_plan.html'
-    } catch (error) {
-      console.log(error);
-      window.alert("Ocorreu um erro ao cadastrar o planejamento e o registro de planejamento.");
-    }
-  }
   
+function cadastrarPlanejamento(callback){
+  const selectProdutos = document.getElementById('selectProduto')
+  const selectClientes = document.getElementById('selectCliente')
+  axios.post('http://localhost:8080/planejamento',{
+      idCliente: selectClientes.value,
+      idProduto: selectProdutos.value,
+      idVendedor: 1,
+  })
+  .then(response => {
+      const planejamentoIdcallBack = response.data.id;
+      callback(planejamentoIdcallBack);
+      alert('Planejamento cadastrado com sucesso!')
+      window.location.href = 'visualizar_plan.html';
+  })
+  .catch(error => {
+      console.log(`Erro cadastro Planejamento: ${error}`)
+  });
+}
 
+function cadastrarRegistroPlanejamento(planejamentoIdcallBack) {
+
+  const selectQuantidade = document.getElementById('txtquantidade');
+  const selectMes = document.getElementById('txtdata');
+  const selectQuantidade2 = document.getElementById('txtquantidade2');
+  const selectMes2 = document.getElementById('txtdata2');
+  const selectQuantidade3 = document.getElementById('txtquantidade3');
+  const selectMes3 = document.getElementById('txtdata3');
+  // criar objeto 1 usando planejamentoId
+  axios.post('http://localhost:8080/registro_planejamento',{
+      quantidade: selectQuantidade.value,
+      mesPlanejamento: selectMes.value,
+      idPlanejamento: planejamentoIdcallBack
+      // outros dados do objeto 1
+  })
+  .then(response => {
+      console.log('Objeto 1 cadastrado com sucesso!');
+  })
+  .catch(error => {
+      console.log(`Objeto 1: ${error}`)
+  });
+
+  // criar objeto 2 usando planejamentoId
+  axios.post('http://localhost:8080/registro_planejamento',{
+    quantidade: selectQuantidade2.value,
+    mesPlanejamento: selectMes2.value,
+    idPlanejamento: planejamentoIdcallBack
+      // outros dados do objeto 2
+  })
+  .then(response => {
+      console.log('Objeto 2 cadastrado com sucesso!');
+  })
+  .catch(error => {
+      console.log(`Objeto 2: ${error}`)
+  });
+
+  // criar objeto 3 usando planejamentoId
+  axios.post('http://localhost:8080/registro_planejamento',{
+    quantidade: selectQuantidade3.value,
+    mesPlanejamento: selectMes3.value,
+    idPlanejamento: planejamentoIdcallBack
+      // outros dados do objeto 3
+  })
+  .then(response => {
+      console.log('Objeto 3 cadastrado com sucesso!');
+  })
+  .catch(error => {
+      console.log(`Objeto 3: ${error}`)
+  });
+}
 
 
 document.addEventListener('DOMContentLoaded', () => {

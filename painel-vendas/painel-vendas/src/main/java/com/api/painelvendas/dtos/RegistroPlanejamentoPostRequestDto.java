@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Builder
 @AllArgsConstructor
@@ -16,7 +16,6 @@ public class RegistroPlanejamentoPostRequestDto {
     private Integer id;
     @NotNull
     private Double quantidade;
-    @NotBlank
     private Date diaRegisto;
     @NotBlank
     private String mesPlanejamento;

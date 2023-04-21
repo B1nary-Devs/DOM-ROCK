@@ -7,7 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @Table (name = "registro_planejamento")
@@ -23,7 +23,7 @@ public class RegistroPlanejamento {
     private Double quantidade;
     @Column(nullable = false,length = 11)
     private Date diaRegisto;
-    @Column(nullable = false,length = 11)
+    @Column(nullable = false,length = 50)
     private String mesPlanejamento;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_id_planejamento", nullable = false)

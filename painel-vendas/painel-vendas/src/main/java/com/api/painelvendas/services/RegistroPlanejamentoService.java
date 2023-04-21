@@ -1,6 +1,5 @@
 package com.api.painelvendas.services;
-
-import com.api.painelvendas.dtos.PlanejamentoPostRequestDto;
+import java.time.LocalDate;
 import com.api.painelvendas.dtos.RegistroPlanejamentoPostRequestDto;
 import com.api.painelvendas.models.*;
 import com.api.painelvendas.repositories.*;
@@ -8,6 +7,7 @@ import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,12 +18,13 @@ public class RegistroPlanejamentoService {
     private final PlanejamentoRepository planejamentoRepository;
     @Transactional
     public RegistroPlanejamento save(RegistroPlanejamentoPostRequestDto registroPlanejamentoPostRequestDto) {
-
+        LocalDate dataAtual = LocalDate.now();
+        Date dataSqlAtual = Date.valueOf(dataAtual);
         Optional<Planejamento> planejamento = planejamentoRepository.findById(registroPlanejamentoPostRequestDto.getIdPlanejamento());
         RegistroPlanejamento registroPlanejamento = RegistroPlanejamento.builder()
                 .id(registroPlanejamentoPostRequestDto.getId())
                 .quantidade(registroPlanejamentoPostRequestDto.getQuantidade())
-                .diaRegisto(registroPlanejamentoPostRequestDto.getDiaRegisto())
+                .diaRegisto(dataSqlAtual)
                 .mesPlanejamento(registroPlanejamentoPostRequestDto.getMesPlanejamento())
                 .planejamento(planejamento.orElse(null))
                 .build();
