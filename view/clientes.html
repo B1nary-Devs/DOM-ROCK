@@ -29,24 +29,32 @@
     </nav>
   </div>
   <div>
+    <a href="#"><img class="return" title="Voltar a Pagina de Planejamento" src="img\voltar.svg"></a>
     <h1 class="titulo">CARTEIRA DE CLIENTES</h1>
+
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar" title="Type in a name">
+    <button class="limparFiltro" onclick="limparFiltro()">Limpar </button>
     <table class="table" id="tabelaClientes">
         <thead>
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Cliente</th>
                 <th scope="col">Email</th>
-            </tr>
-            <tr>
-                <th><input type="text" id="colID" placeholder="Buscar por ID"></th>
-                <th><input type="text" id="colCliente" placeholder="Buscar por Cliente"></th>
-                <th><input type="text" id="colEmail" placeholder="Buscar por Email"></th>
-            </tr>    
+            </tr> 
         </thead>
         <tbody>
-            <tbody class="tbl-accordion-header">
-            </tbody>
-            </table>
+           <tr>
+            <td>01</td>
+            <td>Davi</td>
+            <td>d@gmail.com</td>
+           </tr>
+           <tr>
+            <td>02</td>
+            <td>João</td>
+            <td>j@gmail.com</td>
+           </tr>
+        </tbody>
+    </table>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
     </div>
 </body>
