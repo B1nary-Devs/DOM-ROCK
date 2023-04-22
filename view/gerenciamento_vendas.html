@@ -34,6 +34,9 @@
   <div>
       <a href="index.html"><img class="return" title="Voltar a Pagina de Planejamento" src="img\voltar.svg"></a>
       <h1 class="titulo">GERENCIAMENTO DE VENDAS</h1>
+
+      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar">
+      <button class="limparFiltro" onclick="limparFiltro()">Limpar </button>
       <table class="table" id="tabela">
         <thead>
             <tr>
@@ -43,49 +46,22 @@
               <th scope="col">Histórico</th>
               <th scope="col">Mês</th>
             </tr>
-            <tr>
-              <th><input type="text" id="colProduto" placeholder="Buscar por Produto"></th>
-              <th><input type="text" id="colPredicao" placeholder="Buscar por Predição"></th>
-              <th><input type="text" id="colPlanejado" placeholder="Buscar por Planejado"></th>
-              <th><input type="text" id="colHistorico" placeholder="Buscar por Histórico"></th>
-              <th><input type="text" id="colMes" placeholder="Buscar por Mês"></th>
-            </tr>    
         </thead>
-        <tbody>   
-          <tbody class="tbl-accordion-header">
-            <tr class="tbl-accordion-header">
-              <td>
-                <a data-toggle="toggle" class="accordion-toggle"><strong>AAAA</strong></a>
-              </td>
+          <tbody>
+            <tr>
+              <td>AAAA</td>
               <td>11000</td>
               <td>12000</td>
               <td>12500</td>
               <td>janeiro de 2023</td>
             </tr>
-            <tr class="tbl-accordion-body">
-              <td colspan="5">
-                <div class="accordion-content">
-                </div>
-              </td>
-            </tr>
-          </tbody>
-          <tbody class="tbl-accordion-header">
             <tr>
-              <td>
-                <a data-toggle="toggle"  class="accordion-toggle"><strong>BBBB</strong></a>
-              </td>
+              <td>BBBB</td>
               <td>22000</td>
               <td>23400</td>
               <td>25000</td>
               <td>janeiro de 2023</td>
             </tr>
-          </tbody>
-          <tbody class="tbl-accordion-body">
-            <tr>
-            </tr>
-            <tr>
-            </tr>
-          </tbody>
           </tbody>
         </table>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>

@@ -43,22 +43,78 @@ async function buscarPlanejamento() {
     buscarPlanejamento()
   });
 
-  $(function(){
-    $("#tabela input").keyup(function(){       
-        var index = $(this).parent().index(); /*index recebe como valor, a coluna que contém o input*/
-        var nth = "#tabela td:nth-child("+(index+1).toString()+")";
-        var valor = $(this).val().toUpperCase(); /*convertendo o texto para maiúsculo*/
-        $("#tabela tbody tr").show();
-        $(nth).each(function(){
-            if($(this).text().toUpperCase().indexOf(valor) < 0){ 
-                $(this).parent().hide(); /*retorna -1 se o valor informado não existir*/
-            }
-        });
+  
+  function myFunction() {
+    var input, filter, table, tr, td, i, j, accordion;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("tabela");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td");
+      if (td.length) {
+        if (tr[i].classList.contains("tbl-accordion-header")) {
+          accordion = tr[i].nextElementSibling;
+        }
+        var found = false;
+        for (j = 0; j < td.length; j++) {
+          var txtValue = td[j].textContent || td[j].innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            found = true;
+            break;
+          }
+        }
+        if (found) {
+          tr[i].style.display = "";
+          if (accordion) {
+            accordion.style.display = "";
+          }
+        } else {
+          tr[i].style.display = "none";
+          if (accordion) {
+            accordion.style.display = "none";
+          }
+        }
+      }
+    }
+  }
+
+  
+  $(document).ready(function () {
+    $('.tbl-accordion-header').click(function () {
+        $(this).next('.tbl-accordion-body').slideToggle();
     });
-    
-    $("#tabela input").blur(function(){
-        $(this).val("");
-    }); 
 });
+
+function limparFiltro() {
+  // Seleciona a tabela e o input de busca
+  var table = document.getElementById('tabela');
+  var input = document.getElementById('myInput');
+  
+  // Limpa o valor do input
+  input.value = '';
+  
+  // Percorre todas as linhas da tabela
+  for (var i = 1; i < table.rows.length; i++) {
+    var row = table.rows[i];
+    var shouldDisplay = true;
+    
+    // Percorre todas as colunas da linha
+    for (var j = 0; j < row.cells.length; j++) {
+      var cell = row.cells[j];
+      var searchText = input.value.toLowerCase();
+      var cellText = cell.textContent.toLowerCase();
+      
+      // Verifica se a célula contém o texto da busca
+      if (cellText.indexOf(searchText) === -1) {
+        shouldDisplay = false;
+        break;
+      }
+    }
+    
+    // Define a exibição da linha
+    row.style.display = shouldDisplay ? '' : 'none';
+  }
+}
 
 

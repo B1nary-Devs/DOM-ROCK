@@ -30,6 +30,9 @@
     <div>
         <a href="index.html"><img class="return" title="Voltar a Pagina de Planejamento" src="img\voltar.svg"></a>
         <h1 class="titulo">CONSULTA DE PLANEJAMENTOS</h1>
+
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar">
+        <button class="limparFiltro" onclick="limparFiltro()">Limpar </button>
         <!--CRIAÇÃO DA TABELA-->
         <table class="table" id="tabela">
             <thead>
@@ -40,10 +43,7 @@
                     <th scope="col" colspan="3">Produto</th>
                 </tr>
                 <tr>
-                    <!--FILTROS DE PESQUISA-->
-                    <th><input type="text" id="colId" placeholder="Buscar por ID"></th>
-                    <th><input type="text" id="colCliente" placeholder="Buscar por Cliente"></th>
-                    <th colspan="3"><input type="text" id="colProduto" placeholder="Buscar por Produto"></th>
+                   
                 </tr>
             </thead>
             <tbody><!--DEFINICAO DO CORPO DA TABELA PRINCIPAL-->
@@ -135,9 +135,9 @@
             <tr>
                 <!--Primeiro corpo referente aos campos planejamento-->
                 <div class="accordion-content">
-                    <td>1</td>
-                    <td>João</td>
-                    <td colspan="3">Placa de Aço</td>
+                    <td>2</td>
+                    <td>Mario</td>
+                    <td colspan="3">Pacote de Aço</td>
                 </div>
             </tr>
         </thead> <!--ACORDION 1-->
@@ -202,13 +202,6 @@
 </tbody>
     </table>
     </div>
-    <script>
-        $(document).ready(function () {
-            $('.tbl-accordion-header').click(function () {
-                $(this).next('.tbl-accordion-body').slideToggle();
-            });
-        });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>

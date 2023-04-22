@@ -57,6 +57,30 @@ span {
     color: #00B1ED;
 }
 
+
+#myInput {
+    padding: 8px 16px;
+    margin-left: 70%;
+    margin-bottom: 12px;
+    border: 2px solid #000000;
+    border-radius: 40px;
+    font-size: 14px;
+}
+
+table tr:hover {
+    background-color: #adbfffa1;
+}
+
+/* Estilo do botão de limpar filtro */
+.limparFiltro {
+    margin-left: 8px;
+    padding: 2px;
+    background-color: #ddd;
+    border: 2px solid #000000;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 .table{
 	width: 80%;
 	border-collapse: collapse;
@@ -86,11 +110,6 @@ span {
 	font-weight: bold; 
 }
 
-tr:hover{
-    background-color: hsla(226, 81%, 54%, 0.733);
-    color: #ffffff;
-}
-
 .tbl-accordion-header a {
 	color: #000500 !important;
     text-decoration: none;
@@ -100,11 +119,10 @@ tr:hover{
     cursor:pointer;
     display: none;
     flex-wrap: wrap;
-    background-color: hsla(226, 71%, 80%, 0.63);
-    border: 1px solid #33a3e4a1;
+    background-color: #b9dffd;
+    border: 1px solid #74ccffa1;
     border-top: none;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-    
 }
 
 .tbl-accordion-body th {
