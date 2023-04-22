@@ -33,6 +33,7 @@ async function buscarProdutos() {
       console.error(error);
     }
   }
+  
   async function cadastrarPlanejamento1(){
     const selectProdutos = document.getElementById('selectProduto')
     const selectClientes = document.getElementById('selectCliente')
@@ -52,8 +53,6 @@ async function buscarProdutos() {
     }
 
   }
-
-
   
 function cadastrarPlanejamento(callback){
   const selectProdutos = document.getElementById('selectProduto')
@@ -125,35 +124,7 @@ function cadastrarRegistroPlanejamento(planejamentoIdcallBack) {
   });
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
     buscarProdutos();
     buscarCliente();
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	//	$(document).ready(function(){
-			
-		//	var idPlanejamento = sessionStorage.getItem("userNameADM");
-				
-				//if(userName == null){
-				
-			//		window.location.href = '/loginadm.html';
-				
-		//		}
-			
-	//	});
-//sessionStorage.setItem("userNameADM",data[0].userName);
