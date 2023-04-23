@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +19,6 @@
     <link rel="stylesheet" href="estilo.css">
     <script src="scriptgetplan.js"></script>
 </head>
-
 <body class="back-plan">
     <div id="nav">
         <nav>
@@ -37,6 +35,8 @@
     <div>
         <a href="index.html"><img class="return" title="Voltar a Pagina de Planejamento" src="img\voltar.svg"></a>
         <h1 class="titulo">CONSULTA DE PLANEJAMENTOS</h1>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar">
+        <button class="limparFiltro" onclick="limparFiltro()">Limpar </button>
         <!--CRIAÇÃO DA TABELA-->
         <table class="table" id="tabela">
             <thead>
@@ -46,12 +46,6 @@
                     <th scope="col">Cliente</th>
                     <th scope="col" colspan="3">Produto</th>
                 </tr>
-                <tr>
-                    <!--FILTROS DE PESQUISA-->
-                    <th><input type="text" id="colId" placeholder="Buscar por ID"></th>
-                    <th><input type="text" id="colCliente" placeholder="Buscar por Cliente"></th>
-                    <th colspan="3"><input type="text" id="colProduto" placeholder="Buscar por Produto"></th>
-                </tr>
             </thead>
         </table>
     </div>
@@ -59,5 +53,4 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
 </body>
-
 </html>
