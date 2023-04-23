@@ -129,7 +129,7 @@
   
 <br>  
    
-![modelagem-conceitual](https://user-images.githubusercontent.com/101594950/229357694-8bba98b6-9573-4ec1-9c5b-4f8cf4e6a1e4.jpg)
+![bf94e825-d807-4d19-a6f7-6b813e0eb67d](https://user-images.githubusercontent.com/101594950/233869848-ef4b17a6-43d6-4b6f-8b69-bd82b0b69fce.jpg)
  
 </summary>
 
