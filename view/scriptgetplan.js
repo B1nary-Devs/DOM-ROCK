@@ -1,4 +1,4 @@
-async function buscarPlanejamento() {
+async function buscarPlanejamento65464() {
     try {
       const response = await axios.get('http://localhost:8080/vendedor/1');
       const vendedor = response.data;
@@ -150,41 +150,36 @@ async function buscarPlanejamento() {
 
 
 
-//codigo antigo
-  async function buscarPlanejamento213132() {
+//codigo atual
+  async function buscarPlanejamento() {
     try {
-      const response = await axios.get('http://localhost:8080/planejamento');
-      const planejamentos = response.data;
+      const response = await axios.get('http://localhost:8080/vendedor/1');
+      const vendedor = response.data;
   
       const selectPlanejamentos = document.getElementById('tabela');
   
-      planejamentos.forEach(planejamento => {
+      vendedor.planejamentos.forEach(planejamento => {
         const linha = document.createElement('tr');
-        const idPlanejamento = document.createElement ('th')
+        const idPlanejamento = document.createElement ('td')
         idPlanejamento.textContent = planejamento.id
         idPlanejamento.setAttribute('scope', 'row')
         const clientePlanejamento = document.createElement ('td')
-        clientePlanejamento.textContent = planejamento.nomeCliente
+        clientePlanejamento.textContent = planejamento.cliente.nome
         const nomeProdutoPlanejamento = document.createElement ('td')
-        nomeProdutoPlanejamento.textContent = planejamento.nomeProduto
-        const quantidadePlanejamento = document.createElement ('td')
-        quantidadePlanejamento.textContent = planejamento.quantidade
-        const dataPlanejamento = document.createElement ('td')
-        dataPlanejamento.textContent = planejamento.dia
-        const botaoEditar = document.createElement('td')
-        const linkbotao = document.createElement('a')
+        nomeProdutoPlanejamento.textContent = planejamento.produto.nome
+        const colunaBotao = document.createElement('td')
         const botao = document.createElement('button')
         botao.type = 'button'
         botao.classList.add("btn", "btn-outline-dark")
-        botao.textContent = 'Editar'
-        linkbotao.appendChild(botao)
-        botaoEditar.appendChild(linkbotao)
+        botao.textContent = 'Ver Mais'
+        botao.addEventListener('click', () => {
+          window.location.href = `viasualizar_registro.html?id=${planejamento.id}`;
+        });
+        colunaBotao.appendChild(botao)
         linha.appendChild(idPlanejamento)
         linha.appendChild(clientePlanejamento)
         linha.appendChild(nomeProdutoPlanejamento)
-        linha.appendChild(quantidadePlanejamento)
-        linha.appendChild(dataPlanejamento)
-        linha.appendChild(botaoEditar)
+        linha.appendChild(colunaBotao)
         selectPlanejamentos.appendChild(linha)
       });
     } catch (error) {

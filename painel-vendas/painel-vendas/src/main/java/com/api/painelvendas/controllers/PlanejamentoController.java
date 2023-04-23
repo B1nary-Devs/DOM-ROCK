@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "http://127.0.0.1:5500", maxAge = 3600)
 @RequestMapping("/planejamento")
 
 public class PlanejamentoController {
@@ -40,11 +40,13 @@ public class PlanejamentoController {
     }
 
     @GetMapping("/{id}")
+    @CrossOrigin(origins = "*", maxAge = 3600)
     public  ResponseEntity<Object> getOnePlanejamento(@PathVariable(value = "id") Integer id){
         Optional<Planejamento> planejamentoModelOptional = planejamentoService.findById(id);
         if(!planejamentoModelOptional.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Planejamento não encontrado!");
         }
+
         return ResponseEntity.status(HttpStatus.OK).body(planejamentoModelOptional.get());
     }
 

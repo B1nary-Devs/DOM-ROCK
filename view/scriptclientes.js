@@ -78,3 +78,6 @@ async function CarregarCarteiraClientes() {
       row.style.display = shouldDisplay ? '' : 'none';
     }
   }
+  document.addEventListener('DOMContentLoaded', () => {
+    CarregarCarteiraClientes()
+  });
