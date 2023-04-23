@@ -3,7 +3,7 @@ package com.api.painelvendas.controllers;
 import java.util.List;
 import java.util.Optional;
 
-import com.api.painelvendas.dtos.VendedorDto;
+import com.api.painelvendas.dtos.VendedorPostRequestDto;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ import com.api.painelvendas.services.VendedorService;
 import jakarta.validation.Valid;
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "http://127.0.0.1:5500", maxAge = 3600)
 @RequestMapping("/vendedor")
 public class VendedorController {
 
@@ -26,16 +26,11 @@ public class VendedorController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Object> saveVendedor(@RequestBody @Valid VendedorDto vendedorDto) {
-		if (vendedorService.existsByEmailVendedor(vendedorDto.getEmailVendedor())) {
+	public ResponseEntity<Object> saveVendedor(@RequestBody @Valid VendedorPostRequestDto vendedorPostRequestDto) {
+		if (vendedorService.existsByEmailVendedor(vendedorPostRequestDto.getEmail())) {
 			return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Email informado ja em uso!");
 		}
-		if (vendedorService.existsByCpfVendedor(vendedorDto.getCpfVendedor())) {
-			return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: CPF informado ja em uso!");
-		}
-		var vendedorModel = new Vendedor();
-		BeanUtils.copyProperties(vendedorDto, vendedorModel);
-		return ResponseEntity.status(HttpStatus.CREATED).body(vendedorService.save(vendedorModel));
+		return ResponseEntity.status(HttpStatus.CREATED).body(vendedorService.save(vendedorPostRequestDto));
 		}
 
 	@GetMapping
@@ -65,15 +60,13 @@ public class VendedorController {
 
 	@PutMapping("/{id}")
 	public ResponseEntity<Object> updatePlanejamento(@PathVariable(value = "id") Integer id,
-													@RequestBody @Valid VendedorDto vendedorDto){
+													@RequestBody @Valid VendedorPostRequestDto vendedorPostRequestDto){
 		Optional<Vendedor> vendedorModelOptional = vendedorService.findById(id);
 		if (!vendedorModelOptional.isPresent()){
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Vendedor não encontrado!");
 		}
-		var vendedorModel = new Vendedor();
-		BeanUtils.copyProperties(vendedorDto, vendedorModel);
-		vendedorModel.setIdVendedor(vendedorModelOptional.get().getIdVendedor());
-		return ResponseEntity.status(HttpStatus.OK).body(vendedorService.save(vendedorModel));
+		vendedorPostRequestDto.setId(id);
+		return ResponseEntity.status(HttpStatus.OK).body(vendedorService.save(vendedorPostRequestDto));
 	}
 
 	}

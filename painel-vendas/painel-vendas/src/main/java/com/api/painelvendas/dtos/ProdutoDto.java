@@ -1,40 +1,23 @@
 package com.api.painelvendas.dtos;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+@Builder
+@AllArgsConstructor
+@Data
 public class ProdutoDto {
 
+    private Integer id;
     @NotBlank
-    private String nomeProduto;
+    private String nome;
     @NotBlank
-    private String tipoProduto;
-    @NotNull
-    private Double quantidadeProduto;
+    private String tipo;
 
-    public String getNomeProduto() {
-        return nomeProduto;
-    }
 
-    public void setNomeProduto(String nomeProduto) {
-        this.nomeProduto = nomeProduto;
-    }
-
-    public String getTipoProduto() {
-        return tipoProduto;
-    }
-
-    public void setTipoProduto(String tipoProduto) {
-        this.tipoProduto = tipoProduto;
-    }
-
-    public Double getQuantidadeProduto() {
-        return quantidadeProduto;
-    }
-
-    public void setQuantidadeProduto(Double quantidadeProduto) {
-        this.quantidadeProduto = quantidadeProduto;
-    }
 }
 

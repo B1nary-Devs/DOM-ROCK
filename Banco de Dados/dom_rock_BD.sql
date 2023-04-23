@@ -1,56 +1,76 @@
-create database dom_rock;
-
-use dom_rock;
+CREATE DATABASE dom_rock;
 
 CREATE TABLE vendedor(
-id_vendedor INT AUTO_INCREMENT PRIMARY KEY,
-nome_vendedor VARCHAR(50),
-email_vendedor VARCHAR(50) UNIQUE,
-cpf_vendedor VARCHAR(14) UNIQUE,
-senha_vendedor VARCHAR(250),
-nivel_acesso VARCHAR(15)NOT NULL);
+id INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(50),
+email VARCHAR(50) UNIQUE,
+nivelAcesso VARCHAR(15) NOT NULL,
+senha VARCHAR(250)NOT NULL);
+
 
 CREATE TABLE cliente(
 id INT AUTO_INCREMENT PRIMARY KEY,
-cpf VARCHAR(14) NOT NULL UNIQUE,
 email VARCHAR(50) NOT NULL UNIQUE,
 nome VARCHAR(70) NOT NULL,
 id_vendedor INT,
-foreign key(id_vendedor) references vendedor(id_vendedor));
+FOREIGN KEY(id_vendedor) REFERENCES vendedor(id));
 
 CREATE TABLE produto(
-id_produto INT AUTO_INCREMENT PRIMARY KEY,
-nome_produto VARCHAR(60)NOT NULL,
-tipo_produto VARCHAR(15) NOT NULL,
-quantidade_produto NUMERIC(7,2) NOT NULL);
+id INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(60)NOT NULL,
+tipo VARCHAR(15) NOT NULL);
 
 
 CREATE TABLE planejamento(
 id INT AUTO_INCREMENT PRIMARY KEY,
-quantidade NUMERIC(7,2) NOT NULL,
 dia VARCHAR(10) NOT NULL,
 id_vendedor INT,
 id_produto INT,
 id_cliente INT,
-foreign key(id_vendedor) references vendedor(id_vendedor),
-foreign key(id_produto) references produto(id_produto),
-foreign key(id_cliente) references cliente(id));
+FOREIGN KEY(id_vendedor) REFERENCES vendedor(id),
+FOREIGN KEY(id_produto) REFERENCES produto(id),
+FOREIGN KEY(id_cliente) REFERENCES cliente(id));
+
+CREATE TABLE historico(
+id INT AUTO_INCREMENT PRIMARY KEY,
+faturamentoReal VARCHAR(30) NOT NULL,
+id_vendedor INT,
+FOREIGN KEY(id_vendedor) REFERENCES vendedor(id));
+
+CREATE TABLE registro_planejamento(
+id INT AUTO_INCREMENT PRIMARY KEY,
+quantidade DOUBLE NOT NULL,
+diaRegistro VARCHAR(11),
+mesPlanejamento VARCHAR(11),
+id_planejamento INT,
+FOREIGN KEY(id_planejamento) REFERENCES planejamento(id));
+
+/*PRODUTOS*/
+insert into produto(id, nome, tipo) values (1, 'chapa de aço', 'unidade');
+insert into produto(id, nome, tipo) values (2, 'fio de aço', 'metros');
+insert into produto(id, nome, tipo) values (3, 'barra de aço', 'unidade');
+insert into produto(id, nome, tipo) values (4, 'malha de aço', 'unidade');
+
+/*VENDEDORES*/
+insert into vendedor(id, email, nivel_acesso, nome, senha) values (1, 'carlos@gmail.com', 'vendedor', 'carlos', '12345');
+insert into vendedor(id, email, nivel_acesso, nome, senha) values (2, 'wallace@gmail.com', 'vendedor', 'wallace', '54321');
+insert into vendedor(id, email, nivel_acesso, nome, senha) values (3, 'larissa@gmail.com', 'vendedor', 'larissa', '223344');
+insert into vendedor(id, email, nivel_acesso, nome, senha) values (4, 'davi@gmail.com', 'vendedor', 'davi', '55566777');
+insert into vendedor(id, email, nivel_acesso, nome, senha) values (5, 'marcelo@gmail.com', 'vendedor', 'marcelo', '7778899');
+
+/*CLIENTES*/
+insert into cliente(id, email, nome, fk_id_vendedor) values (1, 'brasileng@gmail.com', 'mais brasil engenharia', 1);
+insert into cliente(id, email, nome, fk_id_vendedor) values (2, 'silvaemelo@gmail.com', 'silva e melo', 1);
+insert into cliente(id, email, nome, fk_id_vendedor) values (3, 'toniato@gmail.com', 'toniato industrial', 1);
+insert into cliente(id, email, nome, fk_id_vendedor) values (4, 'sayder@gmail.com', 'sayder produtos', 2);
+
+/*PLANEJAMENTOS*/
+insert into planejamento(id, fk_id_cliente, fk_id_produto, fk_id_vendedor) values (2, 1, 1, 1);
+insert into planejamento(id, fk_id_cliente, fk_id_produto, fk_id_vendedor) values (3, 3, 2, 3);
+insert into planejamento(id, fk_id_cliente, fk_id_produto, fk_id_vendedor) values (4, 1, 1, 1);
+insert into planejamento(id, fk_id_cliente, fk_id_produto, fk_id_vendedor) values (5, 2, 2, 2);
 
 
 
-insert into vendedor(id_vendedor, nome_vendedor, email_vendedor, cpf_vendedor, senha_vendedor, nivel_acesso) values (1, 'Wallace','wallace@domrock.com', '858.444.999-00', 'bolinho123', 'vendedor');
-insert into vendedor(id_vendedor, nome_vendedor, email_vendedor, cpf_vendedor, senha_vendedor, nivel_acesso) values (2, 'Carlos','carlos@domrock.com', '818.454.525-52', 'fuba123', 'vendedor');
-insert into vendedor(id_vendedor, nome_vendedor, email_vendedor, cpf_vendedor, senha_vendedor, nivel_acesso) values (3, 'Larissa','larissa@domrock.com', '258.354.419-90', 'pamonha123', 'vendedor');
-
-insert into cliente(id, cpf, email, id_vendedor, nome) values (1 ,'444.123.666-77', 'David@gmail.com', 1, 'David');
-insert into cliente(id, cpf, email, id_vendedor, nome) values (2 ,'888.777.666-88', 'Ruan@gmail.com', 2, 'Ruan');
-insert into cliente(id, cpf, email, id_vendedor, nome) values (3 ,'111.999.888-55', 'Marcos@gmail.com', 3, 'Marcos');
-
-insert into produto(id_produto, nome_produto, tipo_produto, quantidade_produto) values (1, 'Chapa de aço','unidade', 500.00);
-insert into produto(id_produto, nome_produto, tipo_produto, quantidade_produto) values (2, 'Barra de aço','unidade', 700.00);
-insert into produto(id_produto, nome_produto, tipo_produto, quantidade_produto) values (3, 'Fio de aço','metro', 10.00);
 
 
-insert into planejamento(id, quantidade, dia, id_vendedor, id_produto, id_cliente) values (1, '50.00','10/06/2023', 1, 1, 1);
-insert into planejamento(id, quantidade, dia, id_vendedor, id_produto, id_cliente) values (2, '99.00','20/06/2023', 2, 2, 2);
-insert into planejamento(id, quantidade, dia, id_vendedor, id_produto, id_cliente) values (3, '100.00','30/07/2023', 3, 3, 3);

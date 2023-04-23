@@ -1,13 +1,17 @@
 package com.api.painelvendas.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
-@Table (name = "Planejamento")
+@Table (name = "planejamento")
 @Builder
 @Data
 @AllArgsConstructor
@@ -16,19 +20,18 @@ public class Planejamento{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(nullable = false, length = 50)
-    private Double quantidade;
-    @Column(nullable = false,length = 11)
-    private String dia;
-
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_vendedor", nullable = false)
+    @JoinColumn(name = "fk_id_vendedor", nullable = false)
+    @JsonBackReference
     private Vendedor vendedor;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_produto", nullable = false)
+    @JoinColumn(name = "fk_id_produto", nullable = false)
     private Produto produto;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_cliente", nullable = false)
+    @JoinColumn(name = "fk_id_cliente", nullable = false)
     private Cliente cliente;
-
+    @OneToMany(mappedBy = "planejamento", cascade = CascadeType.ALL, fetch = FetchType.LAZY,
+            orphanRemoval = true)
+    @JsonManagedReference
+    private List<RegistroPlanejamento> registros;
 }

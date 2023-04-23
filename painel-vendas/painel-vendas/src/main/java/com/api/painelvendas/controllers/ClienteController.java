@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "http://127.0.0.1:5500", maxAge = 3600)
 @RequestMapping("/cliente")
 public class ClienteController {
 
@@ -23,12 +23,9 @@ public class ClienteController {
     public ClienteController(ClienteService clienteService) {
         this.clienteService = clienteService;
     }
-
     @PostMapping
     public ResponseEntity<Object> saveCliente(@RequestBody @Valid ClienteDto clienteDto) {
-        var cliente = new Cliente();
-        BeanUtils.copyProperties(clienteDto, cliente);
-        return ResponseEntity.status(HttpStatus.CREATED).body(clienteService.save(cliente));
+        return ResponseEntity.status(HttpStatus.CREATED).body(clienteService.save(clienteDto));
     }
 
     @GetMapping
@@ -61,9 +58,7 @@ public class ClienteController {
         Optional<Cliente> clienteModelOptional = clienteService.findById(id);
         if (!clienteModelOptional.isPresent())
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cliente não encontrado!");
-            var cliente = new Cliente();
-            BeanUtils.copyProperties(clienteDto, cliente);
-            cliente.setId(clienteModelOptional.get().getId());
-            return ResponseEntity.status(HttpStatus.OK).body(clienteService.save(cliente));
+        clienteDto.setId(id);
+        return ResponseEntity.status(HttpStatus.OK).body(clienteService.save(clienteDto));
         }
     }

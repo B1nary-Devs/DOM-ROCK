@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "http://127.0.0.1:5500", maxAge = 3600)
 @RequestMapping("/planejamento")
 
 public class PlanejamentoController {
@@ -34,18 +34,19 @@ public class PlanejamentoController {
 
     @GetMapping
     public ResponseEntity<List<PlanejamentoGetResquetDto>> getAllPlanejamento(){
-
         return ResponseEntity.status(HttpStatus.OK).body(
                 planejamentoConverter.convert(planejamentoService.findAll())
         );
     }
 
     @GetMapping("/{id}")
+    @CrossOrigin(origins = "*", maxAge = 3600)
     public  ResponseEntity<Object> getOnePlanejamento(@PathVariable(value = "id") Integer id){
         Optional<Planejamento> planejamentoModelOptional = planejamentoService.findById(id);
         if(!planejamentoModelOptional.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Planejamento não encontrado!");
         }
+
         return ResponseEntity.status(HttpStatus.OK).body(planejamentoModelOptional.get());
     }
 
@@ -57,20 +58,19 @@ public class PlanejamentoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Planejamento não encontrado!");
         }
         planejamentoService.delete(planejamentoModelOptional.get());
-        return ResponseEntity.status(HttpStatus.OK).body("Vendedor deletado com sucesso!");
+        return ResponseEntity.status(HttpStatus.OK).body("Planejamento deletado com sucesso!");
     }
 
 
     @PutMapping("/{id}")
     public ResponseEntity<Object> updatearkingSpot(@PathVariable(value = "id") Integer id,
-                                                    @RequestBody @Valid PlanejamentoPostRequestDto planejamentoDto){
+                                                    @RequestBody @Valid PlanejamentoPostRequestDto planejamentoPostRequestDto){
         Optional<Planejamento> planejamentoModelOptional = planejamentoService.findById(id);
         if(!planejamentoModelOptional.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Planejamento não encontrado!");
         }
-
-        planejamentoDto.setId(id);
-        return ResponseEntity.status(HttpStatus.OK).body(planejamentoService.save(planejamentoDto));
+        planejamentoPostRequestDto.setId(id);
+        return ResponseEntity.status(HttpStatus.OK).body(planejamentoService.save(planejamentoPostRequestDto));
     }
 }
 

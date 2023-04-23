@@ -10,7 +10,7 @@
 <summary> VISUALIZAR BACKLOG  </summary>
   
 ## <a name="Backlog-da-Sprint"><a/>
-![backlog-sprint](https://user-images.githubusercontent.com/101421659/229316558-6194b73c-19df-44ed-8ab8-5ef61085f270.PNG)
+![Backlog-sprint-1](https://user-images.githubusercontent.com/101421659/232328443-5b4fd28b-4891-4213-a69d-3b69109c57b0.PNG)
 
 </summary>
 
@@ -45,7 +45,12 @@
 
 <br>
 
-![BB](https://user-images.githubusercontent.com/101594950/229371585-5f445080-fad1-4a4e-8301-d6055a6830ac.png)
+![burn](https://user-images.githubusercontent.com/101594950/229367379-16e6a552-1101-4862-ac85-97b1774c8742.png)
+
 --------------------------
 
+
 ### [![20](https://user-images.githubusercontent.com/101594950/229367851-50797be8-774c-41d3-854d-09c0706bfc7c.jpg)](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/tree/main/2%20SPRINT)
+
+
+-------------

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style_login.css" rel="stylesheet">
+    <title>Dom Planning</title>
+</head>
+<body>
+    <article>
+        <img src="img/login.png">
+    </article>
+    <aside>
+        <h1>LOGIN</h1>
+        <form action="clientes.html" method="POST">
+            <div class="titulo"><h2>Usuário</h2></div>
+            <div class="input-box">
+                <label>
+                    <input type="text">
+                </label>
+            </div>
+            <div type="titulo"><h2>Senha</h2></div>
+            <div class="input-box">
+                <input type="password" name="senha"></input>
+                <a href="clientes.html"><input type="submit" value="ENTRAR"></input></a>
+            </div>
+        </form>
+        <p>Não possui login? <a href="#">Efetue o cadastro </a></p>
+    </aside>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault(); // impede que o formulário seja enviado antes do redirecionamento
+        window.location.href = 'clientes.html'; // redireciona o usuário para a página "clientes.html"
+  });
+    </script>
+</body>
+</html>

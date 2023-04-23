@@ -19,7 +19,6 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class PlanejamentoService {
-
     private final PlanejamentoRepository planejamentoRepository;
     private final ProdutoRepository produtoRepository;
     private final ClienteRepository clienteRepository;
@@ -27,16 +26,14 @@ public class PlanejamentoService {
 
     @Transactional
     public Planejamento save(PlanejamentoPostRequestDto planejamentoDto) {
-        Optional<Produto> produtoModel = produtoRepository.findById(planejamentoDto.getIdProduto());
+        Optional<Produto> produto = produtoRepository.findById(planejamentoDto.getIdProduto());
         Optional<Cliente> cliente = clienteRepository.findById(planejamentoDto.getIdCliente());
-        Optional<Vendedor> vendedorModel = vendedorRepository.findById(planejamentoDto.getIdVendedor());
+        Optional<Vendedor> vendedor = vendedorRepository.findById(planejamentoDto.getIdVendedor());
         Planejamento planejamento = Planejamento.builder()
                 .id(planejamentoDto.getId())
-                .dia(planejamentoDto.getDia())
-                .quantidade(planejamentoDto.getQuantidade())
-                .produto(produtoModel.orElse(null))
+                .produto(produto.orElse(null))
                 .cliente(cliente.orElse(null))
-                .vendedor(vendedorModel.orElse(null))
+                .vendedor(vendedor.orElse(null))
                 .build();
         return planejamentoRepository.save(planejamento);
 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Planning</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script> 
+    <script type="text/javascript" src="script3.js"></script> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&family=Inter:wght@300&family=Mulish:wght@500&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="clientes.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="scriptclientes.js"></script>
+</head>
+<body>
+  <div id="nav">
+    <nav>
+      <a href="#" id="principal">ROC<span>K</span> PLANNING</a>
+      <a href="#">Início</a>
+      <a href="clientes.html" id="here">Clientes</a>
+      <a href="index.html">Planejamento</a>
+      <a href="visualizar_plan.html">Consulta de Planejamentos</a>
+      <a href="gerenciamento_vendas.html">Gerenciamento</a>
+      <a href="#">Dashboard</a>
+      <a href="login.html">Sair</a>
+    </nav>
+  </div>
+  <div>
+    <a href="#"><img class="return" title="Voltar a Pagina de Planejamento" src="img\voltar.svg"></a>
+    <h1 class="titulo">CARTEIRA DE CLIENTES</h1>
+
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar" title="Type in a name">
+    <button class="limparFiltro" onclick="limparFiltro()">Limpar </button>
+    <table class="table" id="tabelaClientes">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Email</th>
+            </tr> 
+        </thead>
+    </table>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    </div>
+</body>
+</html>

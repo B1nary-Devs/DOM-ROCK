@@ -4,76 +4,90 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dom Planning</title>
+    <title>Rock Planning</title>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <script src="js/jquery-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&family=Inter:wght@300&family=Mulish:wght@500&family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilo.css">
-    <script src="script1.js"></script>
 </head>
 <body id="bo">
-    <nav class="navbar navbar-expand-lg" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; background-color: #072997">
-        <div class="container-fluid">
-          <a class="navbar-brand text-white" href="#">DOM PLANNING</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-              <li class="nav-item">
-                <a class="nav-link active text-white" aria-current="page" href="#">Início</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="#">Clientes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="index.html">Planejamento</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="visualizar_plan.html">Consulta de Planejamentos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="#">Dashboard</a>
-              </li>
-            </ul>
+  <div id="nav">
+    <nav>
+      <a href="#" id="principal">ROC<span class="letra">K</span> PLANNING</a>
+      <a href="#">Início</a>
+      <a href="clientes.html">Clientes</a>
+      <a href="index.html" id="here">Planejamento</a>
+      <a href="visualizar_plan.html">Consulta de Planejamentos</a>
+      <a href="gerenciamento_vendas.html">Gerenciamento</a>
+      <a href="#">Dashboard</a>
+      <a href="login.html">Sair</a>
+    </nav>
+  </div>
+    <div class="container">
+      <form action="" method="post" class="form">
+        <div class="form-header">
+          <h1 class="titulo">PLANEJAMENTO DE VENDAS</h1>
+        </div>
+
+        <div class="input-group" id="grupo1">
+          <div class="input-box">
+            <label for="txtproduto">Produto:</label><br>
+            <select id="selectProduto" class="input-large form-select">
+              <option value=""></option>
+          </select><br>
+          </div>
+
+          <div class="input-box">
+            <label for="txtcliente">Cliente:</label><br>
+            <select id="selectCliente" class="input-large form-select">
+              <option value=""></option>
+            </select><br>
+          </div>
+
+          <div class="input-box">
+            <label for="txtquantidade">Quantidade:</label><br>
+            <input class="form-control" type="number" name="txtquantidade" id="txtquantidade" placeholder="Quantidade de venda planejada"><br>
+          </div>
+
+          <div class="input-box">
+            <label for="txtdata">Data:</label><br>
+            <input class="form-control" type="month" id="txtdata" name="txtdata" min="2023-05" max="2023-8"><br>
           </div>
         </div>
-      </nav>
 
-  <div class="container">
-        <form action="" method="post" class="form">
-
-          <div class="form-header">
-            <div class="title">
-                <h3>Planejamento de Vendas</h3>
-            </div>
+        <div class="input-group" id="plan-completo">
+          <div class="input-box">
+            <label for="txtquantidade2">Quantidade:</label><br>
+            <input class="form-control" type="number" name="txtquantidade2" id="txtquantidade2" placeholder="Quantidade de venda planejada"><br>
           </div>
-            <div class="input-group">
-                <div class="input-box">
-                  <label for="txtproduto">Produto:</label><br>
-                  <select id="selectProduto" class="input-large form-control">
-                </select><br>
-                </div>
-                <div class="input-box">
-                  <label for="txtcliente">Cliente:</label><br>
-                  <select id="selectCliente" class="input-large form-control">
-                  </select><br>
-                </div>
 
-                <div class="input-box">
-                  <label for="txtquantidade">Quantidade:</label><br>
-                  <input class="form-control" type="number" name="txtquantidade" id="txtquantidade" placeholder="Quantidade de venda planejada"><br>
-                </div>
+          <div class="input-box">
+            <label for="txtdata2">Data:</label><br>
+            <input class="form-control" type="month" id="txtdata2" name="txtdata2" min="2023-05" max="2023-8"><br>
+          </div>
+        
+          <div class="input-box">
+            <label for="txtquantidade3">Quantidade:</label><br>
+            <input class="form-control" type="number" name="txtquantidade3" id="txtquantidade3" placeholder="Quantidade de venda planejada"><br>
+          </div>
 
-                <div class="input-box">
-                  <label for="txtdata">Data:</label><br>
-                  <input class="form-control" type="date" name="txtdata" id="txtdata" placeholder="Quantidade de venda planejada"><br>
-                </div>
-            </div>
-            <div class="buttons">
-              <button  value="Cadastrar" onclick="cadastrarPlanejamento()" type="button" class="btn btn-outline-primary">Cadastrar</button>
-            </div>
-        </form>
-      </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+          <div class="input-box">
+            <label for="txtdata3">Data:</label><br>
+            <input class="form-control"  type="month" id="txtdata3" name="txtdata3" min="2023-05" max="2023-8"><br>
+          </div>
+        </div>
+        
+        <div class="buttons">
+          <button  value="Cadastrar" onclick="cadastrarPlanejamento(cadastrarRegistroPlanejamento)" type="button" class="btn btn-outline-primary">Cadastrar</button>
+        </div>
+      </form>
+    </div>
+    <script src="scriptcadastroplan.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
+  </script>
 </body>
 </html>

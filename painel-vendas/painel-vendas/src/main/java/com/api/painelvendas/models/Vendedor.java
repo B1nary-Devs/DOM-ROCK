@@ -1,30 +1,40 @@
 package com.api.painelvendas.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Table(name = "vendedor")
+@Builder
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Vendedor {
-	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer idVendedor;
+    private Integer id;
     @Column(nullable = false, length = 50)
-	private String nomeVendedor;
+	private String nome;
     @Column(nullable = false,unique = true, length = 50)
-    private String emailVendedor;
-	@Column(nullable = false,unique = true, length = 14)
-	private String cpfVendedor;
+    private String email;
     @Column(nullable = false,length = 250)
-    private String senhaVendedor;
+    private String senha;
     @Column(nullable = false,length = 15)
     private String nivelAcesso;
+    @OneToMany(mappedBy = "vendedor", cascade = CascadeType.ALL, fetch = FetchType.LAZY,
+    orphanRemoval = true)
+    @JsonManagedReference
+    private List<Cliente> clientes;
+
+    @OneToMany(mappedBy = "vendedor", cascade = CascadeType.ALL, fetch = FetchType.LAZY,
+            orphanRemoval = true)
+    @JsonManagedReference
+    private List<Planejamento> planejamentos;
 
 }

@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "http://127.0.0.1:5500", maxAge = 3600)
 @RequestMapping("/produto")
 public class ProdutoController {
 
@@ -28,9 +28,7 @@ public class ProdutoController {
 
     @PostMapping
     public ResponseEntity<Object> saveProduto(@RequestBody @Valid ProdutoDto produtoDto) {
-        var produtoModel = new Produto();
-        BeanUtils.copyProperties(produtoDto, produtoModel);
-        return ResponseEntity.status(HttpStatus.CREATED).body(produtoService.save(produtoModel));
+        return ResponseEntity.status(HttpStatus.CREATED).body(produtoService.save(produtoDto));
     }
 
     @GetMapping
@@ -64,10 +62,8 @@ public class ProdutoController {
         if (!produtoModelOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado!");
         }
-        var produtoModel = new Produto();
-        BeanUtils.copyProperties(produtoDto, produtoModel);
-        produtoModel.setIdProduto(produtoModelOptional.get().getIdProduto());
-        return ResponseEntity.status(HttpStatus.OK).body(produtoService.save(produtoModel));
+        produtoDto.setId(id);
+        return ResponseEntity.status(HttpStatus.OK).body(produtoService.save(produtoDto));
     }
 
 
