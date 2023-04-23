@@ -96,24 +96,6 @@
 
 <div align="center">
 
-![1º SPRINT - 2908 á 1809 (4)](https://user-images.githubusercontent.com/101594950/229359124-878f9576-4f6f-4457-aa4e-0a1c956bad8c.jpg)
-
-<details>
-
-<summary> VISUALIZAR BPMN  </summary>
-  
-![WhatsApp Image 2023-03-31 at 21 19 58](https://user-images.githubusercontent.com/101594950/229359269-e0439790-91ee-4aa7-ae2e-4b5259f08658.jpeg)
-
-</summary>
-
-</details>
-
-</div>
-
---------------------------
-
-<div align="center">
-
 #### <a name="Tecnologias"><a/>![Tecnologias](https://user-images.githubusercontent.com/101594950/227819513-3f639e7a-7a90-4c1d-a6ab-48c053836922.jpg)  
 
 <details>
