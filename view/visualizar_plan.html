@@ -35,8 +35,10 @@
     <div>
         <a href="index.html"><img class="return" title="Voltar a Pagina de Planejamento" src="img\voltar.svg"></a>
         <h1 class="titulo">CONSULTA DE PLANEJAMENTOS</h1>
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar">
-        <button class="limparFiltro" onclick="limparFiltro()">Limpar </button>
+        <div class="filtros">
+            <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Buscar">
+            <button class="btn btn-outline-primary" onclick="limparFiltro()">Limpar </button>
+        </div>
         <!--CRIAÇÃO DA TABELA-->
         <table class="table" id="tabela">
             <thead>
