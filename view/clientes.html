@@ -11,29 +11,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&family=Inter:wght@300&family=Mulish:wght@500&family=Roboto:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="clientes.css">
+    <link rel="stylesheet" href="css/clientes.css">
+
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <script src="scriptclientes.js"></script>
+    <script src="javascript/scriptclientes.js"></script>
 </head>
 <body>
   <div id="nav">
     <nav>
-      <a href="#" id="principal">ROC<span>K</span> PLANNING</a>
-      <a href="#">Início</a>
-      <a href="clientes.html" id="here">Clientes</a>
-      <a href="index.html">Planejamento</a>
-      <a href="visualizar_plan.html">Consulta de Planejamentos</a>
-      <a href="gerenciamento_vendas.html">Gerenciamento</a>
-      <a href="#">Dashboard</a>
-      <a href="login.html">Sair</a>
+        <a href="#" id="principal">ROC<span class="letra">K</span> PLANNING</a>
+        <a href="#">Início</a>
+        <a href="clientes.html" id="here">Clientes</a>
+        <a href="index.html">Planejamento</a>
+        <a href="visualizar_plan.html">Gerenciamento</a>
+        <a href="#">Dashboard</a>
+        <a href="login.html">Sair</a>
     </nav>
   </div>
   <div>
     <a href="#"><img class="return" title="Voltar a Pagina de Planejamento" src="img\voltar.svg"></a>
     <h1 class="titulo">CARTEIRA DE CLIENTES</h1>
 
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar" title="Type in a name">
-    <button class="limparFiltro" onclick="limparFiltro()">Limpar </button>
+    <div class="filtros">
+        <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Buscar">
+        <button class="btn btn-outline-primary" onclick="limparFiltro()">Limpar </button>
+    </div>
+
     <table class="table" id="tabelaClientes">
         <thead>
             <tr>
