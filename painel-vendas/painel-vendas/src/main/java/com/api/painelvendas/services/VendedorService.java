@@ -45,10 +45,17 @@ public class VendedorService {
 
 		return vendedorRepository.findById(id);
 	}
+	public boolean existsBySenhaVendedor(String senha) {
+		return vendedorRepository.existsBySenha(senha);
+	}
+
 
 	@Transactional
 	public void delete(Vendedor vendedor) {
 		vendedorRepository.delete(vendedor);
 	}
 
+	public Integer findByEmailAndSenha(String email, String senha) {
+		return vendedorRepository.findByEmailAndSenha(email, senha).getId();
+	}
 }

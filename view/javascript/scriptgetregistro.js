@@ -25,9 +25,9 @@ async function buscarRegistros() {
             botao.type = 'button'
             botao.classList.add("btn", "btn-outline-dark")
             botao.textContent = 'Editar'
-            //botao.addEventListener('click', () => {
-            //  window.location.href = `teste.html?id=${planejamento.id}`;
-            //});
+            botao.addEventListener('click', () => {
+                window.location.href = `edit_plan.html?id=${planejamento.id}`;
+            });
             colunaBotao.appendChild(botao)
             linhaRegistro.appendChild(idRegistro)
             linhaRegistro.appendChild(mesRegistro)

@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/style_login.css" rel="stylesheet">
+    <script src="scriptlogin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <title>Dom Planning</title>
 </head>
 <body>
@@ -17,13 +19,13 @@
             <div class="titulo"><h2>Usuário</h2></div>
             <div class="input-box">
                 <label>
-                    <input type="text">
+                    <input type="text" id="txtemail">
                 </label>
             </div>
             <div type="titulo"><h2>Senha</h2></div>
             <div class="input-box">
-                <input type="password" name="senha"></input>
-                <a href="clientes.html"><input type="submit" value="ENTRAR"></input></a>
+                <input type="password" name="senha" id="txtsenha"></input>
+                <input type="button" value="ENTRAR" onclick="login()"></input>
             </div>
         </form>
         <p>Não possui login? <a href="#">Efetue o cadastro </a></p>
