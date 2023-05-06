@@ -7,9 +7,10 @@ function login() {
         senha: password
     })
     .then(function (response) {
+        console.log(response)
         console.log('Login successful');
         const userId = response.data.id;
-        window.location.href = `clientes.html?id=${userId}`
+        console.log(userId)
     })
     .catch(function (error) {
         console.log('Login failed');
