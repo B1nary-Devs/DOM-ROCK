@@ -88,8 +88,8 @@ function validaCampos() {
 
 
 function cadastrarPlanejamento(callback) {
-  
-  if(validaCampos()){
+
+  if (validaCampos()) {
     const selectProdutos = document.getElementById('selectProduto')
     const selectClientes = document.getElementById('selectCliente')
     axios.post('http://localhost:8080/planejamento', {
@@ -106,9 +106,9 @@ function cadastrarPlanejamento(callback) {
       .catch(error => {
         console.log(`Erro cadastro Planejamento: ${error}`)
       });
-    }else{
-        return false
-      }
+  } else {
+    return false
+  }
 }
 
 function cadastrarRegistroPlanejamento(planejamentoIdcallBack) {
@@ -119,8 +119,18 @@ function cadastrarRegistroPlanejamento(planejamentoIdcallBack) {
   const selectMes2 = document.getElementById('txtdata2');
   const selectQuantidade3 = document.getElementById('txtquantidade3');
   const selectMes3 = document.getElementById('txtdata3');
+
+  const hoje = new Date();
+  const ano = hoje.getFullYear();
+  const mes = (hoje.getMonth() + 1).toString().padStart(2, '0');
+  const dia = hoje.getDate().toString().padStart(2, '0');
+
+  const dataAtual = `${ano}-${mes}-${dia}`;
+  console.log(dataAtual)
+
   // criar objeto 1 usando planejamentoId
   axios.post('http://localhost:8080/registro_planejamento', {
+    diaRegistro: dataAtual,
     quantidade: selectQuantidade.value,
     mesPlanejamento: selectMes.value,
     idPlanejamento: planejamentoIdcallBack
@@ -135,6 +145,7 @@ function cadastrarRegistroPlanejamento(planejamentoIdcallBack) {
 
   // criar objeto 2 usando planejamentoId
   axios.post('http://localhost:8080/registro_planejamento', {
+    diaRegistro: dataAtual,
     quantidade: selectQuantidade2.value,
     mesPlanejamento: selectMes2.value,
     idPlanejamento: planejamentoIdcallBack
@@ -149,6 +160,7 @@ function cadastrarRegistroPlanejamento(planejamentoIdcallBack) {
 
   // criar objeto 3 usando planejamentoId
   axios.post('http://localhost:8080/registro_planejamento', {
+    diaRegistro: dataAtual,
     quantidade: selectQuantidade3.value,
     mesPlanejamento: selectMes3.value,
     idPlanejamento: planejamentoIdcallBack

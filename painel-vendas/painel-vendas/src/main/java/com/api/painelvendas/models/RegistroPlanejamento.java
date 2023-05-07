@@ -21,9 +21,9 @@ public class RegistroPlanejamento {
     private Integer id;
     @Column(nullable = false, length = 50)
     private Double quantidade;
-    @Column(nullable = false,length = 11)
-    private Date diaRegisto;
-    @Column(nullable = false,length = 50)
+    @Column(nullable = false)
+    private Date diaRegistro;
+    @Column(nullable = false)
     private String mesPlanejamento;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_id_planejamento", nullable = false)

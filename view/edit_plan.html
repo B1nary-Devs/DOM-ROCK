@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&family=Inter:wght@300&family=Mulish:wght@500&family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/edit.css">
-    <script src=""></script>
+    <script src="scriptedit_registro.js"></script>
 </head>
 <body id="bo">
     <div id="nav">
@@ -53,12 +53,12 @@
                 </div>
             </div>
             <div class="buttons">
-                <button value="Cadastrar" onclick="cadastrarPlanejamento()" type="button" class="btn btn-outline-primary">Cadastrar</button>
+                <button value="Cadastrar" onclick="editarRegistroPlanejamento()" type="button" class="btn btn-outline-primary">Cadastrar</button>
             </div>
         </form>
     </div>
     <script>
-        // Obtém a data atual
+        // Obtém a data atual ensinar o walace a fazer isso no scrpit e por para carregar
         var now = new Date();
 
         // Define a data mínima para os inputs de mês (três meses a partir do mês atual)

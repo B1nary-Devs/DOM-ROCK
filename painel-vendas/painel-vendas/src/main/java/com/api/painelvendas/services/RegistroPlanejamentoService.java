@@ -18,13 +18,13 @@ public class RegistroPlanejamentoService {
     private final PlanejamentoRepository planejamentoRepository;
     @Transactional
     public RegistroPlanejamento save(RegistroPlanejamentoPostRequestDto registroPlanejamentoPostRequestDto) {
-        LocalDate dataAtual = LocalDate.now();
-        Date dataSqlAtual = Date.valueOf(dataAtual);
+        //LocalDate dataAtual = LocalDate.now();
+        //Date dataSqlAtual = Date.valueOf(dataAtual);
         Optional<Planejamento> planejamento = planejamentoRepository.findById(registroPlanejamentoPostRequestDto.getIdPlanejamento());
         RegistroPlanejamento registroPlanejamento = RegistroPlanejamento.builder()
                 .id(registroPlanejamentoPostRequestDto.getId())
                 .quantidade(registroPlanejamentoPostRequestDto.getQuantidade())
-                .diaRegisto(dataSqlAtual)
+                .diaRegistro(registroPlanejamentoPostRequestDto.getDiaRegistro())
                 .mesPlanejamento(registroPlanejamentoPostRequestDto.getMesPlanejamento())
                 .planejamento(planejamento.orElse(null))
                 .build();

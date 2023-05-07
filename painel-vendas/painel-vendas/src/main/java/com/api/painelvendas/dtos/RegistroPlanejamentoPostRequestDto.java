@@ -16,7 +16,7 @@ public class RegistroPlanejamentoPostRequestDto {
     private Integer id;
     @NotNull
     private Double quantidade;
-    private Date diaRegisto;
+    private Date diaRegistro;
     @NotBlank
     private String mesPlanejamento;
     @NotNull

@@ -1,4 +1,4 @@
-//codigo atual
+
 async function buscarPlanejamento() {
   try {
     const response = await axios.get('http://localhost:8080/vendedor/1');

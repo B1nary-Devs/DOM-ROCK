@@ -112,21 +112,28 @@ function cadastrarPlanejamento(callback) {
     }
 }
 
-function cadastrarRegistroPlanejamento() {
-
+function editarRegistroPlanejamento() {
     const selectQuantidade = document.getElementById('txtquantidade');
     const selectMes = document.getElementById('txtdata');
-    // criar objeto 1 usando planejamentoId
-    axios.post('http://localhost:8080/registro_planejamento', {
+
+    const params = new URLSearchParams(window.location.search);
+    const idRegistro = params.get('id');
+    const idPlanejamento = params.get('idPlanejamento')
+    const diaRegistro = params.get('diaRegistro')
+
+
+    axios.put(`http://localhost:8080/registro_planejamento/${idRegistro}`, {
         quantidade: selectQuantidade.value,
         mesPlanejamento: selectMes.value,
-        idPlanejamento: planejamentoIdcallBack
-        // outros dados do objeto 1
+        id: idRegistro,
+        diaRegistro: diaRegistro,
+        idPlanejamento: idPlanejamento
     })
-        .then(response => {
-            console.log('Objeto 1 cadastrado com sucesso!');
-        })
-        .catch(error => {
-            console.log(`Objeto 1: ${error}`)
-        });
+    .then(response => {
+        alert('Planejamento atualizado com sucesso!');
+        window.location.href = `visualizar_registro.html?id=${idPlanejamento}`;
+    })
+    .catch(error => {
+        console.log(`Erro ao atualizar registro de planejamento: ${error}`)
+    });
 }
