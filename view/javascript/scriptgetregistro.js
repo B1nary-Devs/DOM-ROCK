@@ -18,7 +18,7 @@ async function buscarRegistros() {
 
             console.log(`vindo do banco -->>${registro.diaRegistro}`)
             const mesRegistro = document.createElement('td')
-            mesRegistro.textContent = new Date(`${registro.mesPlanejamento}-01`).toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+            mesRegistro.textContent = new Date(`${registro.mesPlanejamento}`).toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
 
             const hoje = new Date();
             const ano = hoje.getFullYear();
@@ -76,7 +76,7 @@ async function buscarRegistros() {
                     axios.delete(`http://localhost:8080/registro_planejamento/${registro.id}`)
                         .then((response) => {
                             alert("Registro excluido com sucesso")
-                            console.log(res.data);
+                            console.log(response.data);
                             location.reload();
                         })
                         .catch((erro) => {

@@ -120,19 +120,26 @@ function cadastrarRegistroPlanejamento(planejamentoIdcallBack) {
   const selectQuantidade3 = document.getElementById('txtquantidade3');
   const selectMes3 = document.getElementById('txtdata3');
 
-  const hoje = new Date();
-  const ano = hoje.getFullYear();
-  const mes = (hoje.getMonth() + 1).toString().padStart(2, '0');
-  const dia = hoje.getDate().toString().padStart(2, '0');
+  const mes1 = new Date(`${selectMes.value}-01`)
+  const dataFormatada1 = mes1.toISOString().slice(0, 10);
+  const mes2 = new Date(`${selectMes2.value}-01`)
+  const dataFormatada2 = mes2.toISOString().slice(0, 10);
+  const mes3 = new Date(`${selectMes3.value}-01`)
+  const dataFormatada3 = mes3.toISOString().slice(0, 10);
 
-  const dataAtual = `${ano}-${mes}-${dia}`;
+  console.log(dataFormatada1)
+  console.log(dataFormatada2)
+  console.log(dataFormatada3)
+
+  const hoje = new Date();
+  const dataAtual = hoje.toISOString().slice(0, 10);;
   console.log(dataAtual)
 
   // criar objeto 1 usando planejamentoId
   axios.post('http://localhost:8080/registro_planejamento', {
     diaRegistro: dataAtual,
     quantidade: selectQuantidade.value,
-    mesPlanejamento: selectMes.value,
+    mesPlanejamento: dataFormatada1,
     idPlanejamento: planejamentoIdcallBack
     // outros dados do objeto 1
   })
@@ -147,7 +154,7 @@ function cadastrarRegistroPlanejamento(planejamentoIdcallBack) {
   axios.post('http://localhost:8080/registro_planejamento', {
     diaRegistro: dataAtual,
     quantidade: selectQuantidade2.value,
-    mesPlanejamento: selectMes2.value,
+    mesPlanejamento: dataFormatada2,
     idPlanejamento: planejamentoIdcallBack
     // outros dados do objeto 2
   })
@@ -162,7 +169,7 @@ function cadastrarRegistroPlanejamento(planejamentoIdcallBack) {
   axios.post('http://localhost:8080/registro_planejamento', {
     diaRegistro: dataAtual,
     quantidade: selectQuantidade3.value,
-    mesPlanejamento: selectMes3.value,
+    mesPlanejamento: dataFormatada3,
     idPlanejamento: planejamentoIdcallBack
     // outros dados do objeto 3
   })
