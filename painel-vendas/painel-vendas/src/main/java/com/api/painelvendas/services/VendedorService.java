@@ -3,6 +3,7 @@ package com.api.painelvendas.services;
 
 import com.api.painelvendas.dtos.VendedorPostRequestDto;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.api.painelvendas.models.Vendedor;
@@ -15,8 +16,10 @@ import java.util.Optional;
 
 @Service
 public class VendedorService {
-	
-	final VendedorRepository vendedorRepository;
+
+
+	@Autowired
+	VendedorRepository vendedorRepository;
 	
 	public VendedorService(VendedorRepository vendedorRepository) {
 		this.vendedorRepository = vendedorRepository;
@@ -27,15 +30,12 @@ public class VendedorService {
 				.id(vendedorPostRequestDto.getId())
 				.nome(vendedorPostRequestDto.getNome())
 				.email(vendedorPostRequestDto.getEmail())
-				.senha(vendedorPostRequestDto.getSenha())
+				.password(vendedorPostRequestDto.getSenha())
 				.nivelAcesso(vendedorPostRequestDto.getNivelAcesso())
 				.build();
 		return vendedorRepository.save(vendedor);
 	}
 
-	public boolean existsByEmailVendedor(String email) {
-		return vendedorRepository.existsByEmail(email);
-	}
 
 	public List<Vendedor> findAll() {
 		return vendedorRepository.findAll();
@@ -45,9 +45,7 @@ public class VendedorService {
 
 		return vendedorRepository.findById(id);
 	}
-	public boolean existsBySenhaVendedor(String senha) {
-		return vendedorRepository.existsBySenha(senha);
-	}
+
 
 
 	@Transactional
@@ -55,7 +53,17 @@ public class VendedorService {
 		vendedorRepository.delete(vendedor);
 	}
 
-	public Integer findByEmailAndSenha(String email, String senha) {
-		return vendedorRepository.findByEmailAndSenha(email, senha).getId();
+
+
+
+
+
+	public Vendedor login(String email, String password) {
+		return vendedorRepository.findByEmailAndPassword(email, password);
+	}
+
+
+	public boolean existsByEmailVendedor(String email) {
+		return vendedorRepository.existsByEmail(email);
 	}
 }

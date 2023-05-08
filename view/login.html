@@ -30,11 +30,32 @@
         </form>
         <p>Não possui login? <a href="#">Efetue o cadastro </a></p>
     </aside>
+
     <script>
         document.querySelector('form').addEventListener('submit', function(event) {
         event.preventDefault(); // impede que o formulário seja enviado antes do redirecionamento
         window.location.href = 'clientes.html'; // redireciona o usuário para a página "clientes.html"
-  });
+    //     const form = document.getElementById("loginForm");
+
+    //     form.addEventListener("submit", function(event) {
+    //     event.preventDefault();
+
+    //     const username = document.getElementById("txtemail").value;
+    //     const password = document.getElementById("txtsenha").value;
+
+    //     const xhr = new XMLHttpRequest();
+    //     xhr.open("POST", "/login");
+    //     xhr.setRequestHeader("Content-Type", "application/json");
+    //     xhr.onload = function() {
+    //     if (xhr.status === 200) {
+    //         window.location.href = "/clientes";
+    //     } else {
+    //         alert("Invalid username or password");
+    //     }
+    // };
+    // xhr.send(JSON.stringify({username: username, password: password}));
+});
+ 
     </script>
 </body>
 </html>
