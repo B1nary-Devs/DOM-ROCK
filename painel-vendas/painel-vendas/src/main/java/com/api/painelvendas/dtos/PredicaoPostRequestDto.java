@@ -1,20 +1,18 @@
 package com.api.painelvendas.dtos;
 
-import com.api.painelvendas.models.Vendedor;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 
 @Builder
 @AllArgsConstructor
 @Data
-public class HistoricoPostRequestDto {
+public class PredicaoPostRequestDto {
     private Integer id;
     @NotNull
     private Double quantidade;

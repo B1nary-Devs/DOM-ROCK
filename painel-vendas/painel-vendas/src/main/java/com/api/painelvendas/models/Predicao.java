@@ -6,16 +6,17 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.boot.autoconfigure.web.WebProperties;
 
 import java.util.Date;
 
 @Entity
-@Table(name = "historico")
+@Table
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Historico {
+public class Predicao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,6 +28,7 @@ public class Historico {
     private Date dia;
     @Column(nullable = false, length = 50)
     private String mes;
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_id_planejamento", nullable = false)
     @JsonBackReference
