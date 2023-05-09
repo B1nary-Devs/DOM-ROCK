@@ -116,6 +116,9 @@ function editarRegistroPlanejamento() {
     const selectQuantidade = document.getElementById('txtquantidade');
     const selectMes = document.getElementById('txtdata');
 
+    const mes1 = new Date(`${selectMes.value}-01`)
+    const dataFormatada1 = mes1.toISOString().slice(0, 10);
+
     const params = new URLSearchParams(window.location.search);
     const idRegistro = params.get('id');
     const idPlanejamento = params.get('idPlanejamento')
@@ -124,7 +127,7 @@ function editarRegistroPlanejamento() {
 
     axios.put(`http://localhost:8080/registro_planejamento/${idRegistro}`, {
         quantidade: selectQuantidade.value,
-        mesPlanejamento: selectMes.value,
+        mesPlanejamento: dataFormatada1,
         id: idRegistro,
         diaRegistro: diaRegistro,
         idPlanejamento: idPlanejamento

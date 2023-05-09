@@ -4,16 +4,17 @@ function login() {
 
     axios.post('http://localhost:8080/login', {
         email: username,
-        senha: password
+        password: password
     })
     .then(function (response) {
         console.log(response)
         console.log('Login successful');
-        const userId = response.data.id;
-        console.log(userId)
+        const vendedorId = response.data.id;
+        console.log(vendedorId)
+        window.location.href = `clientes.html?idVendedor=${vendedorId}`
     })
     .catch(function (error) {
-        console.log('Login failed');
+        console.log(error);
         alert('Login failed. Please check your email and password and try again.');
     });
 
