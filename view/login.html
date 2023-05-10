@@ -16,37 +16,42 @@
 		<div class="form-image">
 			<img src="img/login.png">
 		</div>
-		<div class="form">
-                <form action="clientes.html" method="POST">
-				<div class="form-header">
-					<div class="title">
-						<h1>LOGIN</h1>
-					</div>
-				</div>
+        <div class="form">
+            <form action="clientes.html" method="POST">
+                <div class="form-header">
+                    <div class="title">
+                        <h1>LOGIN</h1>
+                    </div>
+                </div>
 
-				<div class="input-group">
-					<div class="input-box">
+                <div class="input-group">
+                    <div class="input-box">
                         <label>Usuário</label>
                         <input type="text" id="txtemail">
                     </div>
-                    
+
                     <div class="input-box">
                         <label>Senha</label>
                         <input type="password" name="senha" id="txtsenha"></input>
-					</div>
-
-                </div>
-                
-                <div class="continue-button">
-                        <input type="button" class="btn btn-outline-primary" value="ENTRAR" onclick="login()"></input>
                     </div>
 
+                </div>
+
+
+
             </form>
-<br>
 
-            <p>Não possui login? <a href="#">Efetue o cadastro </a></p>
+            <div class="d-flex justify-content-start">
+                <input type="button" class="btn btn-outline-primary" value="Logar" onclick="login()"></input>
+            </div>
 
-		</div>
+            <div class="entrar">
+                <p>Não possui login? <a href="#">Efetue o cadastro </a></p>
+            </div>
+            <br>
+
+
+        </div>
     </div>
     <script>
         document.querySelector('form').addEventListener('submit', function(event) {
