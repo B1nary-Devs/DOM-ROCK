@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,28 +10,44 @@
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <title>Dom Planning</title>
 </head>
-<body>
-    <article>
-        <img src="img/login.png">
-    </article>
-    <aside>
-        <h1>LOGIN</h1>
-        <form action="clientes.html" method="POST">
-            <div class="titulo"><h2>Usuário</h2></div>
-            <div class="input-box">
-                <label>
-                    <input type="text" id="txtemail">
-                </label>
-            </div>
-            <div type="titulo"><h2>Senha</h2></div>
-            <div class="input-box">
-                <input type="password" name="senha" id="txtsenha"></input>
-                <input type="button" value="ENTRAR" onclick="login()"></input>
-            </div>
-        </form>
-        <p>Não possui login? <a href="#">Efetue o cadastro </a></p>
-    </aside>
 
+<body>
+	<div class="container">
+		<div class="form-image">
+			<img src="img/login.png">
+		</div>
+		<div class="form">
+                <form action="clientes.html" method="POST">
+				<div class="form-header">
+					<div class="title">
+						<h1>LOGIN</h1>
+					</div>
+				</div>
+
+				<div class="input-group">
+					<div class="input-box">
+                        <label>Usuário</label>
+                        <input type="text" id="txtemail">
+                    </div>
+                    
+                    <div class="input-box">
+                        <label>Senha</label>
+                        <input type="password" name="senha" id="txtsenha"></input>
+					</div>
+
+                </div>
+                
+                <div class="continue-button">
+                        <input type="button" class="btn btn-outline-primary" value="ENTRAR" onclick="login()"></input>
+                    </div>
+
+            </form>
+<br>
+
+            <p>Não possui login? <a href="#">Efetue o cadastro </a></p>
+
+		</div>
+    </div>
     <script>
         document.querySelector('form').addEventListener('submit', function(event) {
         event.preventDefault(); // impede que o formulário seja enviado antes do redirecionamento
@@ -56,6 +73,10 @@
     // xhr.send(JSON.stringify({username: username, password: password}));
 });
  
-    </script>
+    </script>	
+
+
+
 </body>
+
 </html>
