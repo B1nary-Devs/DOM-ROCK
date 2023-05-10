@@ -1,6 +1,11 @@
 async function buscarCliente() {
   try {
-    const response = await axios.get('http://localhost:8080/vendedor/1');
+    //const response = await axios.get('http://localhost:8080/vendedor/1');
+    //const vendedor = response.data;
+
+    //redireciona a tela com o vendedor logado
+    const idVendedor = params.get('id');
+    const response = await axios.get(`http://localhost:8080/vendedor/${idVendedor}`);
     const vendedor = response.data;
 
     const selectClientes = document.getElementById('selectCliente');
