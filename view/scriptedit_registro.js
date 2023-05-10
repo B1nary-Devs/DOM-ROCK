@@ -4,7 +4,8 @@ async function buscarCliente() {
         //const vendedor = response.data;
 
         //redireciona a tela com o vendedor logado
-        const idVendedor = params.get('id');
+        const params = new URLSearchParams(window.location.search);
+        const idVendedor = params.get('idVendedor');
         const response = await axios.get(`http://localhost:8080/vendedor/${idVendedor}`);
         const vendedor = response.data;
   
@@ -115,6 +116,13 @@ function cadastrarPlanejamento(callback) {
     } else {
         return false
     }
+}
+
+
+function inputVendedor() {
+    const params = new URLSearchParams(window.location.search);
+    const idVendedor = params.get('idVendedor');
+    window.location.href = `edit_plan.html?idVendedor=${idVendedor}`;
 }
 
 function editarRegistroPlanejamento() {

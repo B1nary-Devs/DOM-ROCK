@@ -5,7 +5,8 @@ async function CarregarCarteiraClientes() {
 
 
         //redireciona a tela com o vendedor logado
-        const idVendedor = params.get('id');
+        const params = new URLSearchParams(window.location.search);
+        const idVendedor = params.get('idVendedor');
         const response = await axios.get(`http://localhost:8080/vendedor/${idVendedor}`);
         const vendedor = response.data;
     
