@@ -115,20 +115,20 @@ function inputVendedorPlanejamento() {
     window.location.href = `index.html?idVendedor=${idVendedor}`;
 }
 
-  function inputVendedorGerenciamento() {
+function inputVendedorGerenciamento() {
     const params = new URLSearchParams(window.location.search);
     const idVendedor = params.get('idVendedor');
     window.location.href = `visualizar_plan.html?idVendedor=${idVendedor}`;
-  }
+}
 
-  function inputVendedorDashboard() {
+function inputVendedorDashboard() {
     const params = new URLSearchParams(window.location.search);
     const idVendedor = params.get('idVendedor');
     window.location.href = `dashboard.html?idVendedor=${idVendedor}`;
-  }
+}
 
-  function inputVendedorCliente() {
+function inputVendedorCliente() {
     const params = new URLSearchParams(window.location.search);
     const idVendedor = params.get('idVendedor');
     window.location.href = `clientes.html?idVendedor=${idVendedor}`;
-  }
+}

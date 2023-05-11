@@ -111,14 +111,14 @@ function validaCampos() {
 }
 
 
-function cadastrarPlanejamento(callback) {
+async function cadastrarPlanejamento(callback) {
 
   if (validaCampos()) {
     const params = new URLSearchParams(window.location.search);
     const idVendedor = params.get('idVendedor');
     const selectProdutos = document.getElementById('selectProduto')
     const selectClientes = document.getElementById('selectCliente')
-    axios.post('http://localhost:8080/planejamento', {
+    await axios.post('http://localhost:8080/planejamento', {
       idCliente: selectClientes.value,
       idProduto: selectProdutos.value,
       idVendedor: idVendedor,
@@ -127,7 +127,7 @@ function cadastrarPlanejamento(callback) {
         const planejamentoIdcallBack = response.data.id;
         callback(planejamentoIdcallBack);
         alert('Planejamento cadastrado com sucesso!')
-        window.location.href = `visualizar_plan.html?idVendedor=${idVendedor}`;
+        //window.location.href = `visualizar_plan.html?idVendedor=${idVendedor}`;
       })
       .catch(error => {
         console.log(`Erro cadastro Planejamento: ${error}`)
@@ -137,7 +137,7 @@ function cadastrarPlanejamento(callback) {
   }
 }
 
-function cadastrarRegistroPlanejamento(planejamentoIdcallBack) {
+async function cadastrarRegistroPlanejamento(planejamentoIdcallBack) {
 
   const selectQuantidade = document.getElementById('txtquantidade');
   const selectMes = document.getElementById('txtdata');
@@ -146,23 +146,24 @@ function cadastrarRegistroPlanejamento(planejamentoIdcallBack) {
   const selectQuantidade3 = document.getElementById('txtquantidade3');
   const selectMes3 = document.getElementById('txtdata3');
 
-  const mes1 = new Date(`${selectMes.value}-01`)
+  const mes1 = new Date(`${selectMes.value}-01`);
+  mes1.setMonth(mes1.getMonth() + 1); // Adiciona 1 ao mês
   const dataFormatada1 = mes1.toISOString().slice(0, 10);
-  const mes2 = new Date(`${selectMes2.value}-01`)
+
+  const mes2 = new Date(`${selectMes2.value}-01`);
+  mes2.setMonth(mes2.getMonth() + 1); // Adiciona 1 ao mês
   const dataFormatada2 = mes2.toISOString().slice(0, 10);
-  const mes3 = new Date(`${selectMes3.value}-01`)
+
+  const mes3 = new Date(`${selectMes3.value}-01`);
+  mes3.setMonth(mes3.getMonth() + 1); // Adiciona 1 ao mês
   const dataFormatada3 = mes3.toISOString().slice(0, 10);
 
-  console.log(dataFormatada1)
-  console.log(dataFormatada2)
-  console.log(dataFormatada3)
-
   const hoje = new Date();
-  const dataAtual = hoje.toISOString().slice(0, 10);;
-  console.log(dataAtual)
+  const dataAtual = hoje.toISOString().slice(0, 10);
+  console.log(`data de hoje --->${dataAtual}`)
 
   // criar objeto 1 usando planejamentoId
-  axios.post('http://localhost:8080/registro_planejamento', {
+  await axios.post('http://localhost:8080/registro_planejamento', {
     diaRegistro: dataAtual,
     quantidade: selectQuantidade.value,
     mesPlanejamento: dataFormatada1,
@@ -177,7 +178,7 @@ function cadastrarRegistroPlanejamento(planejamentoIdcallBack) {
     });
 
   // criar objeto 2 usando planejamentoId
-  axios.post('http://localhost:8080/registro_planejamento', {
+  await axios.post('http://localhost:8080/registro_planejamento', {
     diaRegistro: dataAtual,
     quantidade: selectQuantidade2.value,
     mesPlanejamento: dataFormatada2,
@@ -192,7 +193,7 @@ function cadastrarRegistroPlanejamento(planejamentoIdcallBack) {
     });
 
   // criar objeto 3 usando planejamentoId
-  axios.post('http://localhost:8080/registro_planejamento', {
+  await axios.post('http://localhost:8080/registro_planejamento', {
     diaRegistro: dataAtual,
     quantidade: selectQuantidade3.value,
     mesPlanejamento: dataFormatada3,
