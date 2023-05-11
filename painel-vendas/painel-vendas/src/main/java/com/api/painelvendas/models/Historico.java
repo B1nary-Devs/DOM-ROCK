@@ -7,7 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @Table(name = "historico")
@@ -26,7 +26,7 @@ public class Historico {
     @Column(nullable = false, length = 11)
     private Date dia;
     @Column(nullable = false, length = 50)
-    private String mes;
+    private Date mes;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_id_planejamento", nullable = false)
     @JsonBackReference

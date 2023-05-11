@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Open+Sans:wght@300;400;500;600&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -12,7 +13,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #7299ec
+    background-image: linear-gradient(to right, rgb(0, 174, 255), rgb(0, 132, 255), #0077ff);
 }
 
 .container {
@@ -36,7 +37,6 @@ body {
 .form-image:hover{
     transform: translateX(8px);
     background-color: #fde3a7d7;
-    
 }
 
 .form-image img {
@@ -57,28 +57,24 @@ body {
 .form-header {
     margin-bottom: 5rem;
     display: flex;
-    flex-direction:column;
-    align-items:center;
+    flex-direction: column;
+    align-items: center;
     font-size: 20px;
     color: #000;
     text-align: center;
-    margin-top: 15%;
 }
 
 .form-header h1{
     position:relative;
 }
 
-
 .form-header h1::after {
-    text-align: center;
     content: '';
     display: block;
     width: 5rem;
     height: 0.3rem;
-    background-color: #1c19d1;
-    margin: 0 auto;
-    position: absolute;
+    background-color: #00B1ED;
+    margin-top: 0.3rem;
     border-radius: 10px;
 }
 
@@ -94,6 +90,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-bottom: 2.5em;
 }
 
 .input-group .input-box label{
@@ -116,7 +113,7 @@ body {
 }
 
 .input-box input:focus-visible {
-    outline: 1px solid #6c63ff;
+    outline: 1px solid #0b01bb;
 }
 
 .input-box label,
@@ -130,7 +127,6 @@ body {
     color: #000000be;
 }   
 
-
 .entrar{
     width: 100%;
     justify-content: center;
@@ -139,8 +135,11 @@ body {
 }
 
 .btn-outline-primary {
+    width: 140px;
     color: white;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgb(0, 125, 241);
     border: 1px solid transparent;
     padding: 12px;
@@ -150,19 +149,26 @@ body {
     text-transform: uppercase;
     transition: all .55s ease;
     text-decoration: none;
+    margin: 0 auto; /* Adiciona essa propriedade para centralizar horizontalmente */
 }
 
-    .btn-outline-primary:hover {
-        background: transparent;
-        border: 1px solid white;
-        transform: translateX(8px);
-        color: rgb(0, 125, 241);
-        border: 1px solid rgb(0, 125, 241);
-        border-radius: 40px;
-        cursor: pointer;
-    }
+.btn-outline-primary:hover {
+    background: transparent;
+    border: 1px solid white;
+    transform: translateX(8px);
+    color: rgb(0, 125, 241);
+    border: 1px solid rgb(0, 125, 241);
+    border-radius: 40px;
+    cursor: pointer;
+}
 
-p{
+p {
     text-align:center;
     margin-top: 5%;
+    margin-bottom: 3%;
+}
+
+a {
+    color:  #00B1ED;
+    text-decoration: none;
 }

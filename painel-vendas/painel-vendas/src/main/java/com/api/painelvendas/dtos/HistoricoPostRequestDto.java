@@ -20,7 +20,7 @@ public class HistoricoPostRequestDto {
     private Double quantidade;
     private Date dia;
     @NotBlank
-    private String mes;
+    private Date mes;
     @NotNull
     private Integer idPlanejamento;
 }
