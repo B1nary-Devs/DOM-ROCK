@@ -114,18 +114,20 @@ function validaCampos() {
 function cadastrarPlanejamento(callback) {
 
   if (validaCampos()) {
+    const params = new URLSearchParams(window.location.search);
+    const idVendedor = params.get('idVendedor');
     const selectProdutos = document.getElementById('selectProduto')
     const selectClientes = document.getElementById('selectCliente')
     axios.post('http://localhost:8080/planejamento', {
       idCliente: selectClientes.value,
       idProduto: selectProdutos.value,
-      idVendedor: 1,
+      idVendedor: idVendedor,
     })
       .then(response => {
         const planejamentoIdcallBack = response.data.id;
         callback(planejamentoIdcallBack);
         alert('Planejamento cadastrado com sucesso!')
-        window.location.href = 'visualizar_plan.html';
+        window.location.href = `visualizar_plan.html?idVendedor=${idVendedor}`;
       })
       .catch(error => {
         console.log(`Erro cadastro Planejamento: ${error}`)

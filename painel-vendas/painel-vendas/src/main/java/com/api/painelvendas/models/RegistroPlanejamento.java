@@ -25,7 +25,7 @@ public class RegistroPlanejamento {
     private Date diaRegistro;
     @Column(nullable = false)
     private Date mesPlanejamento;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "fk_id_planejamento", nullable = false)
     @JsonBackReference
     private Planejamento planejamento;

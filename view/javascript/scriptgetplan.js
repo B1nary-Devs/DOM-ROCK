@@ -28,7 +28,7 @@ async function buscarPlanejamento() {
       botaoVerMais.classList.add("btn", "btn-outline-dark")
       botaoVerMais.textContent = 'Ver Mais'
       botaoVerMais.addEventListener('click', () => {
-        window.location.href = `visualizar_registro.html?id=${planejamento.id}`;
+        window.location.href = `visualizar_registro.html?idPlanejamento=${planejamento.id}&idVendedor=${idVendedor}`;
       });
 
       const colunaBotaoEditar = document.createElement('td')
@@ -36,41 +36,18 @@ async function buscarPlanejamento() {
       botaoEditar.type = 'button'
       botaoEditar.classList.add("btn", "btn-outline-dark")
       botaoEditar.textContent = 'Editar'
-      const svgEditar = document.createElement('svg');
-      svgEditar.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-      svgEditar.setAttribute('width', '16');
-      svgEditar.setAttribute('height', '16');
-      svgEditar.setAttribute('fill', 'currentColor');
-      svgEditar.setAttribute('class', 'bi bi-pencil');
-      svgEditar.setAttribute('viewBox', '0 0 16 16');
-      const path = document.createElement('path');
-      path.setAttribute('d', 'M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z');
-
+  
       const colunaBotaoExcluir = document.createElement('td');
       const botaoExcluir = document.createElement('button');
       botaoExcluir.type = 'button';
       botaoExcluir.textContent = 'Excluir'
       botaoExcluir.classList.add('btn', 'btn-outline-danger');
-      const svgExcluir = document.createElement('svg');
-      svgExcluir.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-      svgExcluir.setAttribute('width', '16');
-      svgExcluir.setAttribute('height', '16');
-      svgExcluir.setAttribute('fill', 'currentColor');
-      svgExcluir.setAttribute('class', 'bi bi-trash');
-      svgExcluir.setAttribute('viewBox', '0 0 16 16');
-      const path1 = document.createElement('path');
-      path1.setAttribute('d', 'M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z');
-      const path2 = document.createElement('path');
-      path2.setAttribute('d', 'M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z');
 
-      svgEditar.appendChild(path);
-      botaoEditar.appendChild(svgEditar)
+     
       colunaBotaoEditar.appendChild(botaoEditar)
       colunaBotaoVerMais.appendChild(botaoVerMais)
 
-      svgExcluir.appendChild(path1);
-      svgExcluir.appendChild(path2);
-      botaoExcluir.appendChild(svgExcluir);
+      
       colunaBotaoExcluir.appendChild(botaoExcluir);
     
       linha.appendChild(idPlanejamento)

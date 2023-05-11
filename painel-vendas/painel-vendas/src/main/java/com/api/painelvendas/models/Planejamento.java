@@ -11,7 +11,9 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
-@Table (name = "planejamento")
+@Table (name = "planejamento", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"fk_id_vendedor", "fk_id_produto", "fk_id_cliente"})
+})
 @Builder
 @Data
 @AllArgsConstructor
@@ -20,14 +22,14 @@ public class Planejamento{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "fk_id_vendedor", nullable = false)
     @JsonBackReference
     private Vendedor vendedor;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "fk_id_produto", nullable = false)
     private Produto produto;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "fk_id_cliente", nullable = false)
     private Cliente cliente;
     @OneToMany(mappedBy = "planejamento", cascade = CascadeType.ALL, fetch = FetchType.LAZY,

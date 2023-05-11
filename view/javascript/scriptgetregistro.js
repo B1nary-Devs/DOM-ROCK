@@ -1,7 +1,8 @@
 async function buscarRegistros() {
     try {
         const params = new URLSearchParams(window.location.search);
-        const idPlanejamento = params.get('id');
+        const idPlanejamento = params.get('idPlanejamento');
+        const idVendedor = params.get('idVendedor')
         const response = await axios.get(`http://localhost:8080/planejamento/${idPlanejamento}`);
         const planejamento = response.data;
 
@@ -47,7 +48,7 @@ async function buscarRegistros() {
                 var diferencaEmMilissegundos = diaAtual.getTime() - dataRegistroEditar.getTime();
                 var diferencaEmDias = diferencaEmMilissegundos / 86400000;
                 if (differenceInDays < 7) {
-                    window.location.href = `edit_plan.html?id=${registro.id}&idPlanejamento=${idPlanejamento}&diaRegistro=${registro.diaRegistro}`;
+                    window.location.href = `edit_plan.html?id=${registro.id}&idPlanejamento=${idPlanejamento}&diaRegistro=${registro.diaRegistro}&idVendedor=${idVendedor}`;
                 } else {
                     alert("Tempo de Edição expirou!")
                 }

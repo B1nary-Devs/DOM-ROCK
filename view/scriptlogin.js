@@ -9,9 +9,9 @@ function login() {
     .then(function (response) {
         console.log(response)
         console.log('Login successful');
-        const vendedorId = response.data.id;
-        console.log(vendedorId)
-        window.location.href = `clientes.html?idVendedor=${vendedorId}`
+        const idVendedor = response.data.id;
+        console.log(idVendedor)
+        window.location.href = `clientes.html?idVendedor=${idVendedor}`
     })
     .catch(function (error) {
         console.log(error);

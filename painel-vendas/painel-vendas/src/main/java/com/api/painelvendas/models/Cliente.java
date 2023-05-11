@@ -24,7 +24,7 @@ public class Cliente {
     private String nome;
     @Column(nullable = false,unique = true, length = 50)
     private String email;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "fk_id_vendedor", nullable = false)
     @JsonBackReference
     private Vendedor vendedor;
