@@ -31,6 +31,25 @@ async function CarregarCarteiraClientes() {
     }
   }
 
+  function inputVendedorPlanejamento() {
+    const params = new URLSearchParams(window.location.search);
+    const idVendedor = params.get('idVendedor');
+    window.location.href = `index.html?idVendedor=${idVendedor}`;
+}
+
+  function inputVendedorGerenciamento() {
+    const params = new URLSearchParams(window.location.search);
+    const idVendedor = params.get('idVendedor');
+    window.location.href = `visualizar_plan.html?idVendedor=${idVendedor}`;
+  }
+
+  function inputVendedorDashboard() {
+    const params = new URLSearchParams(window.location.search);
+    const idVendedor = params.get('idVendedor');
+    window.location.href = `dashboard.html.html?idVendedor=${idVendedor}`;
+  }
+
+
   function myFunction() {
     var input, filter, table, tr, td, i, j, txtValue, startRow;
     input = document.getElementById("myInput");

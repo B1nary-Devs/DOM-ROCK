@@ -22,6 +22,24 @@ async function buscarCliente() {
   }
 }
 
+function inputVendedorCliente() {
+  const params = new URLSearchParams(window.location.search);
+  const idVendedor = params.get('idVendedor');
+  window.location.href = `clientes.html?idVendedor=${idVendedor}`;
+}
+
+function inputVendedorDashboard() {
+  const params = new URLSearchParams(window.location.search);
+  const idVendedor = params.get('idVendedor');
+  window.location.href = `dashboard.html.html?idVendedor=${idVendedor}`;
+}
+
+function inputVendedorGerenciamento() {
+  const params = new URLSearchParams(window.location.search);
+  const idVendedor = params.get('idVendedor');
+  window.location.href = `visualizar_plan.html?idVendedor=${idVendedor}`;
+}
+
 async function buscarProdutos() {
   try {
     const response = await axios.get('http://localhost:8080/produto');
