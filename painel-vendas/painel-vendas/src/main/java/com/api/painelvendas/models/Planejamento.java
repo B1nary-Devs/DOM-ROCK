@@ -36,4 +36,14 @@ public class Planejamento{
             orphanRemoval = true)
     @JsonManagedReference
     private List<RegistroPlanejamento> registros;
+
+    @OneToMany(mappedBy = "planejamento", cascade = CascadeType.ALL, fetch = FetchType.LAZY,
+            orphanRemoval = true)
+    @JsonManagedReference
+    private List<Historico> historicos;
+
+    @OneToMany(mappedBy = "planejamento", cascade = CascadeType.ALL, fetch = FetchType.LAZY,
+            orphanRemoval = true)
+    @JsonManagedReference
+    private List<Predicao> predicaos;
 }
