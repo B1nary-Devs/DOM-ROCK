@@ -64,8 +64,8 @@
 ![BURN](https://user-images.githubusercontent.com/101594950/233868579-8ca4739e-8217-4bbb-88bd-63b4ba51afe6.PNG)
 
 ----------------------------------------------------- 
-  
-![1º SPRINT - 2908 á 1809 (1)](https://user-images.githubusercontent.com/101594950/233818144-1c4d8328-fb2b-4ff6-a7cc-d4d5dac0d168.png)  
+
+### [![20](https://user-images.githubusercontent.com/101594950/233818144-1c4d8328-fb2b-4ff6-a7cc-d4d5dac0d168.png)](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/tree/main/2%20SPRINT)  
   
 </div>
 
