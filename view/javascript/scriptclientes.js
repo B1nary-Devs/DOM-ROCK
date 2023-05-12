@@ -49,6 +49,12 @@ async function CarregarCarteiraClientes() {
     window.location.href = `dashboard.html?idVendedor=${idVendedor}`;
   }
 
+  function inputVoltar() {
+    const params = new URLSearchParams(window.location.search);
+    const idVendedor = params.get('idVendedor');
+    window.location.href = `#?idVendedor=${idVendedor}`;
+  }
+
 
   function myFunction() {
     var input, filter, table, tr, td, i, j, txtValue, startRow;

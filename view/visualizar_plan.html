@@ -24,15 +24,15 @@
         <nav>
             <a href="#" id="principal">ROC<span class="letra">K</span> PLANNING</a>
             <a href="#">Início</a>
-            <a onclick="inputVendedorCliente()">Clientes</a>
-            <a onclick="inputVendedorPlanejamento()">Planejamento</a>
-            <a onclick="location.reload()">Gerenciamento</a>
-            <a onclick="inputVendedorDashboard()">Dashboard</a>
+            <a class="links" onclick="inputVendedorCliente()">Clientes</a>
+            <a class="links" onclick="inputVendedorPlanejamento()">Planejamento</a>
+            <a class="links" onclick="location.reload()">Gerenciamento</a>
+            <a class="links" onclick="inputVendedorDashboard()">Dashboard</a>
             <a href="login.html">Sair</a>
         </nav>
     </div>
     <div>
-        <a href="index.html"><img class="return" title="Voltar a Pagina de Planejamento" src="img\voltar.svg"></a>
+        <a onclick="inputVoltar()"><img class="return" title="Voltar a Pagina de Planejamento" src="img\voltar.svg"></a>
         <h1 class="titulo">GERENCIAMENTO DAS VENDAS</h1>
         <div class="filtros">
             <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Buscar">

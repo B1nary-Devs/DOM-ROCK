@@ -150,4 +150,10 @@ function inputVendedorDashboard() {
   window.location.href = `dashboard.html?idVendedor=${idVendedor}`;
 }
 
+function inputVoltar() {
+  const params = new URLSearchParams(window.location.search);
+  const idVendedor = params.get('idVendedor');
+  window.location.href = `index.html?idVendedor=${idVendedor}`;
+}
+
 
