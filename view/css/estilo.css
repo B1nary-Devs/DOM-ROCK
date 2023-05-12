@@ -14,7 +14,7 @@ nav {
     align-items: center;
 }
 
-nav > a {
+nav a {
     color: white;
     padding: 7px;
     text-decoration: none;
@@ -22,6 +22,11 @@ nav > a {
     font-size: 18px;
     transition-duration: 0.5s;
     flex-grow: 1;
+    cursor: pointer;    
+}
+
+nav links{
+    color: white;
 }
 
 nav > a:hover {
