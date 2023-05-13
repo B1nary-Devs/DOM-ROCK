@@ -15,7 +15,7 @@ async function buscarRegistros() {
             const quantidadeRegistro = document.createElement('td')
             quantidadeRegistro.textContent = registro.quantidade
             const diaRegistro = document.createElement('td')
-            diaRegistro.textContent = new Date(registro.diaRegistro).toLocaleDateString('pt-BR')
+            diaRegistro.textContent = registro.diaRegistro
 
             console.log(`vindo do banco -->>${registro.diaRegistro}`)
             const mesRegistro = document.createElement('td')

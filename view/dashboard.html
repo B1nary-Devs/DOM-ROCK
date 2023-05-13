@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="scriptdashboard.js"></script>
     <title>Dashboard</title>
+
 </head>
+
 <body>
     <div id="nav">
         <nav>
@@ -26,92 +31,94 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-        
-      google.charts.load('current', {'packages':['line']});
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-     
 
-      function drawChart() {
+        google.charts.load('current', { 'packages': ['line'] });
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
 
-        var data = new google.visualization.DataTable();
+        function drawChart() {
+            const table = new google.visualization.DataTable();
 
-        data.addColumn('string', 'Meses');
-        data.addColumn('number', 'Predição');
-        data.addColumn('number', 'Planejado');
-        data.addColumn('number', 'Realizado');
+            const params = new URLSearchParams(window.location.search);
+            const idVendedor = params.get('idVendedor');
 
-        data.addRows([
-          ["jan-23", 150, 160.8, 141.8],
-          ["fev-23", 130.9, 169.5, 132.4],
-          ["mar-23", 125.4, 157, 125.7],
-          ["abr-23", 111.7, 118.8, 110.5],
-          ["mai-23", 111.9, 117.6, 110.4],
-          ["jun-23", 118.8, 113.6, 117.7],
-          ["jul-23", 117.6, 112.3, 119.6],
-          ["ago-23", 112.3, 129.2, 110.6],
-          ["set-23", 116.9, 142.9, 114.8],
-          ["out-23", 112.8, 130.9, 111.6],
-          ["nov-23", 105.3,  107.9, 114.7],
-          ["dez-23", 106.6,  108.4, 105.2],
-        ]);
+            axios.get(`http://localhost:8080/planejamento/1`)
+                .then(response => {
+                    const planejamento = response.data;
 
-        data.setColumnProperty(0, 'style', 'font-weight:bold;');
+                    table.addColumn('string', 'Meses');
+                    table.addColumn('number', 'Predição');
+                    table.addColumn('number', 'Planejado');
+                    table.addColumn('number', 'Realizado');
 
-        options = {
-        chart: {
-            title: 'Gerenciamento das vendas no ano de 2023',
-            subtitle: ''
-        },
+                    planejamento.registros.forEach((registro, index) => {
+                        const data = registro.mesPlanejamento
+                        const partesData = data.split("-");
+                        const dia = partesData[2];
+                        const mes = partesData[1];
+                        const ano = partesData[0];
+                        const dataString = `${dia}/${mes}/${ano}`;
+                        const quantidadeRegistro = registro.quantidade;
+                        const quantidadeHistorico = planejamento.historicos[index].quantidade;
+                        const quantidadePredicao = planejamento.predicaos[index].quantidade;
+                        table.addRow([dataString, quantidadePredicao, quantidadeRegistro, quantidadeHistorico]);
+                    });
 
+                    //table.addRow([mesPlanejamento, quantidadePredicao, //quantidadePlanejado, quantidadeRealizado]);
 
-        colors: ['#7128EB', '#EA8300', '#1AEB44'], // Cores das linhas do gráfico
+                    // Define as propriedades da coluna 0 para negrito
+                    table.setColumnProperty(0, 'style', 'font-weight:bold;');
 
-        legend: { // Propriedades da legenda (Predição, Planejado, Realizado)
-            textStyle: {
-            fontName: 'Arial',
-            fontSize: 18,
-            color: 'black'
-            }
-            
-        },
+                    const options = {
+                        chart: {
+                            title: 'Gerenciamento das vendas no ano de 2023',
+                            subtitle: ''
+                        },
+                        colors: ['#7128EB', '#EA8300', '#1AEB44'], // Cores das linhas do gráfico
+                        legend: {
+                            textStyle: {
+                                fontName: 'Arial',
+                                fontSize: 18,
+                                color: 'black'
+                            }
+                        },
+                        titleTextStyle: {
+                            fontSize: 18,
+                            italic: true,
+                            bold: true,
+                            color: 'black'
+                        },
+                        vAxis: {
+                            textStyle: {
+                                fontName: 'Arial',
+                                fontSize: 16,
+                                color: 'black'
+                            }
+                        },
+                        hAxis: {
+                            textStyle: {
+                                fontName: 'Arial',
+                                fontSize: 16,
+                                color: 'black'
+                            }
+                        }
+                    };
 
-        titleTextStyle: { // Propriedades do Título 
-            fontSize: 18,
-            italic: true,
-            bold: true,
-            color: 'black'
-            
-        },
-
-        vAxis: {  // Propriedades do Eixo Vertical do Gráfico (valores de quantidade)
-            textStyle: { 
-            fontName: 'Arial',
-            fontSize: 16,
-            color: 'black'
-            }
-        },
-
-        hAxis: {  // Propriedades do Eixo Horizontal do Gráfico (meses)
-            textStyle: { 
-            fontName: 'Arial',
-            fontSize: 16,
-            color: 'black'
-            }
-          
-        },
-        
-        };
-
-        var chart = new google.charts.Line(document.getElementById('linechart_material'));
-        chart.draw(data, google.charts.Line.convertOptions(options));
-      }
+                    const chart = new google.charts.Line(document.getElementById('linechart_material'));
+                    chart.draw(table, google.charts.Line.convertOptions(options));
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
 
     </script>
+
     <!-- Elemento onde será renderizado o gráfico -->
-    
+
     <div id="linechart_material"></div>
 
-    
+
 </body>
+
 </html>
