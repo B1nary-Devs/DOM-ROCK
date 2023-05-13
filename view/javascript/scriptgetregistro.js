@@ -9,13 +9,33 @@ async function buscarRegistros() {
         const selectRegistros = document.getElementById('tabela');
 
         planejamento.registros.forEach(registro => {
+
+            const meses = [
+                "Janeiro",
+                "Fevereiro",
+                "Março",
+                "Abril",
+                "Maio",
+                "Junho",
+                "Julho",
+                "Agosto",
+                "Setembro",
+                "Outubro",
+                "Novembro",
+                "Dezembro"
+            ];
+
+
             const linhaRegistro = document.createElement('tr');
             const idRegistro = document.createElement('td')
             idRegistro.textContent = registro.id
             const quantidadeRegistro = document.createElement('td')
             quantidadeRegistro.textContent = registro.quantidade
             const diaRegistro = document.createElement('td')
-            diaRegistro.textContent = registro.diaRegistro
+            const diaRegistroAgora = registro.diaRegistro
+            const partesDataDia = diaRegistroAgora.split("-");
+            diaRegistro.textContent = `${partesDataDia[2]}/${parseInt(partesDataDia[1], 10) - 1}/${partesDataDia[0]}`
+    
 
             console.log(`vindo do banco -->>${registro.diaRegistro}`)
             const mesRegistro = document.createElement('td')

@@ -45,6 +45,22 @@
             axios.get(`http://localhost:8080/planejamento/1`)
                 .then(response => {
                     const planejamento = response.data;
+                    const meses = [
+                        "Janeiro",
+                        "Fevereiro",
+                        "Março",
+                        "Abril",
+                        "Maio",
+                        "Junho",
+                        "Julho",
+                        "Agosto",
+                        "Setembro",
+                        "Outubro",
+                        "Novembro",
+                        "Dezembro"
+                    ];
+
+
 
                     table.addColumn('string', 'Meses');
                     table.addColumn('number', 'Predição');
@@ -55,9 +71,9 @@
                         const data = registro.mesPlanejamento
                         const partesData = data.split("-");
                         const dia = partesData[2];
-                        const mes = partesData[1];
+                        const mes = parseInt(partesData[1], 10) - 1;
                         const ano = partesData[0];
-                        const dataString = `${dia}/${mes}/${ano}`;
+                        const dataString = `${meses[mes]} de ${ano}`;
                         const quantidadeRegistro = registro.quantidade;
                         const quantidadeHistorico = planejamento.historicos[index].quantidade;
                         const quantidadePredicao = planejamento.predicaos[index].quantidade;
