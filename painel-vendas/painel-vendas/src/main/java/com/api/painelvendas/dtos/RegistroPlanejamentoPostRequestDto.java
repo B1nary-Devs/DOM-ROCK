@@ -9,6 +9,9 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.sql.Date;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Builder
 @AllArgsConstructor
@@ -21,10 +24,10 @@ public class RegistroPlanejamentoPostRequestDto {
 
     @NotNull
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private Date diaRegistro;
+    private LocalDate diaRegistro;
     @NotNull
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private Date mesPlanejamento;
+    private LocalDate mesPlanejamento;
     @NotNull
     private Integer idPlanejamento;
 }

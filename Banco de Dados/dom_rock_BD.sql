@@ -35,17 +35,25 @@ FOREIGN KEY(id_cliente) REFERENCES cliente(id));
 
 CREATE TABLE historico(
 id INT AUTO_INCREMENT PRIMARY KEY,
-faturamentoReal VARCHAR(30) NOT NULL,
-id_vendedor INT,
-FOREIGN KEY(id_vendedor) REFERENCES vendedor(id));
+quantidade DOUBLE NOT NULL,
+dia DATE NOT NULL,
+id_planejamento INT,
+FOREIGN KEY(id_planejamento) REFERENCES planejamento(id));
 
 CREATE TABLE registro_planejamento(
 id INT AUTO_INCREMENT PRIMARY KEY,
 quantidade DOUBLE NOT NULL,
-diaRegistro VARCHAR(11),
-mesPlanejamento VARCHAR(11),
+dia DATE NOT NULL,
 id_planejamento INT,
 FOREIGN KEY(id_planejamento) REFERENCES planejamento(id));
+
+CREATE TABLE predicao(
+id INT AUTO_INCREMENT PRIMARY KEY,
+quantidade DOUBLE NOT NULL,
+dia DATE NOT NULL,
+id_planejamento INT,
+FOREIGN KEY(id_planejamento) REFERENCES planejamento(id));
+
 
 /*PRODUTOS*/
 insert into produto(id, nome, tipo) values (1, 'chapa de aço', 'unidade');
@@ -73,7 +81,10 @@ insert into planejamento(id, fk_id_cliente, fk_id_produto, fk_id_vendedor) value
 insert into planejamento(id, fk_id_cliente, fk_id_produto, fk_id_vendedor) values (5, 2, 2, 2);
 
 
+/*PREDIÇÕES*/
 insert into predicao(id, dia, mes, quantidade, fk_id_planejamento) values (1, '2023-05-10', '2023-05-10', 300, 2);
+insert into predicao(id, dia, mes, quantidade, fk_id_planejamento) values (2, '2023-05-11', '2023-05-11', 500, 3);
+insert into predicao(id, dia, mes, quantidade, fk_id_planejamento) values (3, '2023-05-12', '2023-05-12', 550, 4);
 
 
 

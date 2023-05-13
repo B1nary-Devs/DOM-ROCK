@@ -7,7 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
+
+import java.time.LocalDate;
+
 
 @Entity
 @Table (name = "registro_planejamento")
@@ -22,9 +24,9 @@ public class RegistroPlanejamento {
     @Column(nullable = false, length = 50)
     private Double quantidade;
     @Column(nullable = false)
-    private Date diaRegistro;
+    private LocalDate diaRegistro;
     @Column(nullable = false)
-    private Date mesPlanejamento;
+    private LocalDate mesPlanejamento;
     @ManyToOne
     @JoinColumn(name = "fk_id_planejamento", nullable = false)
     @JsonBackReference
