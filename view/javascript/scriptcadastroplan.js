@@ -127,7 +127,7 @@ async function cadastrarPlanejamento(callback) {
         const planejamentoIdcallBack = response.data.id;
         callback(planejamentoIdcallBack);
         alert('Planejamento cadastrado com sucesso!')
-        //window.location.href = `visualizar_plan.html?idVendedor=${idVendedor}`;
+        window.location.href = `visualizar_plan.html?idVendedor=${idVendedor}`;
       })
       .catch(error => {
         console.log(`Erro cadastro Planejamento: ${error}`)

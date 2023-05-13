@@ -34,12 +34,16 @@ async function buscarRegistros() {
             const diaRegistro = document.createElement('td')
             const diaRegistroAgora = registro.diaRegistro
             const partesDataDia = diaRegistroAgora.split("-");
-            diaRegistro.textContent = `${partesDataDia[2]}/${parseInt(partesDataDia[1], 10) - 1}/${partesDataDia[0]}`
+            diaRegistro.textContent = `${partesDataDia[2]}/${partesDataDia[1]}/${partesDataDia[0]}`
     
 
-            console.log(`vindo do banco -->>${registro.diaRegistro}`)
+            console.log(`vindo do banco dia -->>${registro.diaRegistro}`)
+            console.log(`vindo do banco mes -->>${registro.mesPlanejamento}`)
             const mesRegistro = document.createElement('td')
-            mesRegistro.textContent = new Date(`${registro.mesPlanejamento}`).toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+            const mesRegistroAgora = registro.mesPlanejamento
+            const partesDataMes = mesRegistroAgora.split("-");
+            const mesFatiado = parseInt(partesDataMes[1], 10) - 1;
+            mesRegistro.textContent = `${meses[mesFatiado]} de ${partesDataMes[0]}`
 
             const hoje = new Date();
             const ano = hoje.getFullYear();

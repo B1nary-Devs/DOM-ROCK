@@ -71,11 +71,14 @@
 
                     planejamento.registros.forEach((registro, index) => {
                         const data = registro.mesPlanejamento
+                        console.log(`banco --->${registro.mesPlanejamento}`)
                         const partesData = data.split("-");
                         const dia = partesData[2];
                         const mes = parseInt(partesData[1], 10) - 1;
+                        console.log(`mes -->${mes}`)
                         const ano = partesData[0];
                         const dataString = `${meses[mes]} de ${ano}`;
+                        console.log(`formadata --->${dataString}`)
                         const quantidadeRegistro = registro.quantidade;
                         const quantidadeHistorico = planejamento.historicos[index].quantidade;
                         const quantidadePredicao = planejamento.predicaos[index].quantidade;
