@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&family=Inter:wght@300&family=Mulish:wght@500&family=Roboto:wght@500&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="scriptdashboard.js"></script>
+  
     <title>Dashboard</title>
 
 </head>
@@ -17,10 +19,10 @@
         <nav>
             <a href="#" id="principal">ROC<span class="letra">K</span> PLANNING</a>
             <a href="#">Início</a>
-            <a href="clientes.html">Clientes</a>
-            <a href="index.html">Planejamento</a>
-            <a href="visualizar_plan.html">Gerenciamento</a>
-            <a href="dashboard.html" id="here">Dashboard</a>
+            <a class="links" onclick="inputVendedorCliente()">Clientes</a>
+            <a class="links" onclick="inputVendedorPlanejamento()">Planejamento</a>
+            <a class="links" onclick="inputVendedorGerenciamento()">Gerenciamento</a>
+            <a class="links" onclick="location.reload()">Dashboard</a>
             <a href="login.html">Sair</a>
         </nav>
     </div>
@@ -87,7 +89,7 @@
 
                     const options = {
                         chart: {
-                            title: 'Gerenciamento das vendas no ano de 2023',
+                            title: 'Gerenciamento das vendas',
                             subtitle: ''
                         },
                         colors: ['#7128EB', '#EA8300', '#1AEB44'], // Cores das linhas do gráfico
