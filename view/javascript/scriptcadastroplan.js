@@ -146,16 +146,13 @@ async function cadastrarRegistroPlanejamento(planejamentoIdcallBack) {
   const selectQuantidade3 = document.getElementById('txtquantidade3');
   const selectMes3 = document.getElementById('txtdata3');
 
-  const mes1 = new Date(`${selectMes.value}-01`);
-  mes1.setMonth(mes1.getMonth() + 1); // Adiciona 1 ao mês
+  const mes1 = new Date(`${selectMes.value}-01`)
   const dataFormatada1 = mes1.toISOString().slice(0, 10);
 
-  const mes2 = new Date(`${selectMes2.value}-01`);
-  mes2.setMonth(mes2.getMonth() + 1); // Adiciona 1 ao mês
+  const mes2 = new Date(`${selectMes2.value}-01`)
   const dataFormatada2 = mes2.toISOString().slice(0, 10);
 
-  const mes3 = new Date(`${selectMes3.value}-01`);
-  mes3.setMonth(mes3.getMonth() + 1); // Adiciona 1 ao mês
+  const mes3 = new Date(`${selectMes3.value}-01`)
   const dataFormatada3 = mes3.toISOString().slice(0, 10);
 
   const hoje = new Date();

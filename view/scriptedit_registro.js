@@ -1,46 +1,3 @@
-async function buscarCliente() {
-    try {
-        //const response = await axios.get('http://localhost:8080/vendedor/1');
-        //const vendedor = response.data;
-
-        //redireciona a tela com o vendedor logado
-        const params = new URLSearchParams(window.location.search);
-        const idVendedor = params.get('idVendedor');
-        const response = await axios.get(`http://localhost:8080/vendedor/${idVendedor}`);
-        const vendedor = response.data;
-  
-        const selectClientes = document.getElementById('selectCliente');
-
-        vendedor.clientes.forEach(cliente => {
-            const option = document.createElement('option');
-            option.value = cliente.id;
-            option.text = cliente.nome;
-            selectClientes.appendChild(option);
-        });
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-async function buscarProdutos() {
-    try {
-        const response = await axios.get('http://localhost:8080/produto');
-        const produtos = response.data;
-
-        const selectProdutos = document.getElementById('selectProduto');
-
-        produtos.forEach(produto => {
-            const option = document.createElement('option');
-            option.value = produto.id;
-            option.text = produto.nome;
-            selectProdutos.appendChild(option);
-        });
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-
 function validaCampos() {
     if (document.getElementById("selectProduto").value == "") {
         document.getElementById("selectProduto").focus()
@@ -93,31 +50,6 @@ function validaCampos() {
     return true
 }
 
-
-function cadastrarPlanejamento(callback) {
-
-    if (validaCampos()) {
-        const selectProdutos = document.getElementById('selectProduto')
-        const selectClientes = document.getElementById('selectCliente')
-        axios.post('http://localhost:8080/planejamento', {
-            idCliente: selectClientes.value,
-            idProduto: selectProdutos.value,
-            idVendedor: 1,
-        })
-            .then(response => {
-                const planejamentoIdcallBack = response.data.id;
-                callback(planejamentoIdcallBack);
-                alert('Planejamento cadastrado com sucesso!')
-                window.location.href = 'visualizar_plan.html';
-            })
-            .catch(error => {
-                console.log(`Erro cadastro Planejamento: ${error}`)
-            });
-    } else {
-        return false
-    }
-}
-
 function inputVendedorCliente() {
     const params = new URLSearchParams(window.location.search);
     const idVendedor = params.get('idVendedor');
@@ -151,9 +83,10 @@ function editarRegistroPlanejamento() {
     const dataFormatada1 = mes1.toISOString().slice(0, 10);
 
     const params = new URLSearchParams(window.location.search);
-    const idRegistro = params.get('id');
+    const idRegistro = params.get('idRegistro');
     const idPlanejamento = params.get('idPlanejamento')
     const diaRegistro = params.get('diaRegistro')
+    const idVendedor = params.get('idVendedor')
 
 
     axios.put(`http://localhost:8080/registro_planejamento/${idRegistro}`, {
@@ -165,7 +98,7 @@ function editarRegistroPlanejamento() {
     })
     .then(response => {
         alert('Planejamento atualizado com sucesso!');
-        window.location.href = `visualizar_registro.html?id=${idPlanejamento}`;
+        window.location.href = `visualizar_registro.html?idVendedor=${idVendedor}&idPlanejamento=${idPlanejamento}`;
     })
     .catch(error => {
         console.log(`Erro ao atualizar registro de planejamento: ${error}`)

@@ -72,7 +72,7 @@ async function buscarRegistros() {
                 var diferencaEmMilissegundos = diaAtual.getTime() - dataRegistroEditar.getTime();
                 var diferencaEmDias = diferencaEmMilissegundos / 86400000;
                 if (differenceInDays < 7) {
-                    window.location.href = `edit_plan.html?id=${registro.id}&idPlanejamento=${idPlanejamento}&diaRegistro=${registro.diaRegistro}&idVendedor=${idVendedor}`;
+                    window.location.href = `edit_plan.html?idRegistro=${registro.id}&idPlanejamento=${idPlanejamento}&diaRegistro=${registro.diaRegistro}&idVendedor=${idVendedor}`;
                 } else {
                     alert("Tempo de Edição expirou!")
                 }
@@ -98,6 +98,8 @@ async function buscarRegistros() {
                 var diferencaEmDias = diferencaEmMilissegundos / 86400000;
                 if (differenceInDays < 7) {
 
+                    const confirmacao = confirm("Tem certeza de que deseja excluir?");
+                    if (confirmacao){
                     axios.delete(`http://localhost:8080/registro_planejamento/${registro.id}`)
                         .then((response) => {
                             alert("Registro excluido com sucesso")
@@ -106,7 +108,7 @@ async function buscarRegistros() {
                         })
                         .catch((erro) => {
                             console.error(erro);
-                        });
+                        });}
                     //window.location.href = `edit_plan.html?id=${registro.id}&idPlanejamento=$//{idPlanejamento}&diaRegistro=${registro.diaRegistro}`;
                 } else {
                     alert("Tempo de Exlusão expirou!")
