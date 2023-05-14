@@ -1,4 +1,4 @@
-<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=004AAD&height=180&section=header&text=3°+Semestre+de+Banco+de+Dados&animation=fadeIn&fontAlignY=35&fontSize=30&fontColor=FFFAFA"/>
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=004AAD&height=180&section=header&text=3°+Semestre+de+Banco+Dados&animation=fadeIn&fontAlignY=35&fontSize=30&fontColor=FFFAFA"/>
 
 ![1º SPRINT - 2908 á 1809 (1)](https://user-images.githubusercontent.com/101594950/227817184-cbb2a48e-dedf-4cd3-af3e-a65930748703.gif)
 
@@ -46,13 +46,8 @@
 
 #### <a name="Planejamento"></a>![10](https://user-images.githubusercontent.com/101594950/228395640-c2449269-729f-45e7-8bba-496ebd319df3.jpg)
 
-<<<<<<< HEAD
 ### [1º Sprint - 13/03 a 02/04](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/tree/dev/1%20SPRINT)
 ### [2º Sprint - 03/04 a 23/04](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/tree/dev/2%20SPRINT)
-=======
-### [1º Sprint - 13/03 a 02/04](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/tree/main/1%20SPRINT)
-### [2º Sprint - 03/04 a 23/04](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/tree/main/2%20SPRINT)
->>>>>>> main
 ### [3º Sprint - 24/04 a 14/05](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/tree/main/3%20SPRINT)
 ### [4º Sprint - 15/05 a 04/06]()  
   
@@ -128,3 +123,4 @@
 </div>
 
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=004AAD&height=180&section=footer"/>
+
