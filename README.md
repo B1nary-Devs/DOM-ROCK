@@ -66,7 +66,8 @@
 <summary> VISUALIZAR BACKLOG  </summary>
   
 ## <a name="Backlog-do-Produto"><a/>
-![Backlog-produto](https://user-images.githubusercontent.com/101421659/232328274-7f0a784d-d172-48be-bb60-048df9d1e1d0.PNG)
+![Backlog-produto](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/assets/101421659/cdc9057e-644b-4756-b76e-ee6c49acc1d7)
+
 
 </summary>
 
