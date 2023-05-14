@@ -110,10 +110,12 @@
 
 <summary> MODELAGEM CONCEITUAL  </summary>
   
+### [Documentação Completa](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/files/11473014/Dom_Rock.pdf)    
+  
 <br>  
    
 ![bf94e825-d807-4d19-a6f7-6b813e0eb67d](https://user-images.githubusercontent.com/101594950/233869848-ef4b17a6-43d6-4b6f-8b69-bd82b0b69fce.jpg)
- 
+
 </summary>
 
 </details>
