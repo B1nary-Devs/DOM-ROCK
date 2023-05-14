@@ -11,7 +11,7 @@ function login() {
         console.log('Login successful');
         const idVendedor = response.data.id;
         console.log(idVendedor)
-        window.location.href = `home.html?idVendedor=${idVendedor}`
+        window.location.href = `clientes.html?idVendedor=${idVendedor}`
     })
     .catch(function (error) {
         console.log(error);

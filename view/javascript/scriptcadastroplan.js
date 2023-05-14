@@ -130,6 +130,7 @@ async function cadastrarPlanejamento(callback) {
         window.location.href = `visualizar_plan.html?idVendedor=${idVendedor}`;
       })
       .catch(error => {
+        alert("Cliente e Produto Já registrado!")
         console.log(`Erro cadastro Planejamento: ${error}`)
       });
   } else {

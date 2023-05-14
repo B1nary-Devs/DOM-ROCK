@@ -81,7 +81,7 @@ async function buscarRegistros() {
             const colunaBotaoExcluir = document.createElement('td')
             const botaoExcluir = document.createElement('button')
             botaoExcluir.type = 'button'
-            botaoExcluir.classList.add("btn", "btn-outline-dark")
+            botaoExcluir.classList.add('btn', 'btn-outline-danger')
             botaoExcluir.textContent = 'Excluir'
             botaoExcluir.addEventListener('click', () => {
 
