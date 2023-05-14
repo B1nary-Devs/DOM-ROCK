@@ -50,10 +50,12 @@
 
 <details>
 
-<summary> VISUALIZAR WIREFRAMES  </summary>
+<summary> VISUALIZAR WIREFRAME  </summary>
 
 
-## <a name="Wiraframes"><a/>
+## <a name="Wiraframe"><a/>
+![dashboard](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/assets/101421659/b8670574-138e-4850-a426-94e4ca85456c)
+
 
   
 </summary>
