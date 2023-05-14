@@ -74,7 +74,7 @@ async function buscarRegistros() {
                 if (differenceInDays < 7) {
                     window.location.href = `edit_plan.html?idRegistro=${registro.id}&idPlanejamento=${idPlanejamento}&diaRegistro=${registro.diaRegistro}&idVendedor=${idVendedor}`;
                 } else {
-                    alert("Tempo de Edição expirou!")
+                    alert("Tempo de Edição de 7 dias expirou!")
                 }
             });
 
@@ -111,7 +111,7 @@ async function buscarRegistros() {
                         });}
                     //window.location.href = `edit_plan.html?id=${registro.id}&idPlanejamento=$//{idPlanejamento}&diaRegistro=${registro.diaRegistro}`;
                 } else {
-                    alert("Tempo de Exlusão expirou!")
+                    alert("Tempo de Exlusão de 7 dias expirou!")
                 }
             });
 
