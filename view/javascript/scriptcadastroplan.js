@@ -110,6 +110,9 @@ function validaCampos() {
   return true
 }
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 async function cadastrarPlanejamento(callback) {
 
@@ -127,7 +130,8 @@ async function cadastrarPlanejamento(callback) {
         const planejamentoIdcallBack = response.data.id;
         callback(planejamentoIdcallBack);
         alert('Planejamento cadastrado com sucesso!')
-        window.location.href = `visualizar_plan.html?idVendedor=${idVendedor}`;
+        sleep(300).then(() => {
+        window.location.href = `visualizar_plan.html?idVendedor=${idVendedor}`});
       })
       .catch(error => {
         alert("Cliente e Produto Já registrado!")
