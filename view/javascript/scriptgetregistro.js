@@ -25,7 +25,6 @@ async function buscarRegistros() {
                 "Dezembro"
             ];
 
-
             const linhaRegistro = document.createElement('tr');
             const idRegistro = document.createElement('td')
             idRegistro.textContent = registro.id
@@ -35,7 +34,6 @@ async function buscarRegistros() {
             const diaRegistroAgora = registro.diaRegistro
             const partesDataDia = diaRegistroAgora.split("-");
             diaRegistro.textContent = `${partesDataDia[2]}/${partesDataDia[1]}/${partesDataDia[0]}`
-    
 
             console.log(`vindo do banco dia -->>${registro.diaRegistro}`)
             console.log(`vindo do banco mes -->>${registro.mesPlanejamento}`)
@@ -51,7 +49,6 @@ async function buscarRegistros() {
             const dia = hoje.getDate().toString().padStart(2, '0');
             const dataAtual = `${ano}-${mes}-${dia}`;
             console.log(dataAtual)
-
 
             const colunaBotaoEditar = document.createElement('td')
             const botaoEditar = document.createElement('button')
@@ -99,16 +96,17 @@ async function buscarRegistros() {
                 if (differenceInDays < 7) {
 
                     const confirmacao = confirm("Tem certeza de que deseja excluir?");
-                    if (confirmacao){
-                    axios.delete(`http://localhost:8080/registro_planejamento/${registro.id}`)
-                        .then((response) => {
-                            alert("Registro excluido com sucesso")
-                            console.log(response.data);
-                            location.reload();
-                        })
-                        .catch((erro) => {
-                            console.error(erro);
-                        });}
+                    if (confirmacao) {
+                        axios.delete(`http://localhost:8080/registro_planejamento/${registro.id}`)
+                            .then((response) => {
+                                alert("Registro excluido com sucesso")
+                                console.log(response.data);
+                                location.reload();
+                            })
+                            .catch((erro) => {
+                                console.error(erro);
+                            });
+                    }
                     //window.location.href = `edit_plan.html?id=${registro.id}&idPlanejamento=$//{idPlanejamento}&diaRegistro=${registro.diaRegistro}`;
                 } else {
                     alert("Tempo de Exlusão de 7 dias expirou!")
@@ -130,9 +128,33 @@ async function buscarRegistros() {
     }
 }
 
+function MostrarBotao() {
+    var dataAtual = new Date();
+    var diaAtual = dataAtual.getDate()
+
+    var diaLimite = 20
+
+    const botaoAdcionar = document.getElementById("btnAdicionar")
+
+    if (diaAtual <= diaLimite) {
+        botaoAdcionar.style.display = "block"
+    } else {
+        botaoAdcionar.style.display = "none"
+    }
+
+}
+
+function AdcionarRegistro() {
+    const params = new URLSearchParams(window.location.search);
+    const idPlanejamento = params.get('idPlanejamento');
+    const idVendedor = params.get('idVendedor')
+
+    window.location.href = `edit_plan.html?idPlanejamento=${idPlanejamento}&idVendedor=${idVendedor}`;
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     buscarRegistros()
+    MostrarBotao()
 });
 
 function inputVendedorPlanejamento() {
@@ -163,4 +185,4 @@ function inputVoltar() {
     const params = new URLSearchParams(window.location.search);
     const idVendedor = params.get('idVendedor');
     window.location.href = `visualizar_plan.html?idVendedor=${idVendedor}`;
-  }
+}
