@@ -132,7 +132,7 @@ function MostrarBotao() {
     var dataAtual = new Date();
     var diaAtual = dataAtual.getDate()
 
-    var diaLimite = 10
+    var diaLimite = 20
 
     const botaoAdcionar = document.getElementById("btnAdicionar")
 

@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Vendedor {
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(nullable = false, length = 50)
 	private String nome;

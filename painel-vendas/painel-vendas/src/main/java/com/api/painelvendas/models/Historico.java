@@ -18,7 +18,7 @@ import java.sql.Date;
 public class Historico {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Integer id;
     @Column(nullable = false, length = 50)

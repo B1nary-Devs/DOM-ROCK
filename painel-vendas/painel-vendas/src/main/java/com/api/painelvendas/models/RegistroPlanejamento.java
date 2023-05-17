@@ -19,7 +19,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class RegistroPlanejamento {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(nullable = false, length = 50)
     private Double quantidade;

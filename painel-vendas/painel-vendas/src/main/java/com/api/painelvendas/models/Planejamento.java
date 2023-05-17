@@ -20,7 +20,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Planejamento{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @ManyToOne
     @JoinColumn(name = "fk_id_vendedor", nullable = false)
