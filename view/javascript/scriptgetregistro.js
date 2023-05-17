@@ -69,7 +69,7 @@ async function buscarRegistros() {
                 var diferencaEmMilissegundos = diaAtual.getTime() - dataRegistroEditar.getTime();
                 var diferencaEmDias = diferencaEmMilissegundos / 86400000;
                 if (differenceInDays < 7) {
-                    window.location.href = `edit_plan.html?idRegistro=${registro.id}&idPlanejamento=${idPlanejamento}&diaRegistro=${registro.diaRegistro}&idVendedor=${idVendedor}`;
+                    window.location.href = `edit_cad_plan.html?idRegistro=${registro.id}&idPlanejamento=${idPlanejamento}&diaRegistro=${registro.diaRegistro}&idVendedor=${idVendedor}`;
                 } else {
                     alert("Tempo de Edição de 7 dias expirou!")
                 }
@@ -132,7 +132,7 @@ function MostrarBotao() {
     var dataAtual = new Date();
     var diaAtual = dataAtual.getDate()
 
-    var diaLimite = 20
+    var diaLimite = 10
 
     const botaoAdcionar = document.getElementById("btnAdicionar")
 
@@ -141,7 +141,6 @@ function MostrarBotao() {
     } else {
         botaoAdcionar.style.display = "none"
     }
-
 }
 
 function AdcionarRegistro() {
@@ -149,7 +148,7 @@ function AdcionarRegistro() {
     const idPlanejamento = params.get('idPlanejamento');
     const idVendedor = params.get('idVendedor')
 
-    window.location.href = `edit_plan.html?idPlanejamento=${idPlanejamento}&idVendedor=${idVendedor}`;
+    window.location.href = `edit_cad_plan.html?idPlanejamento=${idPlanejamento}&idVendedor=${idVendedor}`;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
