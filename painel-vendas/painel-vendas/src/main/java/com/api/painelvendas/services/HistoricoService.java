@@ -1,14 +1,10 @@
 package com.api.painelvendas.services;
 
 import com.api.painelvendas.dtos.HistoricoPostRequestDto;
-import com.api.painelvendas.dtos.PredicaoPostRequestDto;
 import com.api.painelvendas.models.Historico;
-import com.api.painelvendas.models.Planejamento;
-import com.api.painelvendas.models.Predicao;
-import com.api.painelvendas.models.Vendedor;
+import com.api.painelvendas.models.Registro;
 import com.api.painelvendas.repositories.HistoricoRepository;
-import com.api.painelvendas.repositories.PlanejamentoRepository;
-import com.api.painelvendas.repositories.VendedorRepository;
+import com.api.painelvendas.repositories.RegistroRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -21,22 +17,22 @@ import java.util.Optional;
 public class HistoricoService {
 
     private final HistoricoRepository historicoRepository;
-    private final PlanejamentoRepository planejamentoRepository;
-    public HistoricoService(HistoricoRepository historicoRepository, PlanejamentoRepository planejamentoRepository) {
+    private final RegistroRepository registroRepository;
+    public HistoricoService(HistoricoRepository historicoRepository, RegistroRepository registroRepository) {
         this.historicoRepository = historicoRepository;
-        this.planejamentoRepository = planejamentoRepository;
+        this.registroRepository = registroRepository;
     }
     @Transactional
     public Historico save(HistoricoPostRequestDto historicoPostRequestDto){
         LocalDate dataAtual = LocalDate.now();
         Date dataSqlAtual = Date.valueOf(dataAtual);
-        Optional<Planejamento> planejamento = planejamentoRepository.findById(historicoPostRequestDto.getIdPlanejamento());
+        Optional<Registro> planejamento = registroRepository.findById(historicoPostRequestDto.getIdPlanejamento());
         Historico historico = Historico.builder()
                 .id(historicoPostRequestDto.getId())
                 .quantidade(historicoPostRequestDto.getQuantidade())
                 .dia(dataSqlAtual)
                 .mes(historicoPostRequestDto.getMes())
-                .planejamento(planejamento.orElse(null))
+                .registro(planejamento.orElse(null))
                 .build();
         return historicoRepository.save(historico);
     }

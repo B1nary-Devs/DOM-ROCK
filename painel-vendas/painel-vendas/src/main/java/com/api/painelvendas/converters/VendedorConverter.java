@@ -1,15 +1,6 @@
 package com.api.painelvendas.converters;
 
-import com.api.painelvendas.dtos.ClienteDto;
-import com.api.painelvendas.dtos.PlanejamentoGetResquetDto;
-import com.api.painelvendas.models.Planejamento;
-import com.api.painelvendas.models.Vendedor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 @Component
 public class VendedorConverter {

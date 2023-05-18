@@ -1,49 +1,35 @@
 package com.api.painelvendas.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+
+import java.time.LocalDate;
+
 
 @Entity
-@Table (name = "planejamento", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"fk_id_vendedor", "fk_id_produto", "fk_id_cliente"})
-})
+@Table (name = "planejamento")
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Planejamento{
+public class Planejamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(nullable = false, length = 50)
+    private Double quantidade;
+    @Column(nullable = false)
+    private LocalDate diaRegistro;
+    @Column(nullable = false)
+    private LocalDate mesPlanejamento;
     @ManyToOne
-    @JoinColumn(name = "fk_id_vendedor", nullable = false)
+    @JoinColumn(name = "fk_id_registro", nullable = false)
     @JsonBackReference
-    private Vendedor vendedor;
-    @ManyToOne
-    @JoinColumn(name = "fk_id_produto", nullable = false)
-    private Produto produto;
-    @ManyToOne
-    @JoinColumn(name = "fk_id_cliente", nullable = false)
-    private Cliente cliente;
-    @OneToMany(mappedBy = "planejamento", cascade = CascadeType.ALL, fetch = FetchType.LAZY,
-            orphanRemoval = true)
-    @JsonManagedReference
-    private List<RegistroPlanejamento> registros;
+    private Registro registro;
 
-    @OneToMany(mappedBy = "planejamento", cascade = CascadeType.ALL, fetch = FetchType.LAZY,
-            orphanRemoval = true)
-    @JsonManagedReference
-    private List<Historico> historicos;
-
-    @OneToMany(mappedBy = "planejamento", cascade = CascadeType.ALL, fetch = FetchType.LAZY,
-            orphanRemoval = true)
-    @JsonManagedReference
-    private List<Predicao> predicaos;
 }

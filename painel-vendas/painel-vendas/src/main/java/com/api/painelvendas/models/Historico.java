@@ -30,5 +30,5 @@ public class Historico {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_id_planejamento", nullable = false)
     @JsonBackReference
-    private Planejamento planejamento;
+    private Registro registro;
 }

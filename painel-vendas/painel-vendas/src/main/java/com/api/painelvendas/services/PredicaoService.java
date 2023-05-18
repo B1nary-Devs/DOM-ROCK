@@ -1,8 +1,8 @@
 package com.api.painelvendas.services;
 
-import com.api.painelvendas.models.Planejamento;
+import com.api.painelvendas.models.Registro;
 import com.api.painelvendas.models.Predicao;
-import com.api.painelvendas.repositories.PlanejamentoRepository;
+import com.api.painelvendas.repositories.RegistroRepository;
 import com.api.painelvendas.repositories.PredicaoRepository;
 import com.api.painelvendas.dtos.PredicaoPostRequestDto;
 import jakarta.transaction.Transactional;
@@ -18,19 +18,19 @@ import java.util.Optional;
 @AllArgsConstructor
 public class PredicaoService {
     private final PredicaoRepository predicaoRepository;
-    private final PlanejamentoRepository planejamentoRepository;
+    private final RegistroRepository registroRepository;
 
     @Transactional
     public Predicao save(PredicaoPostRequestDto predicaoPostRequestDto){
         LocalDate dataAtual = LocalDate.now();
         Date dataSqlAtual = Date.valueOf(dataAtual);
-        Optional<Planejamento> planejamento = planejamentoRepository.findById(predicaoPostRequestDto.getIdPlanejamento());
+        Optional<Registro> planejamento = registroRepository.findById(predicaoPostRequestDto.getIdPlanejamento());
         Predicao predicao = Predicao.builder()
                 .id(predicaoPostRequestDto.getId())
                 .quantidade(predicaoPostRequestDto.getQuantidade())
                 .dia(dataSqlAtual)
                 .mes(predicaoPostRequestDto.getMes())
-                .planejamento(planejamento.orElse(null))
+                .registro(planejamento.orElse(null))
                 .build();
         return predicaoRepository.save(predicao);
     }

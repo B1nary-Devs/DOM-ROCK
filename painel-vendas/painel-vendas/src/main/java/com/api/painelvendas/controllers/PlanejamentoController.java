@@ -1,6 +1,4 @@
 package com.api.painelvendas.controllers;
-import com.api.painelvendas.converters.PlanejamentoConverter;
-import com.api.painelvendas.dtos.PlanejamentoGetResquetDto;
 import com.api.painelvendas.dtos.PlanejamentoPostRequestDto;
 import com.api.painelvendas.models.Planejamento;
 import com.api.painelvendas.services.PlanejamentoService;
@@ -17,36 +15,31 @@ import java.util.Optional;
 @RequestMapping("/planejamento")
 
 public class PlanejamentoController {
-
     final PlanejamentoService planejamentoService;
-    final PlanejamentoConverter planejamentoConverter;
 
-    public PlanejamentoController(PlanejamentoService planejamentoService, PlanejamentoConverter planejamentoConverter) {
+    public PlanejamentoController(PlanejamentoService planejamentoService) {
         this.planejamentoService = planejamentoService;
-        this.planejamentoConverter = planejamentoConverter;
     }
 
     @PostMapping
-    public ResponseEntity<Object> savePlanejamento(@RequestBody @Valid PlanejamentoPostRequestDto planejamentoDto) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(planejamentoService.save(planejamentoDto));
+    public ResponseEntity<Object> savePlanejamento(@RequestBody @Valid PlanejamentoPostRequestDto planejamentoPostRequestDto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(planejamentoService.save(planejamentoPostRequestDto));
     }
 
 
     @GetMapping
-    public ResponseEntity<List<PlanejamentoGetResquetDto>> getAllPlanejamento(){
-        return ResponseEntity.status(HttpStatus.OK).body(
-                planejamentoConverter.convert(planejamentoService.findAll())
-        );
+    public ResponseEntity<List<Planejamento>> getAllPlanejamento(){
+        /*return ResponseEntity.status(HttpStatus.OK).body(
+                registroPlanejamentoConverter.convert(registroPlanejamentoService.findAll())*/
+        return ResponseEntity.status(HttpStatus.OK).body(planejamentoService.findAll());
     }
 
     @GetMapping("/{id}")
-    @CrossOrigin(origins = "*", maxAge = 3600)
     public  ResponseEntity<Object> getOnePlanejamento(@PathVariable(value = "id") Integer id){
         Optional<Planejamento> planejamentoModelOptional = planejamentoService.findById(id);
         if(!planejamentoModelOptional.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Planejamento não encontrado!");
         }
-
         return ResponseEntity.status(HttpStatus.OK).body(planejamentoModelOptional.get());
     }
 
@@ -58,17 +51,20 @@ public class PlanejamentoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Planejamento não encontrado!");
         }
         planejamentoService.delete(planejamentoModelOptional.get());
-        return ResponseEntity.status(HttpStatus.OK).body("Planejamento deletado com sucesso!");
+        return ResponseEntity.status(HttpStatus.OK).body("Planejamento com sucesso!");
     }
 
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> updatearkingSpot(@PathVariable(value = "id") Integer id,
-                                                    @RequestBody @Valid PlanejamentoPostRequestDto planejamentoPostRequestDto){
+    public ResponseEntity<Object> updatePlanejamento(@PathVariable(value = "id") Integer id,
+                                                    @RequestBody @Valid
+                                                    PlanejamentoPostRequestDto
+                                                            planejamentoPostRequestDto){
         Optional<Planejamento> planejamentoModelOptional = planejamentoService.findById(id);
         if(!planejamentoModelOptional.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Planejamento não encontrado!");
         }
+
         planejamentoPostRequestDto.setId(id);
         return ResponseEntity.status(HttpStatus.OK).body(planejamentoService.save(planejamentoPostRequestDto));
     }

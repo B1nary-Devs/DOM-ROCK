@@ -35,6 +35,6 @@ public class Vendedor {
     @OneToMany(mappedBy = "vendedor", cascade = CascadeType.ALL, fetch = FetchType.LAZY,
             orphanRemoval = true)
     @JsonManagedReference
-    private List<Planejamento> planejamentos;
+    private List<Registro> registros;
 
 }

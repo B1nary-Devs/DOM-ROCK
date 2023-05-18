@@ -68,7 +68,7 @@ async function buscarRegistros() {
 
                 var diferencaEmMilissegundos = diaAtual.getTime() - dataRegistroEditar.getTime();
                 var diferencaEmDias = diferencaEmMilissegundos / 86400000;
-                if (differenceInDays < 7) {
+                if (differenceInDays <= 7) {
                     window.location.href = `edit_cad_plan.html?idRegistro=${registro.id}&idPlanejamento=${idPlanejamento}&diaRegistro=${registro.diaRegistro}&idVendedor=${idVendedor}`;
                 } else {
                     alert("Tempo de Edição de 7 dias expirou!")
@@ -93,7 +93,7 @@ async function buscarRegistros() {
 
                 var diferencaEmMilissegundos = diaAtual.getTime() - dataRegistroEditar.getTime();
                 var diferencaEmDias = diferencaEmMilissegundos / 86400000;
-                if (differenceInDays < 7) {
+                if (differenceInDays <= 7) {
 
                     const confirmacao = confirm("Tem certeza de que deseja excluir?");
                     if (confirmacao) {

@@ -1,14 +1,7 @@
 package com.api.painelvendas.services;
-
 import com.api.painelvendas.dtos.PlanejamentoPostRequestDto;
-import com.api.painelvendas.models.Cliente;
-import com.api.painelvendas.models.Planejamento;
-import com.api.painelvendas.models.Produto;
-import com.api.painelvendas.models.Vendedor;
-import com.api.painelvendas.repositories.ClienteRepository;
-import com.api.painelvendas.repositories.PlanejamentoRepository;
-import com.api.painelvendas.repositories.ProdutoRepository;
-import com.api.painelvendas.repositories.VendedorRepository;
+import com.api.painelvendas.models.*;
+import com.api.painelvendas.repositories.*;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,23 +13,20 @@ import java.util.Optional;
 @AllArgsConstructor
 public class PlanejamentoService {
     private final PlanejamentoRepository planejamentoRepository;
-    private final ProdutoRepository produtoRepository;
-    private final ClienteRepository clienteRepository;
-    private final VendedorRepository vendedorRepository;
-
+    private final RegistroRepository registroRepository;
     @Transactional
-    public Planejamento save(PlanejamentoPostRequestDto planejamentoDto) {
-        Optional<Produto> produto = produtoRepository.findById(planejamentoDto.getIdProduto());
-        Optional<Cliente> cliente = clienteRepository.findById(planejamentoDto.getIdCliente());
-        Optional<Vendedor> vendedor = vendedorRepository.findById(planejamentoDto.getIdVendedor());
+    public Planejamento save(PlanejamentoPostRequestDto planejamentoPostRequestDto) {
+        //LocalDate dataAtual = LocalDate.now();
+        //Date dataSqlAtual = Date.valueOf(dataAtual);
+        Optional<Registro> registro = registroRepository.findById(planejamentoPostRequestDto.getIdPlanejamento());
         Planejamento planejamento = Planejamento.builder()
-                .id(planejamentoDto.getId())
-                .produto(produto.orElse(null))
-                .cliente(cliente.orElse(null))
-                .vendedor(vendedor.orElse(null))
+                .id(planejamentoPostRequestDto.getId())
+                .quantidade(planejamentoPostRequestDto.getQuantidade())
+                .diaRegistro(planejamentoPostRequestDto.getDiaRegistro())
+                .mesPlanejamento(planejamentoPostRequestDto.getMesPlanejamento())
+                .registro(registro.orElse(null))
                 .build();
         return planejamentoRepository.save(planejamento);
-
     }
 
     public List<Planejamento> findAll() {

@@ -1,10 +1,5 @@
-
 async function buscarPlanejamento() {
   try {
-    //const response = await axios.get('http://localhost:8080/vendedor/1');
-    //const vendedor = response.data;
-
-
     //redireciona a tela com o vendedor logado
     const params = new URLSearchParams(window.location.search);
     const idVendedor = params.get('idVendedor');
@@ -36,26 +31,32 @@ async function buscarPlanejamento() {
       botaoEditar.type = 'button'
       botaoEditar.classList.add("btn", "btn-outline-dark")
       botaoEditar.textContent = 'Editar'
-  
-      const colunaBotaoExcluir = document.createElement('td');
-      const botaoExcluir = document.createElement('button');
-      botaoExcluir.type = 'button';
-      botaoExcluir.textContent = 'Excluir'
-      botaoExcluir.classList.add('btn', 'btn-outline-danger');
+      botaoEditar.addEventListener('click', () => {
+        var diaAtual = new Date();
+        var dataRegistroEditar = new Date(registro.diaRegistro);
 
-     
+        // Calcular a diferença em milissegundos
+        var differenceInMs = diaAtual.getTime() - dataRegistroEditar.getTime();
+
+        // Converter a diferença em dias
+        var differenceInDays = differenceInMs / (1000 * 60 * 60 * 24);
+
+        var diferencaEmMilissegundos = diaAtual.getTime() - dataRegistroEditar.getTime();
+        var diferencaEmDias = diferencaEmMilissegundos / 86400000;
+        if (differenceInDays <= 7) {
+
+          window.location.href = `edit_plan.html.html?idPlanejamento=${planejamento.id}&idVendedor=${idVendedor}`;
+        }
+
+      })
       colunaBotaoEditar.appendChild(botaoEditar)
       colunaBotaoVerMais.appendChild(botaoVerMais)
 
-      
-      colunaBotaoExcluir.appendChild(botaoExcluir);
-    
       linha.appendChild(idPlanejamento)
       linha.appendChild(clientePlanejamento)
       linha.appendChild(nomeProdutoPlanejamento)
       linha.appendChild(colunaBotaoVerMais)
       linha.appendChild(colunaBotaoEditar)
-      linha.appendChild(colunaBotaoExcluir);
 
       selectPlanejamentos.appendChild(linha)
     });

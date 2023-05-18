@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.boot.autoconfigure.web.WebProperties;
 
 import java.sql.Date;
 
@@ -32,5 +31,5 @@ public class Predicao {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_id_planejamento", nullable = false)
     @JsonBackReference
-    private Planejamento planejamento;
+    private Registro registro;
 }
