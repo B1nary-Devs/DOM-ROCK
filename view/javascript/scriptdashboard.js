@@ -4,9 +4,9 @@ function drawChart() {
   const params = new URLSearchParams(window.location.search);
   const idVendedor = params.get('idVendedor');
 
-  axios.get(`http://localhost:8080/planejamento/1`)
+  axios.get(`http://localhost:8080/registro/1`)
     .then(response => {
-      const planejamento = response.data;
+      const registro = response.data;
       const meses = [
         "Janeiro",
         "Fevereiro",
@@ -27,9 +27,9 @@ function drawChart() {
       table.addColumn('number', 'Planejado');
       table.addColumn('number', 'Realizado');
 
-      planejamento.registros.forEach((registro, index) => {
-        const data = registro.mesPlanejamento
-        console.log(`banco --->${registro.mesPlanejamento}`)
+      registro.planejamentos.forEach((planejamento, index) => {
+        const data = planejamento.mesPlanejamento
+        console.log(`banco --->${planejamento.mesPlanejamento}`)
         const partesData = data.split("-");
         const dia = partesData[2];
         const mes = parseInt(partesData[1], 10) - 1;
@@ -37,10 +37,10 @@ function drawChart() {
         const ano = partesData[0];
         const dataString = `${meses[mes]} de ${ano}`;
         console.log(`formadata --->${dataString}`)
-        const quantidadeRegistro = registro.quantidade;
-        const quantidadeHistorico = planejamento.historicos[index].quantidade;
-        const quantidadePredicao = planejamento.predicaos[index].quantidade;
-        table.addRow([dataString, quantidadePredicao, quantidadeRegistro, quantidadeHistorico]);
+        const quantidadePlanejamento = planejamento.quantidade;
+        const quantidadeHistorico = registro.historicos[index].quantidade;
+        const quantidadePredicao = registro.predicaos[index].quantidade;
+        table.addRow([dataString, quantidadePredicao, quantidadePlanejamento, quantidadeHistorico]);
       });
 
       // Define as propriedades da coluna 0 para negrito
@@ -110,6 +110,7 @@ function inputVendedorPlanejamento() {
 function inputVendedorGerenciamento() {
   const params = new URLSearchParams(window.location.search);
   const idVendedor = params.get('idVendedor');
-  window.location.href = `visualizar_plan.html?idVendedor=${idVendedor}`;
+  window.location.href = `visualizar_registros.html?idVendedor=${idVendedor}`;
 }
+
 

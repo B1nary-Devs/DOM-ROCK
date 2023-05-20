@@ -18,7 +18,7 @@ public class PlanejamentoService {
     public Planejamento save(PlanejamentoPostRequestDto planejamentoPostRequestDto) {
         //LocalDate dataAtual = LocalDate.now();
         //Date dataSqlAtual = Date.valueOf(dataAtual);
-        Optional<Registro> registro = registroRepository.findById(planejamentoPostRequestDto.getIdPlanejamento());
+        Optional<Registro> registro = registroRepository.findById(planejamentoPostRequestDto.getIdRegistro());
         Planejamento planejamento = Planejamento.builder()
                 .id(planejamentoPostRequestDto.getId())
                 .quantidade(planejamentoPostRequestDto.getQuantidade())

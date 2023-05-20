@@ -1,9 +1,5 @@
 async function CarregarCarteiraClientes() {
     try {
-        //const response = await axios.get('http://localhost:8080/vendedor/1');
-        //const vendedor = response.data;
-
-
         //redireciona a tela com o vendedor logado
         const params = new URLSearchParams(window.location.search);
         const idVendedor = params.get('idVendedor');
@@ -37,11 +33,11 @@ async function CarregarCarteiraClientes() {
     window.location.href = `index.html?idVendedor=${idVendedor}`;
 }
 
-  function inputVendedorGerenciamento() {
-    const params = new URLSearchParams(window.location.search);
-    const idVendedor = params.get('idVendedor');
-    window.location.href = `visualizar_plan.html?idVendedor=${idVendedor}`;
-  }
+function inputVendedorGerenciamento() {
+  const params = new URLSearchParams(window.location.search);
+  const idVendedor = params.get('idVendedor');
+  window.location.href = `visualizar_registros.html?idVendedor=${idVendedor}`;
+}
 
   function inputVendedorDashboard() {
     const params = new URLSearchParams(window.location.search);

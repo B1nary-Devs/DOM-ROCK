@@ -24,5 +24,5 @@ public class PlanejamentoPostRequestDto {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate mesPlanejamento;
     @NotNull
-    private Integer idPlanejamento;
+    private Integer idRegistro;
 }

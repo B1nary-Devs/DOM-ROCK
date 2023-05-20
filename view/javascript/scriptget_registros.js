@@ -1,4 +1,4 @@
-async function buscarPlanejamento() {
+async function buscarRegistro() {
   try {
     //redireciona a tela com o vendedor logado
     const params = new URLSearchParams(window.location.search);
@@ -6,24 +6,24 @@ async function buscarPlanejamento() {
     const response = await axios.get(`http://localhost:8080/vendedor/${idVendedor}`);
     const vendedor = response.data;
 
-    const selectPlanejamentos = document.getElementById('tabela');
+    const selectRegistros = document.getElementById('tabela');
 
-    vendedor.planejamentos.forEach(planejamento => {
+    vendedor.registros.forEach(registro => {
       const linha = document.createElement('tr');
       const idPlanejamento = document.createElement('td')
-      idPlanejamento.textContent = planejamento.id
+      idPlanejamento.textContent = registro.id
       idPlanejamento.setAttribute('scope', 'row')
       const clientePlanejamento = document.createElement('td')
-      clientePlanejamento.textContent = planejamento.cliente.nome
+      clientePlanejamento.textContent = registro.cliente.nome
       const nomeProdutoPlanejamento = document.createElement('td')
-      nomeProdutoPlanejamento.textContent = planejamento.produto.nome
+      nomeProdutoPlanejamento.textContent = registro.produto.nome
       const colunaBotaoVerMais = document.createElement('td')
       const botaoVerMais = document.createElement('button')
       botaoVerMais.type = 'button'
       botaoVerMais.classList.add("btn", "btn-outline-dark")
       botaoVerMais.textContent = 'Ver Mais'
       botaoVerMais.addEventListener('click', () => {
-        window.location.href = `visualizar_registro.html?idPlanejamento=${planejamento.id}&idVendedor=${idVendedor}`;
+        window.location.href = `visualizar_planejamentos.html?idRegistro=${registro.id}&idVendedor=${idVendedor}`;
       });
 
       const colunaBotaoEditar = document.createElement('td')
@@ -45,7 +45,7 @@ async function buscarPlanejamento() {
         var diferencaEmDias = diferencaEmMilissegundos / 86400000;
         if (differenceInDays <= 7) {
 
-          window.location.href = `edit_plan.html.html?idPlanejamento=${planejamento.id}&idVendedor=${idVendedor}`;
+          window.location.href = `edit_plan.html.html?idPlanejamento=${registro.id}&idVendedor=${idVendedor}`;
         }
 
       })
@@ -58,7 +58,7 @@ async function buscarPlanejamento() {
       linha.appendChild(colunaBotaoVerMais)
       linha.appendChild(colunaBotaoEditar)
 
-      selectPlanejamentos.appendChild(linha)
+      selectRegistros.appendChild(linha)
     });
   } catch (error) {
     console.error(error)
@@ -67,7 +67,7 @@ async function buscarPlanejamento() {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  buscarPlanejamento()
+  buscarRegistro()
 });
 
 //filtro de busca
@@ -142,7 +142,7 @@ function inputVendedorPlanejamento() {
 function inputVendedorGerenciamento() {
   const params = new URLSearchParams(window.location.search);
   const idVendedor = params.get('idVendedor');
-  window.location.href = `visualizar_plan.html?idVendedor=${idVendedor}`;
+  window.location.href = `visualizar_registros.html?idVendedor=${idVendedor}`;
 }
 
 function inputVendedorDashboard() {

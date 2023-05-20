@@ -65,7 +65,7 @@ function inputVendedorPlanejamento() {
 function inputVendedorGerenciamento() {
     const params = new URLSearchParams(window.location.search);
     const idVendedor = params.get('idVendedor');
-    window.location.href = `visualizar_plan.html?idVendedor=${idVendedor}`;
+    window.location.href = `visualizar_registros.html?idVendedor=${idVendedor}`;
 }
 
 function inputVendedorDashboard() {
@@ -74,10 +74,10 @@ function inputVendedorDashboard() {
     window.location.href = `dashboard.html?idVendedor=${idVendedor}`;
 }
 
-async function cadastrarRegistroPlanejamento() {
+async function cadastrarPlanejamento() {
     // criar objeto 1 usando planejamentoId
     const params = new URLSearchParams(window.location.search);
-    const idPlanejamento = params.get('idPlanejamento')
+    const idRegistro = params.get('idRegistro')
     const idVendedor = params.get('idVendedor')
     const selectQuantidade = document.getElementById('txtquantidade');
     const selectMes = document.getElementById('txtdata');
@@ -86,23 +86,23 @@ async function cadastrarRegistroPlanejamento() {
     const hoje = new Date();
     const dataAtual = hoje.toISOString().slice(0, 10);
 
-    await axios.post('http://localhost:8080/registro_planejamento', {
+    await axios.post('http://localhost:8080/planejamento', { 
         diaRegistro: dataAtual,
         quantidade: selectQuantidade.value,
         mesPlanejamento: dataFormatada1,
-        idPlanejamento: idPlanejamento
+        idRegistro: idRegistro
         // outros dados do objeto 1
     })
         .then(response => {
             alert('Registro de Planejamento atualizado com sucesso!');
-            window.location.href = `visualizar_registro.html?idVendedor=${idVendedor}&idPlanejamento=${idPlanejamento}`;
+            window.location.href = `visualizar_planejamentos.html?idVendedor=${idVendedor}&idRegistro=${idRegistro}`;
         })
         .catch(error => {
             console.log(`Erro ao cadastrar registro de planejamento: ${error}`)
         });
 }
 
-async function editarRegistroPlanejamento() {
+async function editarPlanejamento() {
     const selectQuantidade = document.getElementById('txtquantidade');
     const selectMes = document.getElementById('txtdata');
 
@@ -116,16 +116,16 @@ async function editarRegistroPlanejamento() {
     const idVendedor = params.get('idVendedor')
 
 
-    await axios.put(`http://localhost:8080/registro_planejamento/${idRegistro}`, {
+    await axios.put(`http://localhost:8080/planejamento/${idPlanejamento}`, {
         quantidade: selectQuantidade.value,
         mesPlanejamento: dataFormatada1,
-        id: idRegistro,
+        id: idPlanejamento,
         diaRegistro: diaRegistro,
-        idPlanejamento: idPlanejamento
+        idRegistro: idRegistro
     })
         .then(response => {
             alert('Planejamento atualizado com sucesso!');
-            window.location.href = `visualizar_registro.html?idVendedor=${idVendedor}&idPlanejamento=${idPlanejamento}`;
+            window.location.href = `visualizar_planejamentos.html?idVendedor=${idVendedor}&idRegistro=${idRegistro}`;
         })
         .catch(error => {
             console.log(`Erro ao atualizar registro de planejamento: ${error}`)

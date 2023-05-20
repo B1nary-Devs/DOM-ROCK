@@ -37,7 +37,7 @@ function inputVendedorDashboard() {
 function inputVendedorGerenciamento() {
   const params = new URLSearchParams(window.location.search);
   const idVendedor = params.get('idVendedor');
-  window.location.href = `visualizar_plan.html?idVendedor=${idVendedor}`;
+  window.location.href = `visualizar_registros.html?idVendedor=${idVendedor}`;
 }
 
 async function buscarProdutos() {
@@ -114,24 +114,28 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function cadastrarPlanejamento(callback) {
+async function cadastrarRegistro(callback) {
 
   if (validaCampos()) {
     const params = new URLSearchParams(window.location.search);
     const idVendedor = params.get('idVendedor');
     const selectProdutos = document.getElementById('selectProduto')
     const selectClientes = document.getElementById('selectCliente')
-    await axios.post('http://localhost:8080/planejamento', {
+    const hoje = new Date();
+    const dataAtual = hoje.toISOString().slice(0, 10);
+    await axios.post('http://localhost:8080/registro', {
+      diaRegistro: dataAtual,
       idCliente: selectClientes.value,
       idProduto: selectProdutos.value,
-      idVendedor: idVendedor,
+      idVendedor: idVendedor
     })
       .then(response => {
-        const planejamentoIdcallBack = response.data.id;
-        callback(planejamentoIdcallBack);
+        const registroIdcallBack = response.data.id;
+        callback(registroIdcallBack);
         alert('Planejamento cadastrado com sucesso!')
         sleep(300).then(() => {
-        window.location.href = `visualizar_plan.html?idVendedor=${idVendedor}`});
+          window.location.href = `visualizar_registros.html?idVendedor=${idVendedor}`
+        });
       })
       .catch(error => {
         alert("Cliente e Produto Já registrado!")
@@ -142,7 +146,7 @@ async function cadastrarPlanejamento(callback) {
   }
 }
 
-async function cadastrarRegistroPlanejamento(planejamentoIdcallBack) {
+async function cadastrarPlanejamento(registroIdcallBack) {
 
   const selectQuantidade = document.getElementById('txtquantidade');
   const selectMes = document.getElementById('txtdata');
@@ -165,11 +169,11 @@ async function cadastrarRegistroPlanejamento(planejamentoIdcallBack) {
   console.log(`data de hoje --->${dataAtual}`)
 
   // criar objeto 1 usando planejamentoId
-  await axios.post('http://localhost:8080/registro_planejamento', {
+  await axios.post('http://localhost:8080/planejamento', {
     diaRegistro: dataAtual,
     quantidade: selectQuantidade.value,
     mesPlanejamento: dataFormatada1,
-    idPlanejamento: planejamentoIdcallBack
+    idRegistro: registroIdcallBack
     // outros dados do objeto 1
   })
     .then(response => {
@@ -180,11 +184,11 @@ async function cadastrarRegistroPlanejamento(planejamentoIdcallBack) {
     });
 
   // criar objeto 2 usando planejamentoId
-  await axios.post('http://localhost:8080/registro_planejamento', {
+  await axios.post('http://localhost:8080/planejamento', {
     diaRegistro: dataAtual,
     quantidade: selectQuantidade2.value,
     mesPlanejamento: dataFormatada2,
-    idPlanejamento: planejamentoIdcallBack
+    idRegistro: registroIdcallBack
     // outros dados do objeto 2
   })
     .then(response => {
@@ -195,11 +199,11 @@ async function cadastrarRegistroPlanejamento(planejamentoIdcallBack) {
     });
 
   // criar objeto 3 usando planejamentoId
-  await axios.post('http://localhost:8080/registro_planejamento', {
+  await axios.post('http://localhost:8080/planejamento', {
     diaRegistro: dataAtual,
     quantidade: selectQuantidade3.value,
     mesPlanejamento: dataFormatada3,
-    idPlanejamento: planejamentoIdcallBack
+    idRegistro: registroIdcallBack
     // outros dados do objeto 3
   })
     .then(response => {
