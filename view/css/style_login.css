@@ -13,7 +13,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(to right, rgb(0, 174, 255), rgb(0, 132, 255), #0077ff);
+    background-image: linear-gradient(to bottom, #2baffc, #215cff, #002fff, #2433ff);
 }
 
 .container {
