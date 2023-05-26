@@ -109,6 +109,19 @@ tr:hover {
     padding: 12px 12px; 
 }
 
+.adicionar{
+    margin-left: 10%;
+    display: flex;
+    margin-bottom: 2%;
+    align-items: center;
+    font-size: 18px;
+}
+
+#btnAdicionar{
+    margin-left: 10px;
+    width: 6%;
+}
+
 .table th{
 	background-color: #1842ca;
 	color:#ffffff;
