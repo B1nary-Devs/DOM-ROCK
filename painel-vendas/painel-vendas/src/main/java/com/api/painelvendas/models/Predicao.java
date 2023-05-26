@@ -27,8 +27,7 @@ public class Predicao {
     private Date dia;
     @Column(nullable = false, length = 50)
     private Date mes;
-
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "fk_id_planejamento", nullable = false)
     @JsonBackReference
     private Registro registro;

@@ -1,3 +1,23 @@
+async function carregarRegistros() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const idVendedor = params.get('idVendedor');
+    const response = await axios.get(`http://localhost:8080/vendedor/${idVendedor}`);
+    const vendedor = response.data;
+
+    const selectClientes = document.getElementById('selectRegistros');
+
+    vendedor.registros.forEach(registro => {
+      const option = document.createElement('option');
+      option.value = registro.id;
+      option.text = `Cliente:${registro.cliente.nome} - Produto:${registro.produto.nome}`;
+      selectClientes.appendChild(option);
+    })
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 function drawChart() {
   const table = new google.visualization.DataTable();
 
@@ -40,11 +60,13 @@ function drawChart() {
         const quantidadePlanejamento = planejamento.quantidade;
         const quantidadeHistorico = registro.historicos[index].quantidade;
         const quantidadePredicao = registro.predicaos[index].quantidade;
-        table.addRow([dataString, quantidadePredicao, quantidadePlanejamento, quantidadeHistorico]);
+        table.addRow([dataString, quantidadePredicao, quantidadePlanejamento, quantidadeHistorico]
+          
+          );
       });
 
       // Define as propriedades da coluna 0 para negrito
-      table.setColumnProperty(0, 'style', 'font-weight:bold;');
+      // table.setColumnProperty(0, 'style', 'font-weight:bold;');
 
       const options = {
         chart: {
@@ -80,7 +102,10 @@ function drawChart() {
           }
         }
       };
-
+      
+      // var dashboard = new google.visualization.Dashboard(
+      //   document.getElementById('dashboard_div'));
+      
       const chart = new google.charts.Line(document.getElementById('linechart_material'));
       chart.draw(table, google.charts.Line.convertOptions(options));
     })
@@ -90,9 +115,11 @@ function drawChart() {
 }
 document.addEventListener('DOMContentLoaded', () => {
   // Elemento onde será renderizado o gráfico
+  carregarRegistros()
   google.charts.load('current', { 'packages': ['line'] });
   google.charts.load('current', { 'packages': ['corechart'] });
   google.charts.setOnLoadCallback(drawChart);
+
 });
 
 function inputVendedorCliente() {
@@ -114,3 +141,20 @@ function inputVendedorGerenciamento() {
 }
 
 
+// Filtro para exibir apenas uma linha (mês específico)
+      // const filter = new google.visualization.ControlWrapper({
+        // controlType: 'CategoryFilter',
+        // containerId: 'filter_div',
+        // options: {
+        //   filterColumnIndex: 0, // Filtro com base na primeira coluna (Meses)
+        //   ui: {
+        //     label: 'Selecione um mês:',
+        //     allowNone: true,
+        //     allowMultiple: false,
+        //     allowTyping: false,
+        //     sortValues: true
+        //   }
+        // }
+      // });
+      // const chart = new google.visualization.LineChart(document.getElementById('linechart_material'));
+      // const dashboard = new google.visualization.D

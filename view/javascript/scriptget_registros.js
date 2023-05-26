@@ -17,6 +17,11 @@ async function buscarRegistro() {
       clientePlanejamento.textContent = registro.cliente.nome
       const nomeProdutoPlanejamento = document.createElement('td')
       nomeProdutoPlanejamento.textContent = registro.produto.nome
+      const dataRegistro = document.createElement('td')
+      const partesDataDia = registro.diaRegistro.split("-");
+      dataRegistro.textContent = `${partesDataDia[2]}/${partesDataDia[1]}/${partesDataDia[0]}`
+
+
       const colunaBotaoVerMais = document.createElement('td')
       const botaoVerMais = document.createElement('button')
       botaoVerMais.type = 'button'
@@ -45,7 +50,7 @@ async function buscarRegistro() {
         var diferencaEmDias = diferencaEmMilissegundos / 86400000;
         if (differenceInDays <= 7) {
 
-          window.location.href = `edit_plan.html.html?idPlanejamento=${registro.id}&idVendedor=${idVendedor}`;
+          window.location.href = `edit_registro.html?idRegistro=${registro.id}&idVendedor=${idVendedor}&diaRegistro=${registro.diaRegistro}`;
         }
 
       })
@@ -55,6 +60,7 @@ async function buscarRegistro() {
       linha.appendChild(idPlanejamento)
       linha.appendChild(clientePlanejamento)
       linha.appendChild(nomeProdutoPlanejamento)
+      linha.appendChild(dataRegistro)
       linha.appendChild(colunaBotaoVerMais)
       linha.appendChild(colunaBotaoEditar)
 

@@ -36,18 +36,15 @@ public class Registro {
     @ManyToOne
     @JoinColumn(name = "fk_id_cliente", nullable = false)
     private Cliente cliente;
-    @OneToMany(mappedBy = "registro", cascade = CascadeType.ALL, fetch = FetchType.LAZY,
-            orphanRemoval = true)
+    @OneToMany(mappedBy = "registro", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JsonManagedReference
     private List<Planejamento> planejamentos;
 
-    @OneToMany(mappedBy = "registro", cascade = CascadeType.ALL, fetch = FetchType.LAZY,
-            orphanRemoval = true)
+    @OneToMany(mappedBy = "registro", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JsonManagedReference
     private List<Historico> historicos;
 
-    @OneToMany(mappedBy = "registro", cascade = CascadeType.ALL, fetch = FetchType.LAZY,
-            orphanRemoval = true)
+    @OneToMany(mappedBy = "registro", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JsonManagedReference
     private List<Predicao> predicaos;
 }

@@ -1,8 +1,6 @@
 async function buscarCliente() {
   try {
-    //const response = await axios.get('http://localhost:8080/vendedor/1');
-    //const vendedor = response.data;
-
+ 
     //redireciona a tela com o vendedor logado
     const params = new URLSearchParams(window.location.search);
     const idVendedor = params.get('idVendedor');
