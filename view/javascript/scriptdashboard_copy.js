@@ -44,7 +44,7 @@ function DesenhaGraficoLinhas(registro) {
         "Dezembro"
       ];
 
-      graficoLinhas.addColumn('string', 'Meses');
+      graficoLinhas.addColumn('date', 'Meses');
       graficoLinhas.addColumn('number', 'Predição');
       graficoLinhas.addColumn('number', 'Planejado');
       graficoLinhas.addColumn('number', 'Realizado');
@@ -62,7 +62,7 @@ function DesenhaGraficoLinhas(registro) {
         const quantidadePlanejamento = planejamento.quantidade;
         const quantidadeHistorico = registro.historicos[index].quantidade;
         const quantidadePredicao = registro.predicaos[index].quantidade;
-        graficoLinhas.addRow([dataString, quantidadePredicao, quantidadePlanejamento, quantidadeHistorico]);
+        graficoLinhas.addRow([new Date(ano, mes, dia), quantidadePredicao, quantidadePlanejamento, quantidadeHistorico]);
       });
 
       const lineChart = new google.visualization.ChartWrapper({
@@ -101,7 +101,12 @@ function DesenhaGraficoLinhas(registro) {
               fontSize: 16,
               color: 'black'
             }
-          }
+          },
+          // pointSize: 5,  // Define o tamanho do ponto
+          // interpolateNulls: true  // Habilita a interpolação de valores nulos (quando há apenas um ponto)
+          // crosshair: {
+          //   opacity: 1  // Defina o valor de opacidade desejado, de 0.0 a 1.0
+          // }
         }
       });
       
@@ -109,7 +114,7 @@ function DesenhaGraficoLinhas(registro) {
         'controlType': 'CategoryFilter',
         'containerId': 'categoryPicker_div',
         'options': {
-          'filterColumnIndex': 0,
+          'filterColumnIndex': 1,
           'ui': {
             'labelStacking': 'vertical',
             'label': 'Filtro:',
@@ -125,10 +130,19 @@ function DesenhaGraficoLinhas(registro) {
         }
       });
   
+      var slider = new google.visualization.ControlWrapper({
+        'controlType': 'DateRangeFilter',
+        'containerId': 'control',
+        'options': {
+          'filterColumnLabel': 'Meses',
+          'ui': { 'format': { 'pattern': 'mm/yyyy' } }
+        }
+      });
+
 
       const dashboard = new google.visualization.Dashboard(document.getElementById('dashboard_div'));
       
-      dashboard.bind([categoryPicker], [lineChart,table]);
+      dashboard.bind([slider, categoryPicker], [lineChart,table]);
       dashboard.draw(graficoLinhas);
     })
     .catch(error => {
