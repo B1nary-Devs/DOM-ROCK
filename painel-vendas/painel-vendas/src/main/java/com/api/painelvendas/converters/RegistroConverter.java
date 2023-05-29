@@ -21,6 +21,7 @@ public class RegistroConverter {
                             .nomeVendedor(r.getVendedor().getNome())
                             .planejamentos(r.getPlanejamentos())
                             .historicos(r.getHistoricos())
+                            .diaRegistro(r.getDiaRegistro())
                             .predicaos(r.getPredicaos())
                             .build()
             );
