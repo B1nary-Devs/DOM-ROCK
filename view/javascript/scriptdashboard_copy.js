@@ -44,7 +44,7 @@ function DesenhaGraficoLinhas(registro) {
         "Dezembro"
       ];
 
-      graficoLinhas.addColumn('date', 'Meses');
+      graficoLinhas.addColumn('date', 'Month');
       graficoLinhas.addColumn('number', 'Predição');
       graficoLinhas.addColumn('number', 'Planejado');
       graficoLinhas.addColumn('number', 'Realizado');
@@ -70,6 +70,8 @@ function DesenhaGraficoLinhas(registro) {
         containerId: 'linechart_material',
         
         options: {
+          // 'width': 700,
+          // 'height': 500,
           chart: {
             title: 'Gerenciamento das vendas',
             subtitle: ''
@@ -89,6 +91,7 @@ function DesenhaGraficoLinhas(registro) {
             color: 'black'
           },
           vAxis: {
+            scaleType: 'MM/yyyy',
             textStyle: {
               fontName: 'Arial',
               fontSize: 16,
@@ -96,6 +99,7 @@ function DesenhaGraficoLinhas(registro) {
             }
           },
           hAxis: {
+            format: 'MM/yyyy',
             textStyle: {
               fontName: 'Arial',
               fontSize: 16,
@@ -110,23 +114,24 @@ function DesenhaGraficoLinhas(registro) {
         }
       });
       
-      var categoryPicker = new google.visualization.ControlWrapper({
-        'controlType': 'CategoryFilter',
-        'containerId': 'categoryPicker_div',
-        'options': {
-          'filterColumnIndex': 1,
-          'ui': {
-            'labelStacking': 'vertical',
-            'label': 'Filtro:',
-            'allowTyping': false,
-            'allowMultiple': false
-          }
-        }
-      })
+      // var categoryPicker = new google.visualization.ControlWrapper({
+      //   'controlType': 'CategoryFilter',
+      //   'containerId': 'categoryPicker_div',
+      //   'options': {
+      //     'filterColumnIndex': 1,
+      //     'ui': {
+      //       'labelStacking': 'vertical',
+      //       'label': 'Filtro:',
+      //       'allowTyping': false,
+      //       'allowMultiple': false
+      //     }
+      //   }
+      // })
       var table = new google.visualization.ChartWrapper({
         'chartType': 'Table',
         'containerId': 'table_div',
         'options': {
+          // format: 'MM',
         }
       });
   
@@ -134,15 +139,15 @@ function DesenhaGraficoLinhas(registro) {
         'controlType': 'DateRangeFilter',
         'containerId': 'control',
         'options': {
-          'filterColumnLabel': 'Meses',
-          'ui': { 'format': { 'pattern': 'mm/yyyy' } }
+          'filterColumnLabel': 'Month',
+          'ui': { 'format': { 'pattern': 'MM/yyyy' } }
         }
       });
 
 
       const dashboard = new google.visualization.Dashboard(document.getElementById('dashboard_div'));
       
-      dashboard.bind([slider, categoryPicker], [lineChart,table]);
+      dashboard.bind([slider], [lineChart,table]);
       dashboard.draw(graficoLinhas);
     })
     .catch(error => {
