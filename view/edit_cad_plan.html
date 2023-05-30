@@ -31,6 +31,8 @@
             <a href="login.html">Sair</a>
         </nav>
     </div>
+    <a onclick="inputVoltar()"><img class="return" title="Voltar a Pagina de Planejamento" src="img\voltar.svg"></a>
+
     <div class="container">
         <form action="" method="post" class="form">
 
@@ -41,19 +43,23 @@
                 <div class="input-box">
                     <label for="txtquantidade">Quantidade:</label><br>
                     <input class="form-control" type="number" name="txtquantidade" id="txtquantidade"
-                        placeholder="Quantidade de venda planejada"><br>
+                           placeholder="Quantidade de venda planejada"><br>
                 </div>
                 <div class="input-box">
                     <label for="txtdata">Data:</label><br>
                     <input class="form-control" type="month" id="txtdata" name="txtdata" min="2022-01"
-                        max="2024-12"><br>
+                           max="2024-12"><br>
                 </div>
             </div>
             <div class="buttons">
                 <button value="Editar" id="btnEditar" onclick="editarPlanejamento()" type="button"
-                    class="btn btn-outline-primary">Editar</button>
+                        class="btn btn-outline-primary">
+                    Editar
+                </button>
                 <button value="Cadastrar" id="btnCadastrar" onclick="cadastrarPlanejamento()" type="button"
-                    class="btn btn-outline-primary">Cadastrar</button>
+                        class="btn btn-outline-primary">
+                    Cadastrar
+                </button>
             </div>
         </form>
     </div>
@@ -72,8 +78,8 @@
         document.getElementById("txtdata").setAttribute("max", maxDate);
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
-        crossorigin="anonymous"></script>
+            integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>
