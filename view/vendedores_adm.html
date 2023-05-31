@@ -18,93 +18,93 @@
     <script src="javascript/scriptclientes.js"></script>
 </head>
 <body>
-  <div id="nav">
-      <div id="nav">
-          <nav>
-              <a href="#" id="principal">ROC<span class="letra">K</span> PLANNING</a>
-              <a href="#">Início</a>
-              <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                  Vendedores
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                      <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                  </svg>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-light text-info
-                  -emphasis bg-primary-subtle border border-primary-subtle rounded-3">
-                  <li><a class="dropdown-item" href="#">Cadastrar Vendedores</a></li>
-                  <li><a class="dropdown-item" href="#">Consultar Vendedores</a></li>
-              </ul>
-              <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                  Clientes
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                      <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                  </svg>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-light text-info
-                  -emphasis bg-primary-subtle border border-primary-subtle rounded-3">
-                  <li><a class="dropdown-item" href="#">Cadastrar Clientes</a></li>
-                  <li><a class="dropdown-item" href="#">Consultar Clientes</a></li>
-              </ul>
-              <a href="">Dashboard</a>
-              <a href="login.html">Sair</a>
-          </nav>
-      </div>
-      <div>
-          <a onclick="inputVoltar()"><img class="return" title="Voltar a Pagina de Planejamento" src="img\voltar.svg"></a>
-          <h1 class="titulo">VENDEDORES</h1>
+    <div id="nav">
+        <div id="nav">
+            <nav>
+                <a href="#" id="principal">ROC<span class="letra">K</span> PLANNING</a>
+                <a href="#">Início</a>
+                <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                    Vendedores
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                    </svg>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-light text-info
+                -emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <li><a class="dropdown-item" href="cadastro_vendedores.html">Cadastrar Vendedores</a></li>
+                    <li><a class="dropdown-item" href="vendedores_adm.html">Consultar Vendedores</a></li>
+                </ul>
+                <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                    Clientes
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                    </svg>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-light text-info
+                -emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <li><a class="dropdown-item" href="cadastro_clientes.html">Cadastrar Clientes</a></li>
+                    <li><a class="dropdown-item" href="clientes_adm.html">Consultar Clientes</a></li>
+                </ul>
+                <a href="dasboard_adm.html">Dashboard</a>
+                <a href="login.html">Sair</a>
+            </nav>
+        </div>
+        <div>
+            <a onclick="inputVoltar()"><img class="return" title="Voltar a Pagina de Planejamento" src="img\voltar.svg"></a>
+            <h1 class="titulo">VENDEDORES</h1>
 
-          <div class="filtros">
-              <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Buscar">
-              <button class="btn btn-outline-primary" onclick="limparFiltro()">Limpar </button>
-          </div>
+            <div class="filtros">
+                <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Buscar">
+                <button class="btn btn-outline-primary" onclick="limparFiltro()">Limpar </button>
+            </div>
 
-          <table class="table" id="tabelaClientes">
-              <thead>
-                  <tr>
-                      <th scope="col">ID</th>
-                      <th scope="col">Nome</th>
-                      <th scope="col">E-mail</th>
-                      <th scope="col">descartar</th>
-                      <th scope="col">Detalhes</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <th>
-                      <td>1</td>
-                      <td>2</td>
-                      <td>3</td>
-                      <td>
-                          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                              Visualizar
-                          </button>
-                      </td>
-                  </th>
-              </tbody>
-          </table>
+            <table class="table" id="tabelaClientes">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">descartar</th>
+                        <th scope="col">Detalhes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <th>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Visualizar
+                    </button>
+                </td>
+                </th>
+                </tbody>
+            </table>
 
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <h1 class="modal-title fs-5" id="exampleModalLabel">Carteira de Clientes</h1>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                          <a href="edit_adm_clientes.html">Ricardevs</a><br>
-                          <a href="edit_adm_clientes.html">Ricardevs</a><br>
-                          <a href="edit_adm_clientes.html">Ricardevs</a><br>
-                          <a href="edit_adm_clientes.html">Ricardevs</a><br>
-                      </div>
-                      <div class="modal-footer">
-                          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
-                      </div>
-                  </div>
-              </div>
-          </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Carteira de Clientes</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <a href="edit_adm_clientes.html">Ricardevs</a><br>
+                            <a href="edit_adm_clientes.html">Ricardevs</a><br>
+                            <a href="edit_adm_clientes.html">Ricardevs</a><br>
+                            <a href="edit_adm_clientes.html">Ricardevs</a><br>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
-      </div>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+        </div>
 </body>
 </html>
