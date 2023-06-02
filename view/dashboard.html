@@ -12,7 +12,8 @@
    <!-- Importar a API do Google Charts -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/controls.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
 
     <title>Dashboard</title>
 
@@ -30,10 +31,8 @@
             <a href="login.html">Sair</a>
         </nav>
     </div>
-    <a onclick="inputVoltar()"><img class="return" title="Voltar a Pagina de Planejamento" src="img\voltar.svg"></a>
-
     <h1 class="titulo">DASHBOARD</h1>
-
+    
     <div class="input-box">
         <label for="txtcliente">Registros:</label><br>
         <select id="selectRegistros" class="input-large form-select">
@@ -41,8 +40,13 @@
         </select><br>
     </div>
 
-    <div id="dashboard_div"></div>
+    <div id="dashboard_div">
+
+    </div>
+    <div id="categoryPicker_div"></div>
     <div id="linechart_material"></div>
+    <div id="table_div"></div>
+    <div id="control"></div>
 
 
 </body>

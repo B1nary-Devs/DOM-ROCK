@@ -1,22 +1,53 @@
-async function carregarRegistros() {
+async function carregarVendedores() {
   try {
-    const params = new URLSearchParams(window.location.search);
-    const idVendedor = params.get('idVendedor');
+    const response = await axios.get('http://localhost:8080/vendedor');
+    const vendedores = response.data;
+
+    const selectVendedor = document.getElementById('selectVendedor');
+
+    vendedores.forEach(vendedor => {
+      const option = document.createElement('option');
+      option.value = vendedor.id;
+      option.text = `Vendedor: ${vendedor.nome}`;
+      selectVendedor.appendChild(option);
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function carregarRegistros(idVendedor) {
+  try {
     const response = await axios.get(`http://localhost:8080/vendedor/${idVendedor}`);
     const vendedor = response.data;
 
-    const selectClientes = document.getElementById('selectRegistros');
+    const selectRegistros = document.getElementById('selectRegistros');
+
+    const optionVazio = document.createElement('option');
+    optionVazio.value = 'Registros';
+    optionVazio.text = 'Registros'; // Texto vazio
+    selectRegistros.appendChild(optionVazio);
 
     vendedor.registros.forEach(registro => {
       const option = document.createElement('option');
       option.value = registro.id;
-      console.log(`id do registro --->${registro.id}`)
-      option.text = `Cliente:${registro.cliente.nome} - Produto:${registro.produto.nome}`;
-      selectClientes.appendChild(option);
-    })
+      option.text = `Cliente: ${registro.cliente.nome} - Produto: ${registro.produto.nome}`;
+      selectRegistros.appendChild(option);
+    });
   } catch (error) {
     console.error(error);
   }
+}
+
+function adicionarEventoDeMudanca() {
+  const selectVendedor = document.getElementById('selectVendedor');
+  const selectRegistros = document.getElementById('selectRegistros');
+
+  selectVendedor.addEventListener('change', async () => {
+    selectRegistros.innerHTML = ''; // Limpar o conteúdo do select antes de carregar os registros
+    const selectedId = selectVendedor.value;
+    await carregarRegistros(selectedId, false); // Passar o parâmetro limparSelect como false para não limpar o select novamente
+  });
 }
 
 
@@ -68,7 +99,7 @@ function DesenhaGraficoLinhas(registro) {
       const lineChart = new google.visualization.ChartWrapper({
         chartType: 'Line',
         containerId: 'linechart_material',
-        
+
         options: {
           // 'width': 700,
           // 'height': 500,
@@ -91,7 +122,6 @@ function DesenhaGraficoLinhas(registro) {
             color: 'black'
           },
           vAxis: {
-            scaleType: 'MM/yyyy',
             textStyle: {
               fontName: 'Arial',
               fontSize: 16,
@@ -99,7 +129,7 @@ function DesenhaGraficoLinhas(registro) {
             }
           },
           hAxis: {
-            format: 'MM/yyyy',
+            format: 'dd/MM/yyyy',
             textStyle: {
               fontName: 'Arial',
               fontSize: 16,
@@ -113,7 +143,7 @@ function DesenhaGraficoLinhas(registro) {
           // }
         }
       });
-      
+
       // var categoryPicker = new google.visualization.ControlWrapper({
       //   'controlType': 'CategoryFilter',
       //   'containerId': 'categoryPicker_div',
@@ -134,21 +164,28 @@ function DesenhaGraficoLinhas(registro) {
           // format: 'MM',
         }
       });
-  
+
       var slider = new google.visualization.ControlWrapper({
         'controlType': 'DateRangeFilter',
         'containerId': 'control',
         'options': {
           'filterColumnLabel': 'Month',
-          'ui': { 'format': { 'pattern': 'MM/yyyy' } }
+          'ui': { 'format': { 'pattern': 'dd/MM/yyyy' }}
         }
       });
-
+      if (registro === "Registros") {
+        document.getElementById("linechart_material").style.display = "none";
+        document.getElementById("table_div").style.display = "none";
+        document.getElementById("control").style.display = "none";
+        return; // Não fazer mais nada se a opção "Registros" foi selecionada
+      }
 
       const dashboard = new google.visualization.Dashboard(document.getElementById('dashboard_div'));
-      
-      dashboard.bind([slider], [lineChart,table]);
+
+      dashboard.bind([slider], [lineChart, table]);
       dashboard.draw(graficoLinhas);
+      
+
     })
     .catch(error => {
       console.error(error);
@@ -163,7 +200,9 @@ function DadosRegistros() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  carregarVendedores();
   carregarRegistros();
+  adicionarEventoDeMudanca();
   google.charts.load('current', { 'packages': ['line', 'corechart', 'table', 'gauge', 'controls'] });
 
   document.getElementById("selectRegistros").addEventListener("input", DadosRegistros);
@@ -186,3 +225,4 @@ function inputVendedorGerenciamento() {
   const idVendedor = params.get('idVendedor');
   window.location.href = `visualizar_registros.html?idVendedor=${idVendedor}`;
 }
+

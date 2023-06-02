@@ -18,13 +18,36 @@ async function carregarRegistros() {
   }
 }
 
-function drawChart() {
-  const table = new google.visualization.DataTable();
+async function carregarRegistros() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const idVendedor = params.get('idVendedor');
+    const response = await axios.get(`http://localhost:8080/vendedor/${idVendedor}`);
+    const vendedor = response.data;
+
+    const selectClientes = document.getElementById('selectRegistros');
+
+
+    vendedor.registros.forEach(registro => {
+      const option = document.createElement('option');
+      option.value = registro.id;
+      console.log(`id do registro --->${registro.id}`)
+      option.text = `Cliente:${registro.cliente.nome} - Produto:${registro.produto.nome}`;
+      selectClientes.appendChild(option);
+    })
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+
+function DesenhaGraficoLinhas(registro) {
+  const graficoLinhas = new google.visualization.DataTable();
 
   const params = new URLSearchParams(window.location.search);
   const idVendedor = params.get('idVendedor');
 
-  axios.get(`http://localhost:8080/registro/1`)
+  axios.get(`http://localhost:8080/registro/${registro}`)
     .then(response => {
       const registro = response.data;
       const meses = [
@@ -42,15 +65,15 @@ function drawChart() {
         "Dezembro"
       ];
 
-      table.addColumn('string', 'Meses');
-      table.addColumn('number', 'Predição');
-      table.addColumn('number', 'Planejado');
-      table.addColumn('number', 'Realizado');
+      graficoLinhas.addColumn('date', 'Month');
+      graficoLinhas.addColumn('number', 'Predição');
+      graficoLinhas.addColumn('number', 'Planejado');
+      graficoLinhas.addColumn('number', 'Realizado');
 
       registro.planejamentos.forEach((planejamento, index) => {
-        const data = planejamento.mesPlanejamento
+        const dataTabela = planejamento.mesPlanejamento
         console.log(`banco --->${planejamento.mesPlanejamento}`)
-        const partesData = data.split("-");
+        const partesData = dataTabela.split("-");
         const dia = partesData[2];
         const mes = parseInt(partesData[1], 10) - 1;
         console.log(`mes -->${mes}`)
@@ -60,66 +83,111 @@ function drawChart() {
         const quantidadePlanejamento = planejamento.quantidade;
         const quantidadeHistorico = registro.historicos[index].quantidade;
         const quantidadePredicao = registro.predicaos[index].quantidade;
-        table.addRow([dataString, quantidadePredicao, quantidadePlanejamento, quantidadeHistorico]
-          
-          );
+        graficoLinhas.addRow([new Date(ano, mes, dia), quantidadePredicao, quantidadePlanejamento, quantidadeHistorico]);
       });
 
-      // Define as propriedades da coluna 0 para negrito
-      // table.setColumnProperty(0, 'style', 'font-weight:bold;');
-
-      const options = {
-        chart: {
-          title: 'Gerenciamento das vendas',
-          subtitle: ''
-        },
-        colors: ['#7128EB', '#EA8300', '#1AEB44'], // Cores das linhas do gráfico
-        legend: {
-          textStyle: {
-            fontName: 'Arial',
+      const lineChart = new google.visualization.ChartWrapper({
+        chartType: 'Line',
+        containerId: 'linechart_material',
+        
+        options: {
+          // 'width': 700,
+          // 'height': 500,
+          chart: {
+            title: 'Gerenciamento das vendas',
+            subtitle: ''
+          },
+          colors: ['#7128EB', '#EA8300', '#1AEB44'],
+          legend: {
+            textStyle: {
+              fontName: 'Arial',
+              fontSize: 18,
+              color: 'black'
+            }
+          },
+          titleTextStyle: {
             fontSize: 18,
+            italic: true,
+            bold: true,
             color: 'black'
-          }
-        },
-        titleTextStyle: {
-          fontSize: 18,
-          italic: true,
-          bold: true,
-          color: 'black'
-        },
-        vAxis: {
-          textStyle: {
-            fontName: 'Arial',
-            fontSize: 16,
-            color: 'black'
-          }
-        },
-        hAxis: {
-          textStyle: {
-            fontName: 'Arial',
-            fontSize: 16,
-            color: 'black'
-          }
+          },
+          vAxis: {
+            scaleType: 'MM/yyyy',
+            textStyle: {
+              fontName: 'Arial',
+              fontSize: 16,
+              color: 'black'
+            }
+          },
+          hAxis: {
+            format: 'MM/yyyy',
+            textStyle: {
+              fontName: 'Arial',
+              fontSize: 16,
+              color: 'black'
+            }
+          },
+          // pointSize: 5,  // Define o tamanho do ponto
+          // interpolateNulls: true  // Habilita a interpolação de valores nulos (quando há apenas um ponto)
+          // crosshair: {
+          //   opacity: 1  // Defina o valor de opacidade desejado, de 0.0 a 1.0
+          // }
         }
-      };
+      });
       
-      // var dashboard = new google.visualization.Dashboard(
-      //   document.getElementById('dashboard_div'));
+      // var categoryPicker = new google.visualization.ControlWrapper({
+      //   'controlType': 'CategoryFilter',
+      //   'containerId': 'categoryPicker_div',
+      //   'options': {
+      //     'filterColumnIndex': 1,
+      //     'ui': {
+      //       'labelStacking': 'vertical',
+      //       'label': 'Filtro:',
+      //       'allowTyping': false,
+      //       'allowMultiple': false
+      //     }
+      //   }
+      // })
+      var table = new google.visualization.ChartWrapper({
+        'chartType': 'Table',
+        'containerId': 'table_div',
+        'options': {
+          // format: 'MM',
+        }
+      });
+  
+      var slider = new google.visualization.ControlWrapper({
+        'controlType': 'DateRangeFilter',
+        'containerId': 'control',
+        'options': {
+          'filterColumnLabel': 'Month',
+          'ui': { 'format': { 'pattern': 'MM/yyyy' } }
+        }
+      });
+
+
+      const dashboard = new google.visualization.Dashboard(document.getElementById('dashboard_div'));
       
-      const chart = new google.charts.Line(document.getElementById('linechart_material'));
-      chart.draw(table, google.charts.Line.convertOptions(options));
+      dashboard.bind([slider], [lineChart,table]);
+      dashboard.draw(graficoLinhas);
     })
     .catch(error => {
       console.error(error);
     });
 }
-document.addEventListener('DOMContentLoaded', () => {
-  // Elemento onde será renderizado o gráfico
-  carregarRegistros()
-  google.charts.load('current', { 'packages': ['line'] });
-  google.charts.load('current', { 'packages': ['corechart'] });
-  google.charts.setOnLoadCallback(drawChart);
 
+// Restante do seu código...
+
+function DadosRegistros() {
+  var registro = document.getElementById("selectRegistros").value;
+  DesenhaGraficoLinhas(registro);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  carregarRegistros();
+  google.charts.load('current', { 'packages': ['line', 'corechart', 'table', 'gauge', 'controls'] });
+
+  document.getElementById("selectRegistros").addEventListener("input", DadosRegistros);
 });
 
 function inputVendedorCliente() {
@@ -139,22 +207,3 @@ function inputVendedorGerenciamento() {
   const idVendedor = params.get('idVendedor');
   window.location.href = `visualizar_registros.html?idVendedor=${idVendedor}`;
 }
-
-
-// Filtro para exibir apenas uma linha (mês específico)
-      // const filter = new google.visualization.ControlWrapper({
-        // controlType: 'CategoryFilter',
-        // containerId: 'filter_div',
-        // options: {
-        //   filterColumnIndex: 0, // Filtro com base na primeira coluna (Meses)
-        //   ui: {
-        //     label: 'Selecione um mês:',
-        //     allowNone: true,
-        //     allowMultiple: false,
-        //     allowTyping: false,
-        //     sortValues: true
-        //   }
-        // }
-      // });
-      // const chart = new google.visualization.LineChart(document.getElementById('linechart_material'));
-      // const dashboard = new google.visualization.D
