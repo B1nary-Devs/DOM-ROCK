@@ -1,13 +1,10 @@
 package com.api.painelvendas.controllers;
 
-import com.api.painelvendas.dtos.VendedorLoginDto;
 import com.api.painelvendas.models.Administrador;
 import com.api.painelvendas.models.UserLogin;
 import com.api.painelvendas.models.Vendedor;
-import com.api.painelvendas.repositories.VendedorRepository;
 import com.api.painelvendas.services.AdministradorService;
 import com.api.painelvendas.services.VendedorService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,10 +32,10 @@ public class LoginController {
     @PostMapping("/login")
     public ResponseEntity<?> doLogin (@RequestBody UserLogin userLogin) {
         String email = userLogin.getEmail();
-        String senha = userLogin.getSenha();
+        String password = userLogin.getPassword();
 
-        Vendedor vendedor = vendedorService.login(email, senha);
-        Administrador administrador = administradorService.login(email, senha);
+        Vendedor vendedor = vendedorService.login(email, password);
+        Administrador administrador = administradorService.login(email, password);
 
         if (vendedor == null && administrador == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
