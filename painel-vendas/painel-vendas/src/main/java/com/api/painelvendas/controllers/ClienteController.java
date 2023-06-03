@@ -1,11 +1,12 @@
 package com.api.painelvendas.controllers;
 
 
+import com.api.painelvendas.converters.ClienteConverter;
 import com.api.painelvendas.dtos.ClienteDto;
+import com.api.painelvendas.dtos.ClienteGetDto;
 import com.api.painelvendas.models.Cliente;
 import com.api.painelvendas.services.ClienteService;
 import jakarta.validation.Valid;
-import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,9 +20,11 @@ import java.util.Optional;
 public class ClienteController {
 
     final ClienteService clienteService;
+    final ClienteConverter clienteConverter;
 
-    public ClienteController(ClienteService clienteService) {
+    public ClienteController(ClienteService clienteService, ClienteConverter clienteConverter) {
         this.clienteService = clienteService;
+        this.clienteConverter = clienteConverter;
     }
     @PostMapping
     public ResponseEntity<Object> saveCliente(@RequestBody @Valid ClienteDto clienteDto) {
@@ -29,8 +32,10 @@ public class ClienteController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Cliente>> getAllProdutos() {
-        return ResponseEntity.status(HttpStatus.OK).body(clienteService.findAll());
+    public ResponseEntity<List<ClienteGetDto>> getAllClientes() {
+        return ResponseEntity.status(HttpStatus.OK).body(
+                clienteConverter.convert(clienteService.findAll())
+        );
     }
 
     @GetMapping("/{id}")
