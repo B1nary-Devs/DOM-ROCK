@@ -13,39 +13,31 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(to bottom, #2baffc, #215cff, #002fff, #2433ff);
 }
 
 .container {
     width: 95%;
     height: 90vh;
     display: flex;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
 }
 
 .form-image {
-    width: 100%;
-    display: flex;
+    width: 70%;
+    display: block;
     justify-content: center;
     align-items: center;
-    background-color: #fde3a7d7;
-    text-transform: uppercase;
-    transition: all .55s ease;
     text-decoration: none;
-}
-
-.form-image:hover{
-    transform: translateX(8px);
-    background-color: #fde3a7d7;
+    margin-top: 2%;
 }
 
 .form-image img {
-    width: 100%;
-    height: 100%;
-}
+        width: 85%;
+        display: block;
+        margin: 0 auto;
+    }
 
 .form {
-    width: 80%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
