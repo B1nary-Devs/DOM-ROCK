@@ -9,9 +9,15 @@ function login() {
     .then(function (response) {
         console.log(response)
         console.log('Login successful');
-        const idVendedor = response.data.id;
-        console.log(idVendedor)
-        window.location.href = `clientes.html?idVendedor=${idVendedor}`
+        const id = response.data.id;
+        const nivelAcesso = response.data.nivelAcesso
+        if(nivelAcesso == 'vendedor'){
+            console.log(id)
+            window.location.href = `clientes.html?idVendedor=${id}`
+        } else{
+            window.location.href = 'dasboard_adm.html'
+        }
+
     })
     .catch(function (error) {
         console.log(error);

@@ -13,7 +13,7 @@ async function CarregarCarteiraClientesAdmin() {
         const idCliente = document.createElement ('td')
         idCliente.textContent = cliente.id
         const nomeVendedor = document.createElement('td')
-        nomeVendedor.textContent = cliente.vendedor.nome
+        nomeVendedor.textContent = cliente.nomeVendedor
         const nomeCliente = document.createElement ('td')
         nomeCliente.textContent = cliente.nome
         const emailCliente = document.createElement ('td')
@@ -28,3 +28,7 @@ async function CarregarCarteiraClientesAdmin() {
       console.error(error)
     }
   }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    CarregarCarteiraClientesAdmin()
+});
