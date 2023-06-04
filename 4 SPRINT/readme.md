@@ -13,28 +13,9 @@
 <summary> VISUALIZAR BACKLOG  </summary>
   
 ## <a name="Backlog-da-Sprint"><a/>
-  
-![Backlog-sprint-4](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/assets/101421659/a4406957-836e-4bfd-9bbd-4044e6bbc8e1)
+![Backlog-Sprint-4](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/assets/101421659/4dc3c720-64b6-4d02-b9b6-82f9aab82746)
 
-</summary>
 
-</details>
-
-</div>
-
------------------------
-
-<div align="center">
-
-![Critérios](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/assets/101421659/df1964b0-6344-4411-b978-a9f4db2fbf4d)
-
-<details>
-
-<summary> VISUALIZAR CRITÉRIOS DE ACEITAÇÃO  </summary>
-  
-## <a name="Criterios-de-aceitacao"><a/>
-  
-![Criterio-aceitacao-4](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/assets/101421659/d9f2164a-0442-4396-9d3e-0a9b1b36d48d)
 
 </summary>
 
@@ -55,19 +36,20 @@
 
 ## <a name="Wiraframes"><a/>
 
-![Adm-Vendedores](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/assets/101421659/7d5420c1-0353-4f14-821b-be5af7d5124e)
+![cadastro-vendedor](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/assets/101421659/00e9c007-a65b-43ec-a710-53d2de6deed8)
+
+----------
+  
+![cadastro-clientes](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/assets/101421659/af3b14c4-3627-4277-a6a5-cc28a6f3fc64)
+  
+  
+----------
+  
+![Adm-Vendedores](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/assets/101421659/b2e6eb96-1d5b-477e-9622-6256d749e019)
   
 ----------
 
-![Adm-gerenciamento](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/assets/101421659/20b67861-fa61-4064-88ce-63bc7ccf3023)
-  
-----------
-  
-![Adm-registro](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/assets/101421659/e1d83ac7-0adc-435c-b23c-afa5afb38e21)
-  
-----------
-  
-![Adm-cadastro](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/assets/101421659/719403d8-9e61-49ae-a5ef-9033d61e0779)
+![Adm-clientes](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/assets/101421659/369735a5-da2a-4b72-a61a-72c06ddc0993)
 
 </summary>
 
