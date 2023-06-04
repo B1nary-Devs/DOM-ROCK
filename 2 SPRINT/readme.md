@@ -14,7 +14,27 @@
 <summary> VISUALIZAR BACKLOG  </summary>
   
 ## <a name="Backlog-da-Sprint"><a/>
-![Backlog-Sprint-2](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/assets/101421659/680ce09f-5981-4898-b405-d2bc7c50f82a)
+![Backlog-sprint-2](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/assets/101421659/8f3db482-93e7-4273-a497-49c7a0076e5d)
+
+</summary>
+
+</details>
+
+</div>
+
+-----------------------
+
+<div align="center">
+
+![Critérios](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/assets/101421659/12a0161f-cbdb-4586-b0b5-9b9c84e8cc10)
+
+<details>
+
+<summary> VISUALIZAR CRITÉRIOS DE ACEITAÇÃO  </summary>
+  
+## <a name="Criterio-de-aceitacao"><a/>
+  
+![Criterio-aceitacao-2](https://github.com/B1nary-Devs-3-Semestre/DOM-ROCK/assets/101421659/6779c7c6-2eae-47d4-b097-d7e105ef3313)
 
 </summary>
 
