@@ -49,7 +49,7 @@ function EditarVendedor() {
             nivelAcesso: 'vendedor'
         })
             .then(response => {
-                alert('Vendedor cadastrado com sucesso!')
+                alert('Vendedor Atualizado com sucesso!')
                 window.location.href = `vendedores_adm.html`
             })
             .catch(error => {

@@ -27,13 +27,11 @@ public class Vendedor {
     private String password;
     @Column(nullable = false,length = 15)
     private String nivelAcesso;
-    @OneToMany(mappedBy = "vendedor", cascade = CascadeType.DELETE_ORPHAN, fetch = FetchType.LAZY,
-    orphanRemoval = true)
+    @OneToMany(mappedBy = "vendedor", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JsonManagedReference
     private List<Cliente> clientes;
 
-    @OneToMany(mappedBy = "vendedor", cascade = CascadeType.ALL, fetch = FetchType.LAZY,
-            orphanRemoval = true)
+    @OneToMany(mappedBy = "vendedor", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JsonManagedReference
     private List<Registro> registros;
 
