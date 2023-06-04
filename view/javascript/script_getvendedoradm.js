@@ -36,7 +36,7 @@ async function carregarVendedores() {
                     // Defina o texto do link
                     link.textContent = cliente.nome;
                     // Defina o atributo href do link
-                    link.href = `edit_clientes.html?idVendedor=${vendedor.id}&idCliente=${cliente.id}`;
+                    link.href = `edit_adm_clientes.html?idVendedor=${vendedor.id}&idCliente=${cliente.id}`;
                     const br = document.createElement('br');
                     divClientesNovo.appendChild(link)
                     divClientesNovo.appendChild(br)

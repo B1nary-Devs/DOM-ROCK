@@ -15,7 +15,7 @@ async function EditarClientes() {
         email: emailCliente.value,
     })
         .then(response => {
-            alert('Cliente cadastrado com sucesso!')
+            alert('Cliente Atualizado com sucesso!')
             window.location.href = `clientes_adm.html`
         })
         .catch(error => {
