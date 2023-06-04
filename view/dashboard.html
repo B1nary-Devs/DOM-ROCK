@@ -5,17 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/dashboard.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&family=Inter:wght@300&family=Mulish:wght@500&family=Roboto:wght@500&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <script src="javascript/scriptdashboard.js"></script>
-   <!-- Importar a API do Google Charts -->
+    <title>Rock Planning</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <!-- Importar a API do Google Charts -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/controls.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="javascript/scriptdashboard_adm.js"></script>    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&family=Inter:wght@300&family=Mulish:wght@500&family=Roboto:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/dashboard.css">
 
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 
-    <title>Dashboard</title>
 
 </head>
 
@@ -32,12 +37,16 @@
         </nav>
     </div>
     <h1 class="titulo">DASHBOARD</h1>
-    
-    <div class="input-box">
-        <label for="txtcliente">Registros:</label><br>
-        <select id="selectRegistros" class="form-select" aria-label="Default select example">
-            <option value=""></option>
-        </select><br>
+
+    <div class="d-flex justify-content-center" >
+       
+        <div class="filt_items">
+            <select class="form-select" aria-label="Default select example" id="selectRegistros">
+                <option></option>
+                
+                
+            </select>
+        </div>
     </div>
 
     <div id="dashboard_div">
@@ -48,7 +57,9 @@
     <div id="table_div"></div>
     <div id="control"></div>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
