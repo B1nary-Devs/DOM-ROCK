@@ -26,7 +26,7 @@ async function carregarVendedores() {
                 const response = await axios.get(`http://localhost:8080/vendedor/${vendedor.id}`);
                 const vendedorC = response.data;
                 const divClientes = document.getElementById('atualizar');
-                
+
                 divClientes.remove()
 
                 const divClientesNovo = document.createElement('div');
@@ -45,11 +45,23 @@ async function carregarVendedores() {
                 var modalInstance = new bootstrap.Modal(modal);
                 modalInstance.show();
             })
+
+            const colunaBotaoEditar = document.createElement('td')
+            const botaoEditar = document.createElement('button')
+            botaoEditar.type = 'button'
+            botaoEditar.classList.add("btn", "btn-outline-dark")
+            botaoEditar.textContent = 'Editar'
+            botaoEditar.addEventListener('click', () => {
+                window.location.href = `edit_adm_vendedores.html?idVendedor=${vendedor.id}`;
+            })
+            colunaBotaoEditar.appendChild(botaoEditar)
+
             colunaVisualizar.appendChild(botaoVisualizar)
 
             linha.appendChild(idVendedor)
             linha.appendChild(nomeVendedor)
             linha.appendChild(emailVendedor)
+            linha.appendChild(colunaBotaoEditar)
             linha.appendChild(colunaVisualizar)
             selectVendedor.appendChild(linha);
 
