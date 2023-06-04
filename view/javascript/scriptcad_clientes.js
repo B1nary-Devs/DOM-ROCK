@@ -17,27 +17,26 @@ async function carregarVendedores() {
   }
 
 
-async function CadastrarCliente(){
+function CadastrarCliente(){
     const nomeCliente = document.getElementById('txtcliente')
+    console.log(nomeCliente.value)
     const emailCliente = document.getElementById('txtemail')
+    console.log(emailCliente.value)
     const selectVendedor = document.getElementById('selectVendedor')
-    await axios.post('http://localhost:8080/cliente', {
-      nome: nomeCliente,
-      email: emailCliente,
-      idVendedor: selectVendedor
+    console.log(selectVendedor.value)
+    axios.post('http://localhost:8080/cliente', {
+      nome: nomeCliente.value,
+      email: emailCliente.value,
+      idVendedor: selectVendedor.value
     })
       .then(response => {
         alert('Cliente cadastrado com sucesso!')
-        sleep(300).then(() => {
           window.location.href = `clientes_adm.html`
-        });
       })
       .catch(error => {
         alert("Erro ao cadastrar!")
         console.log(`Erro cadastro Planejamento: ${error}`)
       });
-
-
 }
 
 document.addEventListener('DOMContentLoaded', () => {
