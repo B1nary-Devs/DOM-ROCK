@@ -65,7 +65,7 @@ function DesenhaGraficoLinhas(registro) {
         "Dezembro"
       ];
 
-      graficoLinhas.addColumn('date', 'Month');
+      graficoLinhas.addColumn('date', 'Meses');
       graficoLinhas.addColumn('number', 'Predição');
       graficoLinhas.addColumn('number', 'Planejado');
       graficoLinhas.addColumn('number', 'Realizado');
@@ -160,8 +160,8 @@ function DesenhaGraficoLinhas(registro) {
         'controlType': 'DateRangeFilter',
         'containerId': 'control',
         'options': {
-          'filterColumnLabel': 'Month',
-          'ui': { 'format': { 'pattern': 'MM/yyyy' } }
+          'filterColumnLabel': 'Meses',
+          'ui': { 'format': { 'pattern': 'dd/MM/yyyy' } }
         }
       });
 
