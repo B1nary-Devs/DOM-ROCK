@@ -4,7 +4,10 @@ async function carregarVendedores() {
     const vendedores = response.data;
 
     const selectVendedor = document.getElementById('selectVendedor');
-
+    const optionVazio = document.createElement('option');
+    optionVazio.value = 'Vendedor';
+    optionVazio.text = 'Vendedor'; // Texto vazio
+    selectVendedor.appendChild(optionVazio)
     vendedores.forEach(vendedor => {
       const option = document.createElement('option');
       option.value = vendedor.id;
@@ -24,8 +27,8 @@ async function carregarRegistros(idVendedor) {
     const selectRegistros = document.getElementById('selectRegistros');
 
     const optionVazio = document.createElement('option');
-    optionVazio.value = 'Registros';
-    optionVazio.text = 'Registros'; // Texto vazio
+    optionVazio.value = 'Registro';
+    optionVazio.text = 'Registro'; // Texto vazio
     selectRegistros.appendChild(optionVazio);
 
     vendedor.registros.forEach(registro => {
@@ -75,7 +78,7 @@ function DesenhaGraficoLinhas(registro) {
         "Dezembro"
       ];
 
-      graficoLinhas.addColumn('date', 'Month');
+      graficoLinhas.addColumn('date', 'Meses');
       graficoLinhas.addColumn('number', 'Predição');
       graficoLinhas.addColumn('number', 'Planejado');
       graficoLinhas.addColumn('number', 'Realizado');
@@ -161,7 +164,8 @@ function DesenhaGraficoLinhas(registro) {
         'chartType': 'Table',
         'containerId': 'table_div',
         'options': {
-          // format: 'MM',
+          'width': 350,
+          'height': 200
         }
       });
 
@@ -169,7 +173,7 @@ function DesenhaGraficoLinhas(registro) {
         'controlType': 'DateRangeFilter',
         'containerId': 'control',
         'options': {
-          'filterColumnLabel': 'Month',
+          'filterColumnLabel': 'Meses',
           'ui': { 'format': { 'pattern': 'dd/MM/yyyy' }}
         }
       });

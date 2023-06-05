@@ -6,32 +6,14 @@ async function carregarRegistros() {
     const vendedor = response.data;
 
     const selectClientes = document.getElementById('selectRegistros');
+    const optionVazio = document.createElement('option');
+    optionVazio.value = 'Registro';
+    optionVazio.text = 'Registro'; // Texto vazio
+    selectClientes.appendChild(optionVazio);
 
     vendedor.registros.forEach(registro => {
       const option = document.createElement('option');
       option.value = registro.id;
-      option.text = `Cliente:${registro.cliente.nome} - Produto:${registro.produto.nome}`;
-      selectClientes.appendChild(option);
-    })
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-async function carregarRegistros() {
-  try {
-    const params = new URLSearchParams(window.location.search);
-    const idVendedor = params.get('idVendedor');
-    const response = await axios.get(`http://localhost:8080/vendedor/${idVendedor}`);
-    const vendedor = response.data;
-
-    const selectClientes = document.getElementById('selectRegistros');
-
-
-    vendedor.registros.forEach(registro => {
-      const option = document.createElement('option');
-      option.value = registro.id;
-      console.log(`id do registro --->${registro.id}`)
       option.text = `Cliente:${registro.cliente.nome} - Produto:${registro.produto.nome}`;
       selectClientes.appendChild(option);
     })
@@ -91,8 +73,6 @@ function DesenhaGraficoLinhas(registro) {
         containerId: 'linechart_material',
         
         options: {
-          // 'width': 700,
-          // 'height': 500,
           chart: {
             title: 'Gerenciamento das vendas',
             subtitle: ''
@@ -152,7 +132,8 @@ function DesenhaGraficoLinhas(registro) {
         'chartType': 'Table',
         'containerId': 'table_div',
         'options': {
-          // format: 'MM',
+          'width': 350,
+          'height': 200
         }
       });
   

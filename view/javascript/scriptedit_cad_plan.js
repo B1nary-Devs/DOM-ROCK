@@ -74,6 +74,13 @@ function inputVendedorDashboard() {
     window.location.href = `dashboard.html?idVendedor=${idVendedor}`;
 }
 
+function inputVolta1() {
+    const params = new URLSearchParams(window.location.search);
+    const idVendedor = params.get('idVendedor');
+    const idRegistro = params.get('idRegistro');
+    window.location.href = `visualizar_planejamentos.html?idRegistro=${idRegistro}&idVendedor=${idVendedor}`;
+}
+
 async function cadastrarPlanejamento() {
     // criar objeto 1 usando planejamentoId
     const params = new URLSearchParams(window.location.search);
